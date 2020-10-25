@@ -16,6 +16,8 @@ public class Competition extends Event {
     private Unit winner;
     private Specialization specialization;
 
+    public Competition() {}
+
     public Competition(EventInfo eventInfo) {
         super(eventInfo);
     }

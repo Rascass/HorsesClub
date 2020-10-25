@@ -11,6 +11,8 @@ public abstract class Event {
 
     private EventInfo eventInfo;
 
+    public Event() {}
+
     public Event(EventInfo eventInfo) {
         this.eventInfo = eventInfo;
     }

@@ -4,6 +4,7 @@ import com.java.automation.lab.fall.antonyuk.core22.domain.building.RidingHall;
 import com.java.automation.lab.fall.antonyuk.core22.domain.building.Stable;
 import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Validator;
 import com.java.automation.lab.fall.antonyuk.core22.domain.event.Competition;
+import com.java.automation.lab.fall.antonyuk.core22.domain.event.Event;
 import com.java.automation.lab.fall.antonyuk.core22.domain.horse.Horse;
 import com.java.automation.lab.fall.antonyuk.core22.domain.person.Client;
 import com.java.automation.lab.fall.antonyuk.core22.domain.person.Employee;
@@ -20,14 +21,14 @@ public class HorseClub {
     private List<Employee> employees;
     private RidingHall ridingHall;
     private Stable stable;
-    private List<Competition> competitions;
+    private List<Event> events;
 
     public HorseClub() {
     }
 
     public HorseClub(String name, Address address, List<Client> clients, List<Horse> horses,
                      List<Employee> employees, RidingHall ridingHall, Stable stable,
-                     List<Competition> competitions) throws InvalidNameException {
+                     List<Event> events) throws InvalidNameException {
         this.setName(name);
         this.address = address;
         this.clients = clients;
@@ -35,7 +36,7 @@ public class HorseClub {
         this.employees = employees;
         this.ridingHall = ridingHall;
         this.stable = stable;
-        this.competitions = competitions;
+        this.events = events;
     }
 
     public String getName() {
@@ -97,12 +98,12 @@ public class HorseClub {
         this.stable = stable;
     }
 
-    public List<Competition> getCompetitions() {
-        return competitions;
+    public List<Event> getEvents() {
+        return events;
     }
 
-    public void setCompetitions(List<Competition> competitions) {
-        this.competitions = competitions;
+    public void setEvents(List<Event> events) {
+        this.events = events;
     }
 
     @Override
@@ -121,12 +122,12 @@ public class HorseClub {
                 Objects.equals(employees, horseClub.employees) &&
                 Objects.equals(ridingHall, horseClub.ridingHall) &&
                 Objects.equals(stable, horseClub.stable) &&
-                Objects.equals(competitions, horseClub.competitions);
+                Objects.equals(events, horseClub.events);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, address, clients, horses, employees, ridingHall, stable, competitions);
+        return Objects.hash(name, address, clients, horses, employees, ridingHall, stable, events);
     }
 
     @Override
@@ -139,7 +140,7 @@ public class HorseClub {
                 ", employees=" + employees +
                 ", ridingHall=" + ridingHall +
                 ", stable=" + stable +
-                ", competitions=" + competitions +
+                ", competitions=" + events +
                 '}';
     }
 
