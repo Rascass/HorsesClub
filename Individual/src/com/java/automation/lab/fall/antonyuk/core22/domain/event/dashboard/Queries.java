@@ -12,19 +12,15 @@ class Queries {
 
     private Queries() {}
 
-    public static List<DashboardInfoItem> getDashboardEventFilter(HorseClub horseClub, Event event) {
+    public static List<DashboardInfoItem> getDashboardEventFilter(HorseClub horseClub, Event event, String eventName) {
 
         List<Event> events = horseClub.getEvents();
         List<DashboardInfoItem> dashboardInfoItems = new ArrayList<DashboardInfoItem>();
-        String eventName = "excursion";
-        if (event.getClass() == new Competition().getClass()) {
-            eventName = "competition";
-        }
         for (Event e: events) {
             if (e.getClass() != event.getClass()) {
                 continue;
             }
-            dashboardInfoItems.add(new DashboardInfoItem(horseClub.getName(), eventName,
+            dashboardInfoItems.add(new DashboardInfoItem(eventName,
                     e.getStart(), e.getFinish()));
         }
         return dashboardInfoItems;
@@ -38,17 +34,17 @@ class Queries {
             if (event.getClass() == new Competition().getClass()) {
                 eventName = "competition";
             }
-            dashboardInfoItems.add(new DashboardInfoItem(horseClub.getName(), eventName,
+            dashboardInfoItems.add(new DashboardInfoItem(eventName,
                     event.getStart(), event.getFinish()));
         }
         return dashboardInfoItems;
     }
 
     public static List<DashboardInfoItem> getDashboardCompetition(HorseClub horseClub) {
-        return getDashboardEventFilter(horseClub, new Competition());
+        return getDashboardEventFilter(horseClub, new Competition(), "competition");
     }
 
     public static List<DashboardInfoItem> getDashboardExcursion(HorseClub horseClub) {
-        return getDashboardEventFilter(horseClub, new Excursion());
+        return getDashboardEventFilter(horseClub, new Excursion(), "excursion");
     }
 }

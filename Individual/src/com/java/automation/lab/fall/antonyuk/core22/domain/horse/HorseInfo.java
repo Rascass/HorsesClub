@@ -20,7 +20,8 @@ public class HorseInfo {
     }
 
     public HorseInfo(String name, Date wasBorn, Specialization specialization, Pedigree pedigree,
-                     Ammunition ammunition, HorseSuit horseSuit) throws InvalidNameException {
+                     Ammunition ammunition, HorseSuit horseSuit) throws InvalidNameException
+    {
         this.setName(name);
         this.setWasBorn(wasBorn);
         this.setSpecialization(specialization);

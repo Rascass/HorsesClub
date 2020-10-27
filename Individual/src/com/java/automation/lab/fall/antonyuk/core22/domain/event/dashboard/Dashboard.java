@@ -1,19 +1,21 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.event.dashboard;
 
 import com.java.automation.lab.fall.antonyuk.core22.domain.club.HorseClub;
-import com.java.automation.lab.fall.antonyuk.core22.domain.event.Competition;
-import com.java.automation.lab.fall.antonyuk.core22.domain.event.Event;
-import com.java.automation.lab.fall.antonyuk.core22.domain.event.Excursion;
 
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Objects;
 
 public class Dashboard {
-    HorseClub horseClub;
+    private List<DashboardInfoItem> dashboardInfoItems;
+    private HorseClub horseClub;
 
-    public Dashboard(HorseClub horseClub) {
+    public Dashboard() {
+    }
+
+    public Dashboard(List<DashboardInfoItem> dashboardInfoItems, HorseClub horseClub) {
         this.horseClub = horseClub;
+        this.dashboardInfoItems = dashboardInfoItems;
     }
 
     public HorseClub getHorseClub() {
@@ -36,27 +38,39 @@ public class Dashboard {
         return Queries.getDashboardExcursion(this.horseClub);
     }
 
+    public List<DashboardInfoItem> getDashboardInfoItems() {
+        return dashboardInfoItems;
+    }
+
+    public void setDashboardInfoItems(List<DashboardInfoItem> dashboardInfoItems) {
+        this.dashboardInfoItems = dashboardInfoItems;
+    }
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
+        if (this == o)
+        {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (o == null || getClass() != o.getClass())
+        {
             return false;
         }
         Dashboard dashboard = (Dashboard) o;
-        return Objects.equals(horseClub, dashboard.horseClub);
+        return Objects.equals(dashboardInfoItems, dashboard.dashboardInfoItems) &&
+                Objects.equals(horseClub, dashboard.horseClub);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(horseClub);
+        return Objects.hash(dashboardInfoItems, horseClub);
     }
 
     @Override
     public String toString() {
         return "Dashboard{" +
-                "horseClub=" + horseClub +
+                "dashboardInfoItem=" + dashboardInfoItems +
+                ", horseClub=" + horseClub +
                 '}';
     }
 }

@@ -17,7 +17,8 @@ public class Excursion extends Event {
     private int maxPeopleCount;
     private List<Client> clients;
 
-    public Excursion() {}
+    public Excursion() {
+    }
 
     public Excursion(EventInfo eventInfo, Employee guide, double price, int maxPeopleCount) {
         super(eventInfo);
@@ -31,7 +32,7 @@ public class Excursion extends Event {
     }
 
     public Excursion(HorseClub horseClub, String name, Date start, Date finish, Employee guide, double price,
-            int maxPeopleCount) throws InvalidNameException {
+                     int maxPeopleCount) throws InvalidNameException {
         super(horseClub, name, start, finish);
         this.guide = guide;
         this.setPrice(price);
