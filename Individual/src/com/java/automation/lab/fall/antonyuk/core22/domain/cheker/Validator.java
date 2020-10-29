@@ -12,4 +12,9 @@ public final class Validator {
     public static boolean isValidNumber (int number) {
         return number >= 0;
     }
+
+    public static boolean isValidFileName(String filePath) {
+        String regex = ".+dict";
+        return filePath.matches(regex);
+    }
 }

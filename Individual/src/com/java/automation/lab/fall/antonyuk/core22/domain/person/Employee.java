@@ -1,6 +1,7 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.person;
 
 import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Age;
+import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Validator;
 
 import javax.naming.InvalidNameException;
 import java.sql.Date;

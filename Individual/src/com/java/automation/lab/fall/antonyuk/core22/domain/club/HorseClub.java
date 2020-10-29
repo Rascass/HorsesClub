@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class HorseClub {
+
     private String name;
     private Address address;
     private List<Client> clients;

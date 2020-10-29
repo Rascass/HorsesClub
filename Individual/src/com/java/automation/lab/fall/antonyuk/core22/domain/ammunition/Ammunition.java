@@ -4,8 +4,7 @@ import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Validator;
 
 import java.util.Objects;
 
-public class Ammunition
-    {
+public class Ammunition {
 
     private Bridle bridle;
     private Saddle saddle;
@@ -25,7 +24,10 @@ public class Ammunition
         return state;
     }
 
-    public void setState(State state) {
+    public void setState(State state) throws IllegalArgumentException {
+        if (state == null) {
+            throw new IllegalArgumentException();
+        }
         this.state = state;
     }
 
@@ -42,6 +44,9 @@ public class Ammunition
     }
 
     public void setBridle(Bridle bridle) {
+        if (bridle == null) {
+            throw new NullPointerException();
+        }
         this.bridle = bridle;
     }
 
@@ -67,7 +72,7 @@ public class Ammunition
         return numbersUsing;
     }
 
-    public void setNumbersUsing(int numbersUsing) {
+    public void setNumbersUsing(int numbersUsing) throws IllegalArgumentException {
         if (!Validator.isValidNumber(numbersUsing)) {
             throw new IllegalArgumentException();
         }
@@ -99,4 +104,4 @@ public class Ammunition
                 ", saddle=" + saddle +
                 '}';
     }
-    }
+}

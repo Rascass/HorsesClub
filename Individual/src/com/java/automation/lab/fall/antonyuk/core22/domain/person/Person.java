@@ -38,6 +38,9 @@ public class Person {
     }
 
     public void setGender(Gender gender) {
+        if (gender == null) {
+            throw new NullPointerException();
+        }
         this.personInfo.setGender(gender);
     }
 
@@ -46,6 +49,9 @@ public class Person {
     }
 
     public void setBirthday(Date birthday) {
+        if (birthday == null) {
+            throw new NullPointerException();
+        }
         this.personInfo.setBirthday(birthday);
     }
 

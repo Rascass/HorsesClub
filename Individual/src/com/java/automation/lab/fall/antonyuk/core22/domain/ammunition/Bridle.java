@@ -13,9 +13,10 @@ public class Bridle {
     public Bridle() {
     }
 
-    public Bridle(BridleSize size, BridleType bridleType) {
+    public Bridle(BridleSize size, BridleType bridleType, int number) {
         this.size = size;
         this.bridleType = bridleType;
+        this.number = number;
     }
 
     public BridleSize getSize() {
@@ -23,6 +24,9 @@ public class Bridle {
     }
 
     public void setSize(BridleSize size) {
+        if (size == null) {
+            throw new NullPointerException();
+        }
         this.size = size;
     }
 
@@ -31,6 +35,9 @@ public class Bridle {
     }
 
     public void setBridleType(BridleType bridleType) {
+        if (bridleType == null) {
+            throw new NullPointerException();
+        }
         this.bridleType = bridleType;
     }
 

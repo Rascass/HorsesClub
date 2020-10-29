@@ -45,6 +45,9 @@ public class Saddle {
     }
 
     public void setSaddleType(SaddleType saddleType) {
+        if (saddleType == null) {
+            throw new NullPointerException();
+        }
         this.saddleType = saddleType;
     }
 

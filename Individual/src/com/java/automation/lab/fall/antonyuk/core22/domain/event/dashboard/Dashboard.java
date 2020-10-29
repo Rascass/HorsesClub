@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Dashboard {
+
     private List<DashboardInfoItem> dashboardInfoItems;
     private HorseClub horseClub;
 
@@ -48,12 +49,10 @@ public class Dashboard {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o)
-        {
+        if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass())
-        {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         Dashboard dashboard = (Dashboard) o;

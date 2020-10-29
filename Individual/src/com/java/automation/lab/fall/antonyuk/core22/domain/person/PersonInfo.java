@@ -17,7 +17,8 @@ public class PersonInfo {
     public PersonInfo() {
     }
 
-    public PersonInfo(String firstName, String secondName, String lastName, Date birthday, Gender gender) throws InvalidNameException {
+    public PersonInfo(String firstName, String secondName, String lastName, Date birthday,
+                      Gender gender) throws InvalidNameException {
         this.setFirstName(firstName);
         this.setSecondName(secondName);
         this.setLastName(lastName);
