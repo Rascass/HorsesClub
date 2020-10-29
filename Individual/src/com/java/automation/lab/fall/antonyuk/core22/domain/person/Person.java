@@ -1,6 +1,8 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.person;
 
 import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Age;
+import com.java.automation.lab.fall.antonyuk.core22.domain.exception.NotSpecifiedBirthdayException;
+import com.java.automation.lab.fall.antonyuk.core22.domain.exception.NotSpecifiedGenderException;
 
 import javax.naming.InvalidNameException;
 import java.util.Date;
@@ -37,9 +39,9 @@ public class Person {
         return this.personInfo.getGender();
     }
 
-    public void setGender(Gender gender) {
+    public void setGender(Gender gender) throws NotSpecifiedGenderException {
         if (gender == null) {
-            throw new NullPointerException();
+            throw new NotSpecifiedGenderException();
         }
         this.personInfo.setGender(gender);
     }
@@ -48,9 +50,9 @@ public class Person {
         return personInfo.getBirthday();
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(Date birthday) throws NotSpecifiedBirthdayException {
         if (birthday == null) {
-            throw new NullPointerException();
+            throw new NotSpecifiedBirthdayException();
         }
         this.personInfo.setBirthday(birthday);
     }

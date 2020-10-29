@@ -1,11 +1,15 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.cheker;
 
+import com.java.automation.lab.fall.antonyuk.core22.domain.constant.FileConstant;
+
+import java.nio.file.Path;
+
 public final class Validator {
 
     private Validator() {}
 
     public static boolean isValidName (String name) {
-        String regex = "/w+";
+        String regex = "[A-Z[a-z][а-я][А-Я]]+";
         return name.matches(regex);
     }
 
@@ -13,8 +17,8 @@ public final class Validator {
         return number >= 0;
     }
 
-    public static boolean isValidFileName(String filePath) {
-        String regex = ".+dict";
-        return filePath.matches(regex);
+    public static boolean isValidFileName(Path filePath) {
+        String regex = FileConstant.DICT_REGEX;
+        return filePath.toString().matches(regex);
     }
 }

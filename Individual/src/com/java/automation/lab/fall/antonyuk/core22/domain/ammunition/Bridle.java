@@ -1,6 +1,8 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.ammunition;
 
 import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Validator;
+import com.java.automation.lab.fall.antonyuk.core22.domain.exception.EmptyTypeException;
+import com.java.automation.lab.fall.antonyuk.core22.domain.exception.NotSpecifiedSizeException;
 
 import java.util.Objects;
 
@@ -13,19 +15,20 @@ public class Bridle {
     public Bridle() {
     }
 
-    public Bridle(BridleSize size, BridleType bridleType, int number) {
-        this.size = size;
-        this.bridleType = bridleType;
-        this.number = number;
+    public Bridle(BridleSize size, BridleType bridleType, int number)
+            throws NotSpecifiedSizeException, EmptyTypeException {
+        this.setBridleType(bridleType);
+        this.setSize(size);
+        this.setNumber(number);
     }
 
     public BridleSize getSize() {
         return size;
     }
 
-    public void setSize(BridleSize size) {
+    public void setSize(BridleSize size) throws NotSpecifiedSizeException {
         if (size == null) {
-            throw new NullPointerException();
+            throw new NotSpecifiedSizeException();
         }
         this.size = size;
     }
@@ -34,9 +37,9 @@ public class Bridle {
         return bridleType;
     }
 
-    public void setBridleType(BridleType bridleType) {
+    public void setBridleType(BridleType bridleType) throws EmptyTypeException {
         if (bridleType == null) {
-            throw new NullPointerException();
+            throw new EmptyTypeException();
         }
         this.bridleType = bridleType;
     }
@@ -57,6 +60,7 @@ public class Bridle {
         return "Bridle{" +
                 "size=" + size +
                 ", bridleType=" + bridleType +
+                ", number=" + number +
                 '}';
     }
 

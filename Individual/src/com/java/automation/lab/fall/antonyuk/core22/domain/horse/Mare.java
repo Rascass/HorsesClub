@@ -78,7 +78,8 @@ public class Mare extends Horse {
     @Override
     public String toString() {
         return "Mare{" +
-                "isCanBePregnant=" + isCanBePregnant +
+                "horseInfo=" + getHorseInfo() +
+                ", isCanBePregnant=" + isCanBePregnant +
                 ", isPregnant=" + isPregnant +
                 '}';
     }

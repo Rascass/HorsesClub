@@ -1,15 +1,19 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.club;
 
+import com.java.automation.lab.fall.antonyuk.core22.domain.Util;
 import com.java.automation.lab.fall.antonyuk.core22.domain.building.RidingHall;
 import com.java.automation.lab.fall.antonyuk.core22.domain.building.Stable;
 import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Validator;
+import com.java.automation.lab.fall.antonyuk.core22.domain.constant.Env;
 import com.java.automation.lab.fall.antonyuk.core22.domain.event.Competition;
 import com.java.automation.lab.fall.antonyuk.core22.domain.event.Event;
+import com.java.automation.lab.fall.antonyuk.core22.domain.exception.IncorrectNameFileException;
 import com.java.automation.lab.fall.antonyuk.core22.domain.horse.Horse;
 import com.java.automation.lab.fall.antonyuk.core22.domain.person.Client;
 import com.java.automation.lab.fall.antonyuk.core22.domain.person.Employee;
 
 import javax.naming.InvalidNameException;
+import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
@@ -107,6 +111,18 @@ public class HorseClub {
         this.events = events;
     }
 
+    public String readClients() throws IOException, IncorrectNameFileException {
+        return Util.read(Env.CLIENT_PATH);
+    }
+
+    public String readEmployees() throws IOException, IncorrectNameFileException {
+        return Util.read(Env.EMPLOYEE_PATH);
+    }
+
+    public String readHorses() throws IOException, IncorrectNameFileException {
+        return Util.read(Env.HORSE_PATH);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -144,6 +160,4 @@ public class HorseClub {
                 ", competitions=" + events +
                 '}';
     }
-
-
 }

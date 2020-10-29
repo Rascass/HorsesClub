@@ -1,5 +1,8 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.ammunition;
 
+import com.java.automation.lab.fall.antonyuk.core22.domain.exception.EmptyTypeException;
+import com.java.automation.lab.fall.antonyuk.core22.domain.exception.NotSpecifiedSizeException;
+
 import java.util.Objects;
 
 public class Saddle {
@@ -17,6 +20,7 @@ public class Saddle {
         }
         this.size = size;
         this.saddleType = saddleType;
+        this.number = number;
     }
 
     public void setNumber() {
@@ -33,9 +37,9 @@ public class Saddle {
         return size;
     }
 
-    public void setSize(double size) {
-        if (size <= 0) {
-            throw new IllegalArgumentException();
+    public void setSize(double size) throws NotSpecifiedSizeException {
+        if (size <= 1) {
+            throw new NotSpecifiedSizeException();
         }
         this.size = size;
     }
@@ -44,9 +48,9 @@ public class Saddle {
         return saddleType;
     }
 
-    public void setSaddleType(SaddleType saddleType) {
+    public void setSaddleType(SaddleType saddleType) throws EmptyTypeException {
         if (saddleType == null) {
-            throw new NullPointerException();
+            throw new EmptyTypeException();
         }
         this.saddleType = saddleType;
     }
@@ -74,8 +78,8 @@ public class Saddle {
     public String toString() {
         return "Saddle{" +
                 "size=" + size +
-                "number=" + number +
                 ", saddleType=" + saddleType +
+                ", number=" + number +
                 '}';
     }
 }

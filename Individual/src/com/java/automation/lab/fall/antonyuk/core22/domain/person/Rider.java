@@ -58,7 +58,8 @@ public class Rider extends Person{
     @Override
     public String toString() {
         return "Rider{" +
-                "category=" + category +
+                "personInfo=" + getPersonInfo() +
+                ", category=" + category +
                 '}';
     }
 }

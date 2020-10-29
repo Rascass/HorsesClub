@@ -71,7 +71,8 @@ public class Stallion extends Horse {
     @Override
     public String toString() {
         return "Stallion{" +
-                "isGelding=" + isGelding +
+                "horseInfo=" + getHorseInfo() +
+                ", isGelding=" + isGelding +
                 '}';
     }
 }

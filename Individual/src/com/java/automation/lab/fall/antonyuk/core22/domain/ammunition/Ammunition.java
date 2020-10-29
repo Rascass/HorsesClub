@@ -1,6 +1,7 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.ammunition;
 
 import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Validator;
+import com.java.automation.lab.fall.antonyuk.core22.domain.exception.EmptyAmmunitionStateException;
 
 import java.util.Objects;
 
@@ -24,9 +25,9 @@ public class Ammunition {
         return state;
     }
 
-    public void setState(State state) throws IllegalArgumentException {
+    public void setState(State state) throws EmptyAmmunitionStateException {
         if (state == null) {
-            throw new IllegalArgumentException();
+            throw new EmptyAmmunitionStateException();
         }
         this.state = state;
     }
@@ -44,9 +45,6 @@ public class Ammunition {
     }
 
     public void setBridle(Bridle bridle) {
-        if (bridle == null) {
-            throw new NullPointerException();
-        }
         this.bridle = bridle;
     }
 

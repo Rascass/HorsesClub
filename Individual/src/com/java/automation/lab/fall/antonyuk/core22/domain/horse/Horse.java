@@ -3,6 +3,7 @@ package com.java.automation.lab.fall.antonyuk.core22.domain.horse;
 import com.java.automation.lab.fall.antonyuk.core22.domain.*;
 import com.java.automation.lab.fall.antonyuk.core22.domain.ammunition.Ammunition;
 import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Age;
+import com.java.automation.lab.fall.antonyuk.core22.domain.exception.NotSpecifiedBirthdayException;
 
 import javax.naming.InvalidNameException;
 import java.util.*;
@@ -34,7 +35,10 @@ public abstract class Horse{
         return this.horseInfo.getWasBorn();
     }
 
-    public void setWasBorn(Date wasBorn) {
+    public void setWasBorn(Date wasBorn) throws NotSpecifiedBirthdayException {
+        if (wasBorn == null) {
+            throw new NotSpecifiedBirthdayException();
+        }
         this.horseInfo.setWasBorn(wasBorn);
     }
 
@@ -97,5 +101,13 @@ public abstract class Horse{
         return "Horse{" +
                 "horseInfo=" + horseInfo +
                 '}';
+    }
+
+    public HorseInfo getHorseInfo() {
+        return horseInfo;
+    }
+
+    public void setHorseInfo(HorseInfo horseInfo) {
+        this.horseInfo = horseInfo;
     }
 }

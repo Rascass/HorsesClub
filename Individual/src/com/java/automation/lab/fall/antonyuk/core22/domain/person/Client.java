@@ -96,7 +96,8 @@ public class Client extends Person{
     @Override
     public String toString() {
         return "Client{" +
-                "horses=" + horses +
+                "personInfo=" + getPersonInfo() +
+                ", horses=" + horses +
                 ", signIn=" + signIn +
                 ", isBan=" + isBan +
                 ", subscription=" + subscription +

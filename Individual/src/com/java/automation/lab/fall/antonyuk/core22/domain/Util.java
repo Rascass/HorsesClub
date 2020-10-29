@@ -1,44 +1,50 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Validator;
+import com.java.automation.lab.fall.antonyuk.core22.domain.exception.IncorrectNameFileException;
+
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.util.List;
 
 public class Util {
 
-    private static void write(String path, String content, boolean isAppend) {
+    private static void write(Path path, String content, boolean isAppend) throws IncorrectNameFileException {
+        if (!Validator.isValidFileName(path)) {
+            throw new IncorrectNameFileException();
+        }
         try {
             if (isAppend) {
-                Files.writeString(Path.of(path), content, StandardOpenOption.APPEND);
+                Files.writeString(path.toAbsolutePath(), content + '\n', StandardOpenOption.APPEND);
             } else {
-                Files.writeString(Path.of(path), content, StandardOpenOption.WRITE);
+                Files.writeString(path.toAbsolutePath(), content + '\n', StandardOpenOption.WRITE);
             }
         }
         catch (IOException ioe) {
-            ioe.getMessage();
+            ioe.printStackTrace();
         }
     }
 
-    public static String read(String path) throws IOException {
-        StringBuilder stringBuilder = new StringBuilder();
-        FileReader fileReader = new FileReader(path);
-        BufferedReader reader = new BufferedReader(fileReader);
-        String line = reader.readLine();
-        while (line != null) {
-            stringBuilder.append(line);
-            line = reader.readLine();
+    public static String read(Path path) throws IOException, IncorrectNameFileException {
+        if (!Validator.isValidFileName(path)) {
+            throw new IncorrectNameFileException();
         }
-        return stringBuilder.toString();
+        List<String> lines =  Files.readAllLines(path.toAbsolutePath());
+        StringBuffer stringBuffer = new StringBuffer();
+        for (String line:
+             lines) {
+            stringBuffer.append(line);
+        }
+        return stringBuffer.toString();
     }
 
-    public static void append(String path, String content) {
+    public static void append(Path path, String content) throws IncorrectNameFileException {
             Util.write(path, content, true);
     }
 
-    public static void overwrite(String path, String content) {
+    public static void overwrite(Path path, String content) throws IncorrectNameFileException {
         Util.write(path, content, false);
     }
 }
