@@ -5,41 +5,55 @@ import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Validator;
 import com.java.automation.lab.fall.antonyuk.core22.domain.club.HorseClub;
 
 import javax.naming.InvalidNameException;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
-public class Competition extends Event {
+public class Competition extends UnitsEvent {
 
     private int sumPrize;
-    private List<Unit> participants;
     private Unit winner;
-    private Specialization specialization;
 
-    public Competition() {
-    }
+    public Competition() {}
 
     public Competition(EventInfo eventInfo) {
         super(eventInfo);
     }
 
-    public Competition(EventInfo eventInfo, int sumPrize, List<Unit> participants, Unit winner,
-                       Specialization specialization) {
-        super(eventInfo);
-        this.setSumPrize(sumPrize);
-        this.setParticipants(participants);
-        this.setWinner(winner);
-        this.setSpecialization(specialization);
+    public Competition(int sumPrize, Unit winner) {
+        this.sumPrize = sumPrize;
+        this.winner = winner;
     }
 
-    public Competition(HorseClub horseClub, String name, Date start, Date finish,
-                       int sumPrize, List<Unit> participants, Unit winner,
-                       Specialization specialization) throws InvalidNameException {
+    public Competition(EventInfo eventInfo, int sumPrize, Unit winner) {
+        super(eventInfo);
+        this.sumPrize = sumPrize;
+        this.winner = winner;
+    }
+
+    public Competition(Set<Unit> participants, Specialization specialization, int sumPrize, Unit winner) {
+        super(participants, specialization);
+        this.sumPrize = sumPrize;
+        this.winner = winner;
+    }
+
+    public Competition(EventInfo eventInfo, Set<Unit> participants, Specialization specialization,
+                       int sumPrize, Unit winner) {
+        super(eventInfo, participants, specialization);
+        this.sumPrize = sumPrize;
+        this.winner = winner;
+    }
+
+    public Competition(HorseClub horseClub, String name, Date start, Date finish, int sumPrize,
+                       Unit winner) throws InvalidNameException {
         super(horseClub, name, start, finish);
-        this.setSumPrize(sumPrize);
-        this.setParticipants(participants);
-        this.setWinner(winner);
-        this.setSpecialization(specialization);
+        this.sumPrize = sumPrize;
+        this.winner = winner;
+    }
+
+    public Competition(HorseClub horseClub, String name, Date start, Date finish, Set<Unit> participants,
+                       Specialization specialization, int sumPrize, Unit winner) throws InvalidNameException {
+        super(horseClub, name, start, finish, participants, specialization);
+        this.sumPrize = sumPrize;
+        this.winner = winner;
     }
 
     public int getSumPrize() {
@@ -53,28 +67,12 @@ public class Competition extends Event {
         this.sumPrize = sumPrize;
     }
 
-    public List<Unit> getParticipants() {
-        return participants;
-    }
-
-    public void setParticipants(List<Unit> participants) {
-        this.participants = participants;
-    }
-
     public Unit getWinner() {
         return winner;
     }
 
     public void setWinner(Unit winner) {
         this.winner = winner;
-    }
-
-    public Specialization getSpecialization() {
-        return specialization;
-    }
-
-    public void setSpecialization(Specialization specialization) {
-        this.specialization = specialization;
     }
 
     @Override
@@ -90,23 +88,19 @@ public class Competition extends Event {
         }
         Competition that = (Competition) o;
         return sumPrize == that.sumPrize &&
-                Objects.equals(participants, that.participants) &&
-                Objects.equals(winner, that.winner) &&
-                specialization == that.specialization;
+                Objects.equals(winner, that.winner);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), sumPrize, participants, winner, specialization);
+        return Objects.hash(super.hashCode(), sumPrize, winner);
     }
 
     @Override
     public String toString() {
         return "Competition{" +
                 "sumPrize=" + sumPrize +
-                ", participants=" + participants +
                 ", winner=" + winner +
-                ", specialization=" + specialization +
                 '}';
     }
 }

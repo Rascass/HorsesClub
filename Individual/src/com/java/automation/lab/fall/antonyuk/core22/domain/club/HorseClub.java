@@ -5,7 +5,6 @@ import com.java.automation.lab.fall.antonyuk.core22.domain.building.RidingHall;
 import com.java.automation.lab.fall.antonyuk.core22.domain.building.Stable;
 import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Validator;
 import com.java.automation.lab.fall.antonyuk.core22.domain.constant.Env;
-import com.java.automation.lab.fall.antonyuk.core22.domain.event.Competition;
 import com.java.automation.lab.fall.antonyuk.core22.domain.event.Event;
 import com.java.automation.lab.fall.antonyuk.core22.domain.exception.IncorrectNameFileException;
 import com.java.automation.lab.fall.antonyuk.core22.domain.horse.Horse;
@@ -14,26 +13,25 @@ import com.java.automation.lab.fall.antonyuk.core22.domain.person.Employee;
 
 import javax.naming.InvalidNameException;
 import java.io.IOException;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class HorseClub {
 
     private String name;
     private Address address;
-    private List<Client> clients;
-    private List<Horse> horses;
-    private List<Employee> employees;
+    private Set<Client> clients = new HashSet<>();
+    private Set<Horse> horses = new HashSet<>();
+    private Set<Employee> employees = new HashSet<>();
     private RidingHall ridingHall;
     private Stable stable;
-    private List<Event> events;
+    private Set<Event> events = new LinkedHashSet<>();
 
     public HorseClub() {
     }
 
-    public HorseClub(String name, Address address, List<Client> clients, List<Horse> horses,
-                     List<Employee> employees, RidingHall ridingHall, Stable stable,
-                     List<Event> events) throws InvalidNameException {
+    public HorseClub(String name, Address address, Set<Client> clients, Set<Horse> horses,
+                     Set<Employee> employees, RidingHall ridingHall, Stable stable,
+                     Set<Event> events) throws InvalidNameException {
         this.setName(name);
         this.address = address;
         this.clients = clients;
@@ -63,28 +61,40 @@ public class HorseClub {
         this.address = address;
     }
 
-    public List<Client> getClients() {
+    public Set<Client> getClients() {
         return clients;
     }
 
-    public void setClients(List<Client> clients) {
+    public void setClients(Set<Client> clients) {
         this.clients = clients;
     }
 
-    public List<Horse> getHorses() {
+    public void addClient(Client client) {
+        this.clients.add(client);
+    }
+
+    public Set<Horse> getHorses() {
         return horses;
     }
 
-    public void setHorses(List<Horse> horses) {
+    public void setHorses(Set<Horse> horses) {
         this.horses = horses;
     }
 
-    public List<Employee> getEmployees() {
+    public void addHorse(Horse horse) {
+        this.horses.add(horse);
+    }
+
+    public Set<Employee> getEmployees() {
         return employees;
     }
 
-    public void setEmployees(List<Employee> employees) {
+    public void setEmployees(Set<Employee> employees) {
         this.employees = employees;
+    }
+
+    public void addEmployee(Employee employee) {
+        this.employees.add(employee);
     }
 
     public RidingHall getRidingHall() {
@@ -103,12 +113,20 @@ public class HorseClub {
         this.stable = stable;
     }
 
-    public List<Event> getEvents() {
+    public Set<Event> getEvents() {
         return events;
     }
 
-    public void setEvents(List<Event> events) {
+    public void setEvents(Set<Event> events) {
         this.events = events;
+    }
+
+    public void addEvent(Event event) {
+        this.events.add(event);
+    }
+
+    public void addEvent(Event event, int index) {
+        this.events.add(event);
     }
 
     public String readClients() throws IOException, IncorrectNameFileException {

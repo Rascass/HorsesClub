@@ -72,6 +72,9 @@ public class Employee extends Person{
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
+        if (!super.equals(o)) {
+            return false;
+        }
         Employee employee = (Employee) o;
         return Double.compare(employee.salary, salary) == 0 &&
                 position == employee.position &&

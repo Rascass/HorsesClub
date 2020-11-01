@@ -8,12 +8,12 @@ public class Env {
     private static Env instance = null;
 
     private static Path path = Paths.get("src/resources");
-    public final static Path BRIDLE_PATH = path.resolve("bridle.dict");
-    public final static Path SADDLE_PATH = path.resolve("saddle.dict");
-    public final static Path AMMUNITION_PATH = path.resolve("ammunition.dict");
-    public final static Path CLIENT_PATH = path.resolve("client.dict");
-    public final static Path EMPLOYEE_PATH = path.resolve("employee.dict");
-    public final static Path HORSE_PATH = path.resolve("horse.dict");
+    public final static Path BRIDLE_PATH = path.resolve("bridle.csv");
+    public final static Path SADDLE_PATH = path.resolve("saddle.csv");
+    public final static Path AMMUNITION_PATH = path.resolve("ammunition.csv");
+    public final static Path CLIENT_PATH = path.resolve("client.csv");
+    public final static Path EMPLOYEE_PATH = path.resolve("employee.csv");
+    public final static Path HORSE_PATH = path.resolve("horse.csv");
 
     private Env() {}
 

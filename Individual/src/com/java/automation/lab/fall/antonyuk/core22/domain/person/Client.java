@@ -1,38 +1,29 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.person;
 
 import com.java.automation.lab.fall.antonyuk.core22.domain.horse.Horse;
-import com.java.automation.lab.fall.antonyuk.core22.domain.rate.Subscription;
+import com.java.automation.lab.fall.antonyuk.core22.domain.subscription.ClientsContracts;
+import com.java.automation.lab.fall.antonyuk.core22.domain.subscription.Subscription;
 
 import javax.naming.InvalidNameException;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class Client extends Person{
 
-    private List<Horse> horses;
-    private Subscription subscription;
+    private Set<Horse> horses = new HashSet<>();
+    private ClientsContracts contracts;
     final private Date signIn;
     private boolean isBan;
-
-    public Subscription getSubscription() {
-        return subscription;
-    }
-
-    public void setSubscription(Subscription subscription) {
-        this.subscription = subscription;
-    }
 
     public Client() {
         signIn = new Date();
     }
 
-    public Client(PersonInfo personInfo, List<Horse> horses, Date signIn, boolean isBan, Subscription subscription) {
+    public Client(PersonInfo personInfo, Set<Horse> horses, Date signIn, boolean isBan, ClientsContracts contracts) {
         super(personInfo);
         this.horses = horses;
         this.signIn = signIn;
         this.isBan = isBan;
-        this.subscription = subscription;
+        this.contracts = contracts;
     }
 
     public Client(PersonInfo personInfo) {
@@ -40,13 +31,14 @@ public class Client extends Person{
         this.signIn = new Date();
     }
 
-    public Client(String firstName, String secondName, String lastName, Date birthday, Gender gender, List<Horse> horses,
-                  Date signIn, boolean isBan, Subscription subscription) throws InvalidNameException {
+    public Client(String firstName, String secondName, String lastName, Date birthday, Gender gender,
+                  Set<Horse> horses,
+                  Date signIn, boolean isBan, ClientsContracts contracts) throws InvalidNameException {
         super(firstName, secondName, lastName, birthday, gender);
         this.horses = horses;
         this.signIn = signIn;
         this.isBan = isBan;
-        this.subscription = subscription;
+        this.contracts = contracts;
     }
 
     public void addHorse(Horse horse) {
@@ -61,11 +53,11 @@ public class Client extends Person{
         isBan = ban;
     }
 
-    public List<Horse> getHorses() {
+    public Set<Horse> getHorses() {
         return horses;
     }
 
-    public void setHorses(List<Horse> horses) {
+    public void setHorses(Set<Horse> horses) {
         this.horses = horses;
     }
 
@@ -73,34 +65,44 @@ public class Client extends Person{
         return signIn;
     }
 
+    public ClientsContracts getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(ClientsContracts contracts) {
+        this.contracts = contracts;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass() ) {
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
             return false;
         }
         Client client = (Client) o;
         return isBan == client.isBan &&
                 Objects.equals(horses, client.horses) &&
-                Objects.equals(subscription, client.subscription) &&
+                Objects.equals(contracts, client.contracts) &&
                 Objects.equals(signIn, client.signIn);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(horses, signIn, isBan, subscription);
+        return Objects.hash(super.hashCode(), horses, contracts, signIn, isBan);
     }
 
     @Override
     public String toString() {
         return "Client{" +
-                "personInfo=" + getPersonInfo() +
-                ", horses=" + horses +
+                "horses=" + horses +
+                ", contracts=" + contracts +
                 ", signIn=" + signIn +
                 ", isBan=" + isBan +
-                ", subscription=" + subscription +
                 '}';
     }
 }

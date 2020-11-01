@@ -46,6 +46,9 @@ public class Rider extends Person{
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
+        if (!super.equals(o)) {
+            return false;
+        }
         Rider rider = (Rider) o;
         return category == rider.category;
     }

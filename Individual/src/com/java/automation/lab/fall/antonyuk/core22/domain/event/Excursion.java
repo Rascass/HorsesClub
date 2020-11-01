@@ -6,25 +6,24 @@ import com.java.automation.lab.fall.antonyuk.core22.domain.person.Employee;
 import com.java.automation.lab.fall.antonyuk.core22.domain.club.HorseClub;
 
 import javax.naming.InvalidNameException;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class Excursion extends Event {
 
     private Employee guide;
     private double price;
     private int maxPeopleCount;
-    private List<Client> clients;
+    private Set<Client> clients = new HashSet<>();
 
     public Excursion() {
     }
 
-    public Excursion(EventInfo eventInfo, Employee guide, double price, int maxPeopleCount) {
+    public Excursion(EventInfo eventInfo, Employee guide, double price, int maxPeopleCount, Set<Client> clients) {
         super(eventInfo);
         this.guide = guide;
         this.setPrice(price);
         this.setMaxPeopleCount(maxPeopleCount);
+        this.setClients(clients);
     }
 
     public Excursion(EventInfo eventInfo) {
@@ -32,11 +31,12 @@ public class Excursion extends Event {
     }
 
     public Excursion(HorseClub horseClub, String name, Date start, Date finish, Employee guide, double price,
-                     int maxPeopleCount) throws InvalidNameException {
+                     int maxPeopleCount, Set<Client> clients) throws InvalidNameException {
         super(horseClub, name, start, finish);
         this.guide = guide;
         this.setPrice(price);
         this.setMaxPeopleCount(maxPeopleCount);
+        this.setClients(clients);
     }
 
     public Employee getGuide() {
@@ -72,6 +72,26 @@ public class Excursion extends Event {
         return this;
     }
 
+    public Set<Client> getClients() {
+        return clients;
+    }
+
+    public boolean setClients(Set<Client> clients) {
+        if (clients.size() < maxPeopleCount) {
+            this.clients = clients;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean addClient(Client client) {
+        if (clients.size() < maxPeopleCount) {
+            this.clients.add(client);
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -103,17 +123,5 @@ public class Excursion extends Event {
                 ", maxPeopleCount=" + maxPeopleCount +
                 ", clients=" + clients +
                 '}';
-    }
-
-    public List<Client> getClients() {
-        return clients;
-    }
-
-    public void setClients(List<Client> clients) {
-        this.clients = clients;
-    }
-
-    public void addClient(Client client) {
-        this.clients.add(client);
     }
 }

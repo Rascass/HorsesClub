@@ -1,17 +1,25 @@
-package com.java.automation.lab.fall.antonyuk.core22.domain.rate;
+package com.java.automation.lab.fall.antonyuk.core22.domain.subscription;
 
 import com.java.automation.lab.fall.antonyuk.core22.domain.building.Stall;
 
+import java.util.Date;
+import java.util.Map;
 import java.util.Objects;
 
 public class StallSubscription extends Subscription{
 
-    Stall stall;
+    private Stall stall;
 
     public StallSubscription() {
     }
 
     public StallSubscription(Stall stall) {
+        this.stall = stall;
+    }
+
+    public StallSubscription(Date start, Date finish, double startPrice,
+                             Map<String, Integer> discounts, Stall stall) {
+        super(start, finish, startPrice, discounts);
         this.stall = stall;
     }
 
@@ -31,18 +39,22 @@ public class StallSubscription extends Subscription{
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        StallSubscription stallSubscription = (StallSubscription) o;
-        return Objects.equals(stall, stallSubscription.stall);
+        if (!super.equals(o)) {
+            return false;
+        }
+        StallSubscription that = (StallSubscription) o;
+        return Objects.equals(stall, that.stall);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(stall);
+        return Objects.hash(super.hashCode(), stall);
     }
 
     @Override
     public String toString() {
-        return "Rate{ stall = " + stall +
+        return "StallSubscription{" +
+                "stall=" + stall +
                 '}';
     }
 }

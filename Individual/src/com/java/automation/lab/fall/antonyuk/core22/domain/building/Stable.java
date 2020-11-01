@@ -2,15 +2,15 @@ package com.java.automation.lab.fall.antonyuk.core22.domain.building;
 
 import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Validator;
 
-import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 public class Stable {
 
     private int freeStallsCount;
-    private final List<Stall> stalls;
+    private final Set<Stall> stalls;
 
-    public Stable(int freeStallsCount, List<Stall> stalls) {
+    public Stable(int freeStallsCount, Set<Stall> stalls) {
         this.freeStallsCount = freeStallsCount;
         this.stalls = stalls;
     }
@@ -26,7 +26,7 @@ public class Stable {
         this.freeStallsCount = freeStallsCount;
     }
 
-    public List<Stall> getStalls() {
+    public Set<Stall> getStalls() {
         return stalls;
     }
 

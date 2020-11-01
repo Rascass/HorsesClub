@@ -5,23 +5,23 @@ import com.java.automation.lab.fall.antonyuk.core22.domain.person.Client;
 import com.java.automation.lab.fall.antonyuk.core22.domain.person.Employee;
 
 import javax.naming.InvalidNameException;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class TrainingGroup extends Event{
 
-    Employee trainer;
-    List<Client> pupils;
+    private Employee trainer;
+    private Set<Client> pupils = new HashSet<>();
 
-    public TrainingGroup(EventInfo eventInfo, Employee trainer, List<Client> pupils) {
+    public TrainingGroup() {}
+
+    public TrainingGroup(EventInfo eventInfo, Employee trainer, Set<Client> pupils) {
         super(eventInfo);
         this.trainer = trainer;
         this.pupils = pupils;
     }
 
     public TrainingGroup(HorseClub horseClub, String name, Date start, Date finish,
-                         Employee trainer, List<Client> pupils) throws InvalidNameException {
+                         Employee trainer, Set<Client> pupils) throws InvalidNameException {
         super(horseClub, name, start, finish);
         this.trainer = trainer;
         this.pupils = pupils;
@@ -35,19 +35,29 @@ public class TrainingGroup extends Event{
         this.trainer = trainer;
     }
 
-    public List<Client> getPupils() {
+    public Set<Client> getPupils() {
         return pupils;
     }
 
-    public void setPupils(List<Client> pupils) {
+    public void setPupils(Set<Client> pupils) {
         this.pupils = pupils;
+    }
+
+    public void addPupil(Client pupil) {
+        this.pupils.add(pupil);
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
         TrainingGroup that = (TrainingGroup) o;
         return Objects.equals(trainer, that.trainer) &&
                 Objects.equals(pupils, that.pupils);

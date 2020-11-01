@@ -1,45 +1,21 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain;
 
-import com.java.automation.lab.fall.antonyuk.core22.domain.ammunition.*;
-import com.java.automation.lab.fall.antonyuk.core22.domain.club.HorseClub;
-import com.java.automation.lab.fall.antonyuk.core22.domain.constant.Env;
-import com.java.automation.lab.fall.antonyuk.core22.domain.exception.EmptyTypeException;
-import com.java.automation.lab.fall.antonyuk.core22.domain.exception.IncorrectNameFileException;
-import com.java.automation.lab.fall.antonyuk.core22.domain.exception.NotSpecifiedSizeException;
-import com.java.automation.lab.fall.antonyuk.core22.domain.horse.HorseInfo;
-import com.java.automation.lab.fall.antonyuk.core22.domain.horse.HorseSuit;
-import com.java.automation.lab.fall.antonyuk.core22.domain.horse.Pedigree;
-import com.java.automation.lab.fall.antonyuk.core22.domain.horse.TypeHorse;
-import com.java.automation.lab.fall.antonyuk.core22.domain.horse.horseFactory.HobbyHorseFactory;
-import com.java.automation.lab.fall.antonyuk.core22.domain.person.Gender;
-import com.java.automation.lab.fall.antonyuk.core22.domain.person.PersonFactory.PersonFactory;
-import com.java.automation.lab.fall.antonyuk.core22.domain.person.PersonInfo;
-import com.java.automation.lab.fall.antonyuk.core22.domain.person.PersonType;
+import com.java.automation.lab.fall.antonyuk.core22.domain.event.TrainingGroup;
 
-import javax.naming.InvalidNameException;
-import java.io.IOException;
-import java.util.Date;
+import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws InvalidNameException, IOException, NotSpecifiedSizeException, IncorrectNameFileException, EmptyTypeException {
-        Saddle saddle1 = new Saddle(12.5, SaddleType.DRESSAGE, 1);
-        Saddle saddle2 = new Saddle(13.5, SaddleType.JUMPING, 2);
-        Bridle bridle1 = new Bridle(BridleSize.FULL, BridleType.UNIVERSAL, 1);
-        Bridle bridle2 = new Bridle(BridleSize.FULL, BridleType.UNIVERSAL, 1);
-        Ammunition ammunition = new Ammunition(bridle1, saddle1);
-        Ammunition ammunition1 = new Ammunition(bridle2, saddle2);
-        Util.append(Env.SADDLE_PATH, saddle1.toString());
-        Util.append(Env.BRIDLE_PATH, bridle1.toString());
-        Util.append(Env.AMMUNITION_PATH, ammunition.toString());
-        Util.append(Env.AMMUNITION_PATH, ammunition1.toString());
-        PersonInfo personInfo = new PersonInfo("Jack", "SecondName", "LastName",
-                new Date(), Gender.FEMALE);
-        Util.append(Env.CLIENT_PATH, PersonFactory.createPerson(PersonType.CLIENT, personInfo).toString());
-        HorseInfo horseInfo = new HorseInfo("Leo", new Date(), Specialization.HOBBY, new Pedigree(),
-                ammunition, HorseSuit.BROWN);
-        Util.append(Env.HORSE_PATH, HobbyHorseFactory.createHorse(horseInfo,
-                TypeHorse.MARE, horseInfo.getHorseSuit()).toString());
-        Util.append(Env.EMPLOYEE_PATH, PersonFactory.createPerson(PersonType.EMPLOYEE, personInfo).toString());
-        HorseClub horseClub = new HorseClub();
+    public static void main(String[] args) {
+
+        HashMap<String, Integer> discounts = new HashMap<String, Integer>();
+        discounts.put("Autumn discounts for everyone", 10);
+        discounts.put("Summmer discounts for everyone", 5);
+        discounts.put("For constant clients", 15);
+        for (Map.Entry<String, Integer> element: discounts.entrySet()) {
+            System.out.println(element.getKey());
+            System.out.println(element.getValue());
+        }
+        TrainingGroup trainingGroup = new TrainingGroup();
+        System.out.println(discounts.get("s"));
     }
 }

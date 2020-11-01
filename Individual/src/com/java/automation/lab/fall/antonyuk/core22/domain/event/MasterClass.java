@@ -5,38 +5,52 @@ import com.java.automation.lab.fall.antonyuk.core22.domain.person.Rider;
 import com.java.automation.lab.fall.antonyuk.core22.domain.Specialization;
 
 import javax.naming.InvalidNameException;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
-public class MasterClass extends Event {
+public class MasterClass extends UnitsEvent {
 
     private Rider mentor;
-    private List<Unit> participants;
     private int price;
-    private Specialization specialization;
 
     public MasterClass(EventInfo eventInfo) {
         super(eventInfo);
     }
-
-    public MasterClass(EventInfo eventInfo, Rider mentor, List<Unit> participants, int price,
-                       Specialization specialization) {
-        super(eventInfo);
+    public MasterClass(Rider mentor, int price) {
         this.mentor = mentor;
-        this.participants = participants;
-        this.setPrice(price);
-        this.specialization = specialization;
+        this.price = price;
     }
 
-    public MasterClass(HorseClub horseClub, String name, Date start, Date finish,
-                       Rider mentor, List<Unit> participants, int price,
-                       Specialization specialization) throws InvalidNameException {
+    public MasterClass(EventInfo eventInfo, Rider mentor, int price) {
+        super(eventInfo);
+        this.mentor = mentor;
+        this.price = price;
+    }
+
+    public MasterClass(Set<Unit> participants, Specialization specialization, Rider mentor, int price) {
+        super(participants, specialization);
+        this.mentor = mentor;
+        this.price = price;
+    }
+
+    public MasterClass(EventInfo eventInfo, Set<Unit> participants, Specialization specialization,
+                       Rider mentor, int price) {
+        super(eventInfo, participants, specialization);
+        this.mentor = mentor;
+        this.price = price;
+    }
+
+    public MasterClass(HorseClub horseClub, String name, Date start, Date finish, Rider mentor,
+                       int price) throws InvalidNameException {
         super(horseClub, name, start, finish);
         this.mentor = mentor;
-        this.participants = participants;
-        this.setPrice(price);
-        this.specialization = specialization;
+        this.price = price;
+    }
+
+    public MasterClass(HorseClub horseClub, String name, Date start, Date finish, Set<Unit> participants,
+                       Specialization specialization, Rider mentor, int price) throws InvalidNameException {
+        super(horseClub, name, start, finish, participants, specialization);
+        this.mentor = mentor;
+        this.price = price;
     }
 
     public Rider getMentor() {
@@ -45,14 +59,6 @@ public class MasterClass extends Event {
 
     public void setMentor(Rider mentor) {
         this.mentor = mentor;
-    }
-
-    public List<Unit> getParticipants() {
-        return participants;
-    }
-
-    public void setParticipants(List<Unit> participants) {
-        this.participants = participants;
     }
 
     public int getPrice() {
@@ -64,14 +70,6 @@ public class MasterClass extends Event {
             throw new IllegalArgumentException();
         }
         this.price = price;
-    }
-
-    public Specialization getSpecialization() {
-        return specialization;
-    }
-
-    public void setSpecialization(Specialization specialization) {
-        this.specialization = specialization;
     }
 
     @Override
@@ -87,23 +85,19 @@ public class MasterClass extends Event {
         }
         MasterClass that = (MasterClass) o;
         return price == that.price &&
-                Objects.equals(mentor, that.mentor) &&
-                Objects.equals(participants, that.participants) &&
-                specialization == that.specialization;
+                Objects.equals(mentor, that.mentor);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), mentor, participants, price, specialization);
+        return Objects.hash(super.hashCode(), mentor, price);
     }
 
     @Override
     public String toString() {
         return "MasterClass{" +
                 "mentor=" + mentor +
-                ", participants=" + participants +
                 ", price=" + price +
-                ", specialization=" + specialization +
                 '}';
     }
 }

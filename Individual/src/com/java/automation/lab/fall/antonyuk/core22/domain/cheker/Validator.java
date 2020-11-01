@@ -18,7 +18,7 @@ public final class Validator {
     }
 
     public static boolean isValidFileName(Path filePath) {
-        String regex = FileConstant.DICT_REGEX;
-        return filePath.toString().matches(regex);
+        String csvRegex = FileConstant.CSV_REGEX;
+        return filePath.toString().matches(csvRegex);
     }
 }

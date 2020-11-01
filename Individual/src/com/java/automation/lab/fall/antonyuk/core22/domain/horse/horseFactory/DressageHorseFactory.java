@@ -7,8 +7,8 @@ import com.java.automation.lab.fall.antonyuk.core22.domain.horse.*;
 
      private DressageHorseFactory(){}
 
-    public static Horse createHorse(HorseInfo horseInfo, TypeHorse typeHorse, HorseSuit horseSuit) {
-        return HorseFactory.createHorse(horseInfo, typeHorse)
+     public static Horse createHorse(HorseInfo horseInfo, TypeHorse typeHorse, HorseSuit horseSuit) {
+         return HorseFactory.createHorse(horseInfo, typeHorse)
                 .setSpecialization(Specialization.DRESSAGE)
                 .setHorseSuit(horseSuit);
     }

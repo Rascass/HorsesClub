@@ -1,2 +1,0 @@
-Client{personInfo=FullName{name='Jack', surname='SecondName', patronymic='LastName'}, horses=null, signIn=Thu Oct 29 17:33:01 MSK 2020, isBan=false, subscription=null}
-Client{personInfo=FullName{name='Jack', surname='SecondName', patronymic='LastName'}, horses=null, signIn=Thu Oct 29 17:56:35 MSK 2020, isBan=false, subscription=null}

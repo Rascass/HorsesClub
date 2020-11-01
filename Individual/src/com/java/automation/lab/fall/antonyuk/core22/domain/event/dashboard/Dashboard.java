@@ -2,19 +2,18 @@ package com.java.automation.lab.fall.antonyuk.core22.domain.event.dashboard;
 
 import com.java.automation.lab.fall.antonyuk.core22.domain.club.HorseClub;
 
-
-import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 public class Dashboard {
 
-    private List<DashboardInfoItem> dashboardInfoItems;
+    private Set<DashboardInfoItem> dashboardInfoItems;
     private HorseClub horseClub;
 
     public Dashboard() {
     }
 
-    public Dashboard(List<DashboardInfoItem> dashboardInfoItems, HorseClub horseClub) {
+    public Dashboard(Set<DashboardInfoItem> dashboardInfoItems, HorseClub horseClub) {
         this.horseClub = horseClub;
         this.dashboardInfoItems = dashboardInfoItems;
     }
@@ -27,23 +26,23 @@ public class Dashboard {
         this.horseClub = horseClub;
     }
 
-    public List<DashboardInfoItem> getDashboardInfo(HorseClub horseClub) {
+    public Set<DashboardInfoItem> getDashboardInfo(HorseClub horseClub) {
         return Queries.getDashboardInfo(this.horseClub);
     }
 
-    public List<DashboardInfoItem> getDashboardCompetition() {
+    public Set<DashboardInfoItem> getDashboardCompetition() {
         return Queries.getDashboardCompetition(this.horseClub);
     }
 
-    public List<DashboardInfoItem> getDashboardExcursion() {
+    public Set<DashboardInfoItem> getDashboardExcursion() {
         return Queries.getDashboardExcursion(this.horseClub);
     }
 
-    public List<DashboardInfoItem> getDashboardInfoItems() {
+    public Set<DashboardInfoItem> getDashboardInfoItems() {
         return dashboardInfoItems;
     }
 
-    public void setDashboardInfoItems(List<DashboardInfoItem> dashboardInfoItems) {
+    public void setDashboardInfoItems(Set<DashboardInfoItem> dashboardInfoItems) {
         this.dashboardInfoItems = dashboardInfoItems;
     }
 
