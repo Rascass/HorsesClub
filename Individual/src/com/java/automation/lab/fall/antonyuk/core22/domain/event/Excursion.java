@@ -24,7 +24,11 @@ public class Excursion extends Event {
         this.guide = guide;
         this.setPrice(price);
         this.setMaxPeopleCount(maxPeopleCount);
-        this.setClients(clients);
+        if (clients.size() < maxPeopleCount) {
+            this.clients = clients;
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
     public Excursion(EventInfo eventInfo) {
@@ -38,7 +42,11 @@ public class Excursion extends Event {
         this.guide = guide;
         this.setPrice(price);
         this.setMaxPeopleCount(maxPeopleCount);
-        this.setClients(clients);
+        if (clients.size() < maxPeopleCount) {
+            this.clients = clients;
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
     public Employee getGuide() {
@@ -78,12 +86,10 @@ public class Excursion extends Event {
         return clients;
     }
 
-    public boolean setClients(Set<Client> clients) {
+    public void setClients(Set<Client> clients) {
         if (clients.size() < maxPeopleCount) {
             this.clients = clients;
-            return true;
         }
-        return false;
     }
 
     public boolean addClient(Client client) {
