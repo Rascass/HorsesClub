@@ -2,6 +2,7 @@ package com.java.automation.lab.fall.antonyuk.core22.domain.event.dashboard;
 
 import com.java.automation.lab.fall.antonyuk.core22.domain.club.HorseClub;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -11,6 +12,7 @@ public class Dashboard {
     private HorseClub horseClub;
 
     public Dashboard() {
+        dashboardInfoItems = new HashSet<>();
     }
 
     public Dashboard(Set<DashboardInfoItem> dashboardInfoItems, HorseClub horseClub) {

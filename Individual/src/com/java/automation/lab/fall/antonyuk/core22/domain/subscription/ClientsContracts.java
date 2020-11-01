@@ -6,9 +6,15 @@ import java.util.Objects;
 
 public class ClientsContracts {
 
-    private Map<String, Subscription> subscriptionMap = new HashMap<>();
+    private Map<String, Subscription> subscriptionMap;
 
-    public ClientsContracts() {}
+    public ClientsContracts() {
+        subscriptionMap = new HashMap<>();
+    }
+
+    public ClientsContracts(Map<String, Subscription> subscriptionMap) {
+        this.subscriptionMap = subscriptionMap;
+    }
 
     public Contract getContract(String contractNumber) {
         Subscription temp = subscriptionMap.get(contractNumber);

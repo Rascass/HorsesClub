@@ -2,6 +2,7 @@ package com.java.automation.lab.fall.antonyuk.core22.domain.building;
 
 import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Validator;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 

@@ -12,9 +12,10 @@ public class Subscription {
     private Date finish;
     private double price;
     private double startPrice;
-    private Map<String, Integer> discounts = new HashMap<>();
+    private Map<String, Integer> discounts;
 
     public Subscription() {
+        discounts = new HashMap<>();
     }
 
     public Subscription(Date start, Date finish, double startPrice, Map<String, Integer> discounts) {

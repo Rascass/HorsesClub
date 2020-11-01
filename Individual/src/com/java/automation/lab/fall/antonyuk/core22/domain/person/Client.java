@@ -9,13 +9,14 @@ import java.util.*;
 
 public class Client extends Person{
 
-    private Set<Horse> horses = new HashSet<>();
+    private Set<Horse> horses;
     private ClientsContracts contracts;
     final private Date signIn;
     private boolean isBan;
 
     public Client() {
         signIn = new Date();
+        horses = new HashSet<>();
     }
 
     public Client(PersonInfo personInfo, Set<Horse> horses, Date signIn, boolean isBan, ClientsContracts contracts) {
@@ -29,6 +30,7 @@ public class Client extends Person{
     public Client(PersonInfo personInfo) {
         super(personInfo);
         this.signIn = new Date();
+        horses = new HashSet<>();
     }
 
     public Client(String firstName, String secondName, String lastName, Date birthday, Gender gender,

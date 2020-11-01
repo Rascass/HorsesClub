@@ -13,9 +13,10 @@ public class Excursion extends Event {
     private Employee guide;
     private double price;
     private int maxPeopleCount;
-    private Set<Client> clients = new HashSet<>();
+    private Set<Client> clients;
 
     public Excursion() {
+        clients = new HashSet<>();
     }
 
     public Excursion(EventInfo eventInfo, Employee guide, double price, int maxPeopleCount, Set<Client> clients) {
@@ -28,6 +29,7 @@ public class Excursion extends Event {
 
     public Excursion(EventInfo eventInfo) {
         super(eventInfo);
+        clients = new HashSet<>();
     }
 
     public Excursion(HorseClub horseClub, String name, Date start, Date finish, Employee guide, double price,

@@ -10,9 +10,11 @@ import java.util.*;
 public class TrainingGroup extends Event{
 
     private Employee trainer;
-    private Set<Client> pupils = new HashSet<>();
+    private Set<Client> pupils;
 
-    public TrainingGroup() {}
+    public TrainingGroup() {
+        pupils = new HashSet<>();
+    }
 
     public TrainingGroup(EventInfo eventInfo, Employee trainer, Set<Client> pupils) {
         super(eventInfo);

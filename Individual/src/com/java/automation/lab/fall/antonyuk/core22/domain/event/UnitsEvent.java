@@ -8,14 +8,16 @@ import java.util.*;
 
 public class UnitsEvent extends Event{
 
-    private Set<Unit> participants = new HashSet<>();
+    private Set<Unit> participants;
     private Specialization specialization;
 
     public UnitsEvent() {
+        participants = new HashSet<>();
     }
 
     public UnitsEvent(EventInfo eventInfo) {
         super(eventInfo);
+        participants = new HashSet<>();
     }
 
     public UnitsEvent(Set<Unit> participants, Specialization specialization) {
@@ -31,6 +33,7 @@ public class UnitsEvent extends Event{
 
     public UnitsEvent(HorseClub horseClub, String name, Date start, Date finish) throws InvalidNameException {
         super(horseClub, name, start, finish);
+        participants = new HashSet<>();
     }
 
     public UnitsEvent(HorseClub horseClub, String name, Date start, Date finish, Set<Unit> participants,
