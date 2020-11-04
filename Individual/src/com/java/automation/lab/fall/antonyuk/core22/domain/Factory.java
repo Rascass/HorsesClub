@@ -7,6 +7,7 @@ public class Factory<T> {
     public Factory(Class<T> type) {
         this.type = type;
     }
+
     public T getInstance() {
         try {
             return type.getDeclaredConstructor().newInstance();
@@ -15,7 +16,7 @@ public class Factory<T> {
         }
     }
 
-    public static <V> Factory<V> getInstance(Class<V> type) {
+    public static <V> Factory<V> getFactory(Class<V> type) {
         return new Factory<V>(type);
     }
 }
