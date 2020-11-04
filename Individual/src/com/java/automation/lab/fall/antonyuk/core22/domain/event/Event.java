@@ -41,6 +41,15 @@ public abstract class Event {
         this.eventInfo.setName(name);
     }
 
+    public EventInfo getEventInfo() {
+        return eventInfo;
+    }
+
+    public Event setEventInfo(EventInfo eventInfo) {
+        this.eventInfo = eventInfo;
+        return this;
+    }
+
     public Date getStart() {
         return eventInfo.getStart();
     }

@@ -12,9 +12,13 @@ public class MasterClass extends UnitsEvent {
     private Rider mentor;
     private int price;
 
+    public MasterClass() {
+    }
+
     public MasterClass(EventInfo eventInfo) {
         super(eventInfo);
     }
+
     public MasterClass(Rider mentor, int price) {
         this.mentor = mentor;
         this.price = price;

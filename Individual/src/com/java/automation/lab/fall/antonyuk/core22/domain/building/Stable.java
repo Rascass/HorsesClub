@@ -11,6 +11,10 @@ public class Stable {
     private int freeStallsCount;
     private final Set<Stall> stalls;
 
+    public Stable() {
+        stalls = new HashSet<>();
+    }
+
     public Stable(int freeStallsCount, Set<Stall> stalls) {
         this.freeStallsCount = freeStallsCount;
         this.stalls = stalls;

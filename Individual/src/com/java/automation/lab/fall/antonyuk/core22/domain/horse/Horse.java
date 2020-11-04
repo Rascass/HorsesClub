@@ -79,6 +79,15 @@ public abstract class Horse{
         this.horseInfo.setAmmunition(ammunition);
     }
 
+    public HorseInfo getHorseInfo() {
+        return horseInfo;
+    }
+
+    public Horse setHorseInfo(HorseInfo horseInfo) {
+        this.horseInfo = horseInfo;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -101,13 +110,5 @@ public abstract class Horse{
         return "Horse{" +
                 "horseInfo=" + horseInfo +
                 '}';
-    }
-
-    public HorseInfo getHorseInfo() {
-        return horseInfo;
-    }
-
-    public void setHorseInfo(HorseInfo horseInfo) {
-        this.horseInfo = horseInfo;
     }
 }

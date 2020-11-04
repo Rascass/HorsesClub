@@ -16,6 +16,11 @@ public class TrainingGroup extends Event{
         pupils = new HashSet<>();
     }
 
+    public TrainingGroup(EventInfo eventInfo) {
+        super(eventInfo);
+        this.pupils = new HashSet<>();
+    }
+
     public TrainingGroup(EventInfo eventInfo, Employee trainer, Set<Client> pupils) {
         super(eventInfo);
         this.trainer = trainer;

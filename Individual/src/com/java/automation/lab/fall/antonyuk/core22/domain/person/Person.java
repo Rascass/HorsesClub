@@ -31,8 +31,9 @@ public abstract class Person {
         return personInfo;
     }
 
-    public void setPersonInfo(PersonInfo personInfo) {
+    public Person setPersonInfo(PersonInfo personInfo) {
         this.personInfo = personInfo;
+        return this;
     }
 
     public Gender getGender() {

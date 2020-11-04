@@ -4,7 +4,6 @@ import com.java.automation.lab.fall.antonyuk.core22.domain.horse.TypeHorse;
 import com.java.automation.lab.fall.antonyuk.core22.domain.horse.horseFactory.HorseFactory;
 import com.java.automation.lab.fall.antonyuk.core22.domain.horse.Horse;
 import com.java.automation.lab.fall.antonyuk.core22.domain.horse.HorseInfo;
-import com.java.automation.lab.fall.antonyuk.core22.domain.person.PersonFactory.PersonFactory;
 import com.java.automation.lab.fall.antonyuk.core22.domain.person.PersonInfo;
 import com.java.automation.lab.fall.antonyuk.core22.domain.person.PersonType;
 import com.java.automation.lab.fall.antonyuk.core22.domain.person.Rider;
@@ -24,9 +23,9 @@ public class Unit {
         this.rider = rider;
     }
 
-    public Unit(HorseInfo horseInfo, TypeHorse typeHorse, PersonInfo personInfo) {
+    public Unit(HorseInfo horseInfo, TypeHorse typeHorse, PersonInfo personInfo) throws ClassNotFoundException {
         this.horse = HorseFactory.createHorse(horseInfo, typeHorse);
-        this.rider = (Rider) PersonFactory.createPerson(PersonType.RIDER, personInfo);
+        this.rider = new Rider(personInfo);
     }
 
     public Horse getHorse() {

@@ -2,16 +2,19 @@ package com.java.automation.lab.fall.antonyuk.core22.domain.horse.horseFactory;
 
 import com.java.automation.lab.fall.antonyuk.core22.domain.horse.*;
 
+import java.util.Map;
+
 public class HorseFactory {
 
+    private static final Map<TypeHorse, ? extends Horse> types = Map.of(
+            TypeHorse.GELDING, new Stallion(true),
+            TypeHorse.MARE, new Mare(),
+            TypeHorse.STALLION, new Stallion(false)
+    );
+
     private HorseFactory(){}
+
     public static Horse createHorse(HorseInfo horseInfo, TypeHorse typeHorse) {
-        if (typeHorse == TypeHorse.MARE) {
-            return new Mare(horseInfo);
-        }
-        if (typeHorse == TypeHorse.GELDING) {
-            return new Stallion(true);
-        }
-        return new Stallion(false);
+        return types.get(typeHorse).setHorseInfo(horseInfo);
     }
 }

@@ -15,8 +15,8 @@ public class Bridle {
     public Bridle() {
     }
 
-    public Bridle(BridleSize size, BridleType bridleType, int number)
-            throws NotSpecifiedSizeException, EmptyTypeException {
+    public Bridle(BridleSize size, BridleType bridleType, int number) throws
+            NotSpecifiedSizeException, EmptyTypeException {
         this.setBridleType(bridleType);
         this.setSize(size);
         this.setNumber(number);
