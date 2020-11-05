@@ -54,16 +54,18 @@ public abstract class Event {
         return eventInfo.getStart();
     }
 
-    public void setStart(Date start) {
+    public Event setStart(Date start) {
         this.eventInfo.setStart(start);
+        return null;
     }
 
     public Date getFinish() {
         return eventInfo.getFinish();
     }
 
-    public void setFinish(Date finish) {
+    public Event setFinish(Date finish) {
         this.setFinish(finish);
+        return this;
     }
 
     @Override

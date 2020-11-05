@@ -8,8 +8,8 @@ import java.util.Map;
 public class HorseFactory {
 
     private static final Map<HorseGender, Factory<? extends Horse>> types = Map.of(
-            HorseGender.MARE, new Factory<>(Mare.class),
-            HorseGender.STALLION, new Factory<>(Stallion.class)
+            HorseGender.MARE, new Factory(Mare.class),
+            HorseGender.STALLION, new Factory(Stallion.class)
     );
 
     private HorseFactory(){}

@@ -23,10 +23,8 @@ public class ExcursionFactory {
 
     public static Excursion createExcursion(EventInfo eventInfo, TypeExcursion typeExcursion, Date startDate) {
         long finishDiff = types.get(typeExcursion);
-        //Factory<Excursion> factory = new Factory<Excursion>(Excursion.class);
-        Excursion excursion = new Excursion(eventInfo);
-        excursion.setStart(startDate);
-        excursion.setFinish(getFinish(startDate, finishDiff));
-        return excursion;
+        return (Excursion) EventFactory.createEvent(EventType.EXCURSION, eventInfo)
+                .setStart(startDate)
+                .setFinish(getFinish(startDate, finishDiff));
     }
 }

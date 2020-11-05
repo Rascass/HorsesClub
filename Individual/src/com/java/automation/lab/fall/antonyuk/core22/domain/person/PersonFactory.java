@@ -6,9 +6,9 @@ import java.util.Map;
 public class PersonFactory {
 
     private static final Map<PersonType, Factory<? extends Person>> types = Map.of(
-            PersonType.CLIENT, new Factory<>(Client.class),
-            PersonType.EMPLOYEE, new Factory<>(Employee.class),
-            PersonType.RIDER, new Factory<>(Rider.class)
+            PersonType.CLIENT, new Factory(Client.class),
+            PersonType.EMPLOYEE, new Factory(Employee.class),
+            PersonType.RIDER, new Factory(Rider.class)
     );
 
     private PersonFactory() {}
