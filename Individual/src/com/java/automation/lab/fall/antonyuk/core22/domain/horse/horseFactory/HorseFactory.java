@@ -7,15 +7,17 @@ import java.util.Map;
 
 public class HorseFactory {
 
-    private static final Map<Gender, Class> types = Map.of(
-            Gender.MARE, Mare.class,
-            Gender.STALLION, Stallion.class
+    private static final Map<HorseGender, Factory<? extends Horse>> types = Map.of(
+            HorseGender.MARE, new Factory<>(Mare.class),
+            HorseGender.STALLION, new Factory<>(Stallion.class)
     );
 
     private HorseFactory(){}
 
-    public static Horse createHorse(Gender gender) {
-        return (Horse) Factory.getFactory(types.get(gender))
-                .getInstance();
+    public static Horse createHorse(HorseGender horseGender, HorseInfo horseInfo, HorseSuit horseSuit) {
+        return types.get(horseGender)
+                .getInstance()
+                .setHorseInfo(horseInfo
+                .setHorseSuit(horseSuit));
     }
 }

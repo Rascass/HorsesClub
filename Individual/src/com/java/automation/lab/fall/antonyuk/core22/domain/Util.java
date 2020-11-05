@@ -33,10 +33,7 @@ public class Util {
         }
         List<String> lines =  Files.readAllLines(path.toAbsolutePath());
         StringBuffer stringBuffer = new StringBuffer();
-        for (String line:
-             lines) {
-            stringBuffer.append(line);
-        }
+        lines.stream().forEach(line->stringBuffer.append(line));
         return stringBuffer.toString();
     }
 

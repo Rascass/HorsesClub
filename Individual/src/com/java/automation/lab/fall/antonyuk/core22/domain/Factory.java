@@ -15,8 +15,4 @@ public class Factory<T> {
             throw new RuntimeException(e);
         }
     }
-
-    public static <V> Factory<V> getFactory(Class<V> type) {
-        return new Factory<V>(type);
-    }
 }

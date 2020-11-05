@@ -7,10 +7,8 @@ public class HobbyHorseFactory {
 
     private HobbyHorseFactory(){}
 
-    public static Horse createHorse(HorseInfo horseInfo, Gender gender, HorseSuit horseSuit) {
-        return HorseFactory.createHorse(gender)
-                .setHorseInfo(horseInfo)
-                .setSpecialization(Specialization.HOBBY)
-                .setHorseSuit(horseSuit);
+    public static Horse createHorse(HorseInfo horseInfo, HorseGender horseGender, HorseSuit horseSuit) {
+        return HorseFactory.createHorse(horseGender, horseInfo, horseSuit)
+                .setSpecialization(Specialization.HOBBY);
     }
 }

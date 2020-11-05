@@ -5,16 +5,17 @@ import java.util.Map;
 
 public class PersonFactory {
 
-    private static final Map<PersonType, Class> types = Map.of(
-            PersonType.CLIENT, Client.class,
-            PersonType.EMPLOYEE, Employee.class,
-            PersonType.RIDER, Rider.class
+    private static final Map<PersonType, Factory<? extends Person>> types = Map.of(
+            PersonType.CLIENT, new Factory<>(Client.class),
+            PersonType.EMPLOYEE, new Factory<>(Employee.class),
+            PersonType.RIDER, new Factory<>(Rider.class)
     );
 
     private PersonFactory() {}
 
-    public static Person createPerson(PersonType personType) {
-        return (Person) Factory.getFactory(types.get(personType))
-                .getInstance();
+    public static Person createPerson(PersonType personType, PersonInfo personInfo) {
+        return types.get(personType)
+                .getInstance()
+                .setPersonInfo(personInfo);
     }
 }

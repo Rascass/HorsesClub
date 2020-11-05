@@ -1,10 +1,7 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.event;
 
-import com.java.automation.lab.fall.antonyuk.core22.domain.horse.Gender;
-import com.java.automation.lab.fall.antonyuk.core22.domain.horse.horseFactory.HorseFactory;
-import com.java.automation.lab.fall.antonyuk.core22.domain.horse.Horse;
-import com.java.automation.lab.fall.antonyuk.core22.domain.horse.HorseInfo;
-import com.java.automation.lab.fall.antonyuk.core22.domain.person.PersonInfo;
+import com.java.automation.lab.fall.antonyuk.core22.domain.horse.*;
+
 import com.java.automation.lab.fall.antonyuk.core22.domain.person.Rider;
 
 import java.util.Objects;
@@ -20,11 +17,6 @@ public class Unit {
     public Unit(Horse horse, Rider rider) {
         this.horse = horse;
         this.rider = rider;
-    }
-
-    public Unit(Gender gender, PersonInfo personInfo) throws ClassNotFoundException {
-        this.horse = HorseFactory.createHorse(gender);
-        this.rider = new Rider(personInfo);
     }
 
     public Horse getHorse() {

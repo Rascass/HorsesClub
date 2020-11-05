@@ -16,25 +16,24 @@ class Queries {
 
         Set<Event> events = horseClub.getEvents();
         Set<DashboardInfoItem> dashboardInfoItems = new LinkedHashSet<>();
-        for (Event e: events) {
-            if (e.getClass() != event.getClass()) {
-                continue;
+        events.stream().forEach(e -> {
+            if (e.getClass() == event.getClass()) {
+                dashboardInfoItems.add(new DashboardInfoItem(eventName, e.getStart(), e.getFinish()));
             }
-            dashboardInfoItems.add(new DashboardInfoItem(eventName, e.getStart(), e.getFinish()));
-        }
+        });
         return dashboardInfoItems;
     }
 
     public static Set<DashboardInfoItem> getDashboardInfo(HorseClub horseClub) {
         Set<Event> events = horseClub.getEvents();
         Set<DashboardInfoItem> dashboardInfoItems = new LinkedHashSet<>();
-        for (Event event: events) {
+        events.stream().forEach(event -> {
             String eventName = "excursion";
             if (event.getClass() == new Competition().getClass()) {
                 eventName = "competition";
             }
             dashboardInfoItems.add(new DashboardInfoItem(eventName, event.getStart(), event.getFinish()));
-        }
+        });
         return dashboardInfoItems;
     }
 
