@@ -63,6 +63,10 @@ public class Subscription {
         this.discounts = discounts;
     }
 
+    public int maxDiscountPersent() {
+        return this.discounts.values().stream().mapToInt(e->e).max().getAsInt();
+    }
+
     public double getStartPrice() {
         return startPrice;
     }
