@@ -24,7 +24,8 @@ public class Mare extends Horse {
     }
 
     public Mare(String name, Date birthday, Specialization specialization, Pedigree pedigree,
-                Ammunition ammunition, HorseSuit horseSuit, boolean isCanBePregnant) throws InvalidNameException {
+                Ammunition ammunition, HorseSuit horseSuit, boolean isCanBePregnant)
+            throws InvalidNameException {
         super(name, birthday, specialization, pedigree, ammunition, horseSuit);
         this.isCanBePregnant = isCanBePregnant;
     }

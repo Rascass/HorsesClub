@@ -15,42 +15,48 @@ public class MareService {
         method.invoke(mare, value);
     }
 
-    public static synchronized void update(Mare mare, String field, Integer value) throws NoSuchMethodException,
+    public static synchronized void update(Mare mare, String field, Integer value)
+            throws NoSuchMethodException,
             InvocationTargetException, IllegalAccessException {
         Method method = mare.getClass().getDeclaredMethod(field, Integer.class);
         method.setAccessible(true);
         method.invoke(mare, value);
     }
 
-    public static synchronized void update(Mare mare, String field, Specialization value) throws NoSuchMethodException,
+    public static synchronized void update(Mare mare, String field, Specialization value)
+            throws NoSuchMethodException,
             InvocationTargetException, IllegalAccessException {
         Method method = mare.getClass().getDeclaredMethod(field, Specialization.class);
         method.setAccessible(true);
         method.invoke(mare, value);
     }
 
-    public static synchronized void update(Mare mare, String field, Ammunition value) throws NoSuchMethodException,
+    public static synchronized void update(Mare mare, String field, Ammunition value)
+            throws NoSuchMethodException,
             InvocationTargetException, IllegalAccessException {
         Method method = mare.getClass().getDeclaredMethod(field, Ammunition.class);
         method.setAccessible(true);
         method.invoke(mare, value);
     }
 
-    public static synchronized void update(Mare mare, String field, HorseSuit value) throws NoSuchMethodException,
+    public static synchronized void update(Mare mare, String field, HorseSuit value)
+            throws NoSuchMethodException,
             InvocationTargetException, IllegalAccessException {
         Method method = mare.getClass().getDeclaredMethod(field, HorseSuit.class);
         method.setAccessible(true);
         method.invoke(mare, value);
     }
 
-    public static synchronized void update(Mare mare, String field, Pedigree value) throws NoSuchMethodException,
+    public static synchronized void update(Mare mare, String field, Pedigree value)
+            throws NoSuchMethodException,
             InvocationTargetException, IllegalAccessException {
         Method method = mare.getClass().getDeclaredMethod(field, Pedigree.class);
         method.setAccessible(true);
         method.invoke(mare, value);
     }
 
-    public static synchronized void update(Mare mare, String field, Boolean value) throws NoSuchMethodException,
+    public static synchronized void update(Mare mare, String field, Boolean value)
+            throws NoSuchMethodException,
             InvocationTargetException, IllegalAccessException {
         Method method = mare.getClass().getDeclaredMethod(field, Boolean.class);
         method.setAccessible(true);
