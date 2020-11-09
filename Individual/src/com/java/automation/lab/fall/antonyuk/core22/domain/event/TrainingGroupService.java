@@ -10,39 +10,9 @@ import java.util.Date;
 import java.util.Set;
 
 public class TrainingGroupService {
-
-    public static synchronized void update(TrainingGroup trainingGroup, String field, String value)
+    public static synchronized <T> void update(TrainingGroup trainingGroup, String field, Class<T> value)
             throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        Method method = trainingGroup.getClass().getDeclaredMethod(field, String.class);
-        method.setAccessible(true);
-        method.invoke(trainingGroup, value);
-    }
-
-    public static synchronized void update(TrainingGroup trainingGroup, String field, Employee value)
-            throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        Method method = trainingGroup.getClass().getDeclaredMethod(field, Employee.class);
-        method.setAccessible(true);
-        method.invoke(trainingGroup, value);
-    }
-
-    public static synchronized void update(TrainingGroup trainingGroup, String field, Set<Client> value)
-            throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        Method method = trainingGroup.getClass().getDeclaredMethod(field, Set.class);
-        method.setAccessible(true);
-        method.invoke(trainingGroup, value);
-    }
-
-    public static synchronized void update(TrainingGroup trainingGroup, String field, HorseClub value)
-            throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        Method method = trainingGroup.getClass().getDeclaredMethod(field, HorseClub.class);
-        method.setAccessible(true);
-        method.invoke(trainingGroup, value);
-    }
-
-    public static synchronized void update(TrainingGroup trainingGroup, String field, Date value)
-            throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        Method method = trainingGroup.getClass().getDeclaredMethod(field, Date.class);
-        method.setAccessible(true);
+        Method method = trainingGroup.getClass().getMethod("set" + field, new Class[] {value.getClass()});
         method.invoke(trainingGroup, value);
     }
 }
