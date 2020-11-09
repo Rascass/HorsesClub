@@ -21,14 +21,14 @@ public class Env {
         this.path = Paths.get(path);
     }
 
-    public static Env getInstance() {
+    public static synchronized Env getInstance() {
         if (instance == null) {
             instance = new Env();
         }
         return instance;
     }
 
-    public static Env getInstance(String path) {
+    public static synchronized Env getInstance(String path) {
         if (instance == null) {
             instance = new Env(path);
         }

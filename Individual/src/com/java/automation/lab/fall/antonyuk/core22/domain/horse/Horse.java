@@ -9,6 +9,7 @@ import javax.naming.InvalidNameException;
 import java.util.*;
 
 public abstract class Horse{
+
     private HorseInfo horseInfo;
 
     public Horse() {

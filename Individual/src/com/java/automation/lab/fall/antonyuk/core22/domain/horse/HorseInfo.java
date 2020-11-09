@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.Objects;
 
 public class HorseInfo {
+
     private String name;
     private Date wasBorn;
     private Specialization specialization;
