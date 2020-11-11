@@ -1,11 +1,12 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.ammunition;
 
 import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Validator;
+import com.java.automation.lab.fall.antonyuk.core22.domain.dao.baseDao.AbstractModel;
 import com.java.automation.lab.fall.antonyuk.core22.domain.exception.EmptyAmmunitionStateException;
 
 import java.util.Objects;
 
-public class Ammunition {
+public class Ammunition extends AbstractModel {
 
     private Bridle bridle;
     private Saddle saddle;

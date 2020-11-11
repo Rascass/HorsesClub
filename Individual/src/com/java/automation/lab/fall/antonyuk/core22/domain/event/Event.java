@@ -2,12 +2,13 @@ package com.java.automation.lab.fall.antonyuk.core22.domain.event;
 
 import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Validator;
 import com.java.automation.lab.fall.antonyuk.core22.domain.club.HorseClub;
+import com.java.automation.lab.fall.antonyuk.core22.domain.dao.baseDao.AbstractModel;
 
 import javax.naming.InvalidNameException;
 import java.util.Date;
 import java.util.Objects;
 
-public abstract class Event {
+public abstract class Event extends AbstractModel {
 
     private EventInfo eventInfo;
 

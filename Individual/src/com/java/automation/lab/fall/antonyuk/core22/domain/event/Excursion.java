@@ -19,7 +19,8 @@ public class Excursion extends Event {
         clients = new HashSet<>();
     }
 
-    public Excursion(EventInfo eventInfo, Employee guide, double price, int maxPeopleCount, Set<Client> clients) {
+    public Excursion(EventInfo eventInfo, Employee guide, double price, int maxPeopleCount,
+                     Set<Client> clients) {
         super(eventInfo);
         this.guide = guide;
         this.setPrice(price);
@@ -36,8 +37,8 @@ public class Excursion extends Event {
         clients = new HashSet<>();
     }
 
-    public Excursion(HorseClub horseClub, String name, Date start, Date finish, Employee guide, double price,
-                     int maxPeopleCount, Set<Client> clients) throws InvalidNameException {
+    public Excursion(HorseClub horseClub, String name, Date start, Date finish, Employee guide,
+                     double price, int maxPeopleCount, Set<Client> clients) throws InvalidNameException {
         super(horseClub, name, start, finish);
         this.guide = guide;
         this.setPrice(price);

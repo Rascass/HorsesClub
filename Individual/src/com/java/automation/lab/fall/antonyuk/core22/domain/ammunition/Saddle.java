@@ -1,36 +1,22 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.ammunition;
 
+import com.java.automation.lab.fall.antonyuk.core22.domain.dao.baseDao.AbstractModel;
 import com.java.automation.lab.fall.antonyuk.core22.domain.exception.EmptyTypeException;
 import com.java.automation.lab.fall.antonyuk.core22.domain.exception.NotSpecifiedSizeException;
 
 import java.util.Objects;
 
-public class Saddle {
+public class Saddle extends AbstractModel implements Comparable<Saddle>{
 
     private double size;
     private SaddleType saddleType;
-    private int number;
 
     public Saddle() {
     }
 
-    public Saddle(double size, SaddleType saddleType, int number) {
-        if (number <= 0) {
-            throw new IllegalArgumentException();
-        }
+    public Saddle(double size, SaddleType saddleType) {
         this.size = size;
         this.saddleType = saddleType;
-        this.number = number;
-    }
-
-    public void setNumber() {
-        if (size <= 0) {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    public double getNumber() {
-        return this.number;
     }
 
     public double getSize() {
@@ -71,7 +57,7 @@ public class Saddle {
 
     @Override
     public int hashCode() {
-        return Objects.hash(size, saddleType, number);
+        return Objects.hash(size, saddleType);
     }
 
     @Override
@@ -79,7 +65,18 @@ public class Saddle {
         return "Saddle{" +
                 "size=" + size +
                 ", saddleType=" + saddleType +
-                ", number=" + number +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Saddle o) {
+        double temp = this.getSize() - o.getSize();
+        if (temp > 0) {
+            return 1;
+        }
+        if (temp < 0) {
+            return -1;
+        }
+        return 0;
     }
 }

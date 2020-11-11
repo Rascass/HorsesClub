@@ -1,9 +1,11 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.event.dashboard;
 
+import com.java.automation.lab.fall.antonyuk.core22.domain.dao.baseDao.AbstractModel;
+
 import java.util.Date;
 import java.util.Objects;
 
-public class DashboardInfoItem {
+public class DashboardInfoItem extends AbstractModel {
     private String eventName;
     private Date start;
     private Date finish;

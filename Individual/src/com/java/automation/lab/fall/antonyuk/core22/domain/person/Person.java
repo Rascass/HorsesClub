@@ -1,6 +1,7 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.person;
 
 import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Age;
+import com.java.automation.lab.fall.antonyuk.core22.domain.dao.baseDao.AbstractModel;
 import com.java.automation.lab.fall.antonyuk.core22.domain.exception.NotSpecifiedBirthdayException;
 import com.java.automation.lab.fall.antonyuk.core22.domain.exception.NotSpecifiedGenderException;
 
@@ -8,7 +9,7 @@ import javax.naming.InvalidNameException;
 import java.util.Date;
 import java.util.Objects;
 
-public abstract class Person {
+public abstract class Person extends AbstractModel {
 
     private PersonInfo personInfo;
 

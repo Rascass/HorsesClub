@@ -1,12 +1,13 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.event.dashboard;
 
 import com.java.automation.lab.fall.antonyuk.core22.domain.club.HorseClub;
+import com.java.automation.lab.fall.antonyuk.core22.domain.dao.baseDao.AbstractModel;
 
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class Dashboard {
+public class Dashboard extends AbstractModel {
 
     private Set<DashboardInfoItem> dashboardInfoItems;
     private HorseClub horseClub;

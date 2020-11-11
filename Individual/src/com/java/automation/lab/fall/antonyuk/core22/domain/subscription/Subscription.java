@@ -1,12 +1,14 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.subscription;
 
+import com.java.automation.lab.fall.antonyuk.core22.domain.dao.baseDao.AbstractModel;
+
 import javax.naming.InvalidNameException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class Subscription {
+public class Subscription extends AbstractModel {
 
     private Date start;
     private Date finish;

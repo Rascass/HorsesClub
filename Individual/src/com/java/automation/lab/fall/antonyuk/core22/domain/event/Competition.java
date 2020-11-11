@@ -12,7 +12,8 @@ public class Competition extends UnitsEvent {
     private int sumPrize;
     private Unit winner;
 
-    public Competition() {}
+    public Competition() {
+    }
 
     public Competition(EventInfo eventInfo) {
         super(eventInfo);
@@ -29,7 +30,8 @@ public class Competition extends UnitsEvent {
         this.winner = winner;
     }
 
-    public Competition(Set<Unit> participants, Specialization specialization, int sumPrize, Unit winner) {
+    public Competition(Set<Unit> participants, Specialization specialization, int sumPrize,
+                       Unit winner) {
         super(participants, specialization);
         this.sumPrize = sumPrize;
         this.winner = winner;

@@ -1,12 +1,13 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.building;
 
 import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Validator;
+import com.java.automation.lab.fall.antonyuk.core22.domain.dao.baseDao.AbstractModel;
 
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class Stable {
+public class Stable extends AbstractModel {
 
     private int freeStallsCount;
     private final Set<Stall> stalls;

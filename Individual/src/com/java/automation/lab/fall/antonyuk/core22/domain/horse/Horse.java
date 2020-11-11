@@ -3,12 +3,13 @@ package com.java.automation.lab.fall.antonyuk.core22.domain.horse;
 import com.java.automation.lab.fall.antonyuk.core22.domain.*;
 import com.java.automation.lab.fall.antonyuk.core22.domain.ammunition.Ammunition;
 import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Age;
+import com.java.automation.lab.fall.antonyuk.core22.domain.dao.baseDao.AbstractModel;
 import com.java.automation.lab.fall.antonyuk.core22.domain.exception.NotSpecifiedBirthdayException;
 
 import javax.naming.InvalidNameException;
 import java.util.*;
 
-public abstract class Horse{
+public abstract class Horse extends AbstractModel {
 
     private HorseInfo horseInfo;
 

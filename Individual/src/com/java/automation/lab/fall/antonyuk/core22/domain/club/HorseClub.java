@@ -5,6 +5,7 @@ import com.java.automation.lab.fall.antonyuk.core22.domain.building.RidingHall;
 import com.java.automation.lab.fall.antonyuk.core22.domain.building.Stable;
 import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Validator;
 import com.java.automation.lab.fall.antonyuk.core22.domain.constant.Env;
+import com.java.automation.lab.fall.antonyuk.core22.domain.dao.baseDao.AbstractModel;
 import com.java.automation.lab.fall.antonyuk.core22.domain.event.Event;
 import com.java.automation.lab.fall.antonyuk.core22.domain.exception.IncorrectNameFileException;
 import com.java.automation.lab.fall.antonyuk.core22.domain.horse.Horse;
@@ -15,7 +16,7 @@ import javax.naming.InvalidNameException;
 import java.io.IOException;
 import java.util.*;
 
-public class HorseClub {
+public class HorseClub extends AbstractModel {
 
     private String name;
     private Address address;

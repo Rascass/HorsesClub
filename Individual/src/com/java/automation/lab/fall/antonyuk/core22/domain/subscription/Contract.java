@@ -1,8 +1,10 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.subscription;
 
+import com.java.automation.lab.fall.antonyuk.core22.domain.dao.baseDao.AbstractModel;
+
 import java.util.Objects;
 
-public class Contract {
+public class Contract extends AbstractModel {
 
     private String number;
     private Subscription subscription;

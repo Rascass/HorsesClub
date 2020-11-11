@@ -1,25 +1,23 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.ammunition;
 
-import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Validator;
+import com.java.automation.lab.fall.antonyuk.core22.domain.dao.baseDao.AbstractModel;
 import com.java.automation.lab.fall.antonyuk.core22.domain.exception.EmptyTypeException;
 import com.java.automation.lab.fall.antonyuk.core22.domain.exception.NotSpecifiedSizeException;
 
 import java.util.Objects;
 
-public class Bridle {
+public class Bridle extends AbstractModel implements Comparable<Bridle> {
 
     private BridleSize size;
     private BridleType bridleType;
-    private int number;
 
     public Bridle() {
     }
 
-    public Bridle(BridleSize size, BridleType bridleType, int number) throws
+    public Bridle(BridleSize size, BridleType bridleType) throws
             NotSpecifiedSizeException, EmptyTypeException {
         this.setBridleType(bridleType);
         this.setSize(size);
-        this.setNumber(number);
     }
 
     public BridleSize getSize() {
@@ -44,23 +42,11 @@ public class Bridle {
         this.bridleType = bridleType;
     }
 
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        if (!Validator.isValidNumber(number) || number == 0) {
-            throw new IllegalArgumentException();
-        }
-        this.number = number;
-    }
-
     @Override
     public String toString() {
         return "Bridle{" +
                 "size=" + size +
                 ", bridleType=" + bridleType +
-                ", number=" + number +
                 '}';
     }
 
@@ -73,13 +59,17 @@ public class Bridle {
             return false;
         }
         Bridle bridle = (Bridle) o;
-        return number == bridle.number &&
-                size == bridle.size &&
+        return size == bridle.size &&
                 bridleType == bridle.bridleType;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(size, bridleType, number);
+        return Objects.hash(size, bridleType);
+    }
+
+    @Override
+    public int compareTo(Bridle o) {
+        return this.getSize().ordinal() - o.getSize().ordinal();
     }
 }

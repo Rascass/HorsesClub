@@ -1,12 +1,12 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.building;
 
 import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Validator;
+import com.java.automation.lab.fall.antonyuk.core22.domain.dao.baseDao.AbstractModel;
 
 import java.util.Objects;
 
-public class Stall {
+public class Stall extends AbstractModel {
 
-    private int number;
     private int square;
     private int price;
     private boolean isFree;
@@ -14,23 +14,10 @@ public class Stall {
     public Stall() {
     }
 
-    public Stall(int number, int square, int price, boolean isFree) {
-        this.setNumber(number);
+    public Stall(int square, int price, boolean isFree) {
         this.setSquare(square);
         this.setPrice(price);
         this.setFree(isFree);
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        checkNumber(number);
-        if (number == 0) {
-            throw new IllegalArgumentException();
-        }
-        this.number = number;
     }
 
     public int getSquare() {
@@ -74,21 +61,19 @@ public class Stall {
             return false;
         }
         Stall stall = (Stall) o;
-        return number == stall.number &&
-                square == stall.square &&
+        return square == stall.square &&
                 price == stall.price &&
                 isFree == stall.isFree;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(number, square, price, isFree);
+        return Objects.hash(square, price, isFree);
     }
 
     @Override
     public String toString() {
         return "Stall{" +
-                "number=" + number +
                 ", square=" + square +
                 ", price=" + price +
                 ", isFree=" + isFree +

@@ -1,10 +1,12 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.subscription;
 
+import com.java.automation.lab.fall.antonyuk.core22.domain.dao.baseDao.AbstractModel;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class ClientsContracts {
+public class ClientsContracts extends AbstractModel {
 
     private Map<String, Subscription> subscriptionMap;
 

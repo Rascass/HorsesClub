@@ -1,11 +1,12 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.club;
 
 import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Validator;
+import com.java.automation.lab.fall.antonyuk.core22.domain.dao.baseDao.AbstractModel;
 
 import javax.naming.InvalidNameException;
 import java.util.Objects;
 
-public class Address {
+public class Address extends AbstractModel {
 
     private String town;
     private String region;

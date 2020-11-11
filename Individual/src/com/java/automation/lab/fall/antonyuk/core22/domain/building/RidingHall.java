@@ -1,10 +1,11 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.building;
 
 import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Validator;
+import com.java.automation.lab.fall.antonyuk.core22.domain.dao.baseDao.AbstractModel;
 
 import java.util.Objects;
 
-public class RidingHall {
+public class RidingHall extends AbstractModel {
 
     private int width;
     private int length;
