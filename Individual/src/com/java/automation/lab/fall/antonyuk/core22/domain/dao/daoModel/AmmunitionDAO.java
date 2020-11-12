@@ -1,4 +1,4 @@
-package com.java.automation.lab.fall.antonyuk.core22.domain.dao;
+package com.java.automation.lab.fall.antonyuk.core22.domain.dao.daoModel;
 
 import com.java.automation.lab.fall.antonyuk.core22.domain.ammunition.Ammunition;
 import com.java.automation.lab.fall.antonyuk.core22.domain.dao.baseDao.Dao;

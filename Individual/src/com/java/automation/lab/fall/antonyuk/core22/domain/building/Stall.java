@@ -5,7 +5,7 @@ import com.java.automation.lab.fall.antonyuk.core22.domain.dao.baseDao.AbstractM
 
 import java.util.Objects;
 
-public class Stall extends AbstractModel {
+public class Stall extends AbstractModel implements Comparable<Stall> {
 
     private int square;
     private int price;
@@ -78,5 +78,10 @@ public class Stall extends AbstractModel {
                 ", price=" + price +
                 ", isFree=" + isFree +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Stall o) {
+        return this.square - o.square;
     }
 }

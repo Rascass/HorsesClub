@@ -5,7 +5,7 @@ import com.java.automation.lab.fall.antonyuk.core22.domain.dao.baseDao.AbstractM
 
 import java.util.Objects;
 
-public class RidingHall extends AbstractModel {
+public class RidingHall extends AbstractModel implements Comparable<RidingHall> {
 
     private int width;
     private int length;
@@ -86,5 +86,10 @@ public class RidingHall extends AbstractModel {
                 ", length=" + length +
                 ", horsesCapacity=" + horsesCapacity +
                 '}';
+    }
+
+    @Override
+    public int compareTo(RidingHall o) {
+        return (int) (this.getWidth() * this.getLength() - o.getWidth() * o.getLength());
     }
 }

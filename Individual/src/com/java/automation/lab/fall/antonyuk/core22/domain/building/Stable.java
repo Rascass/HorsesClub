@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class Stable extends AbstractModel {
+public class Stable extends AbstractModel implements Comparable<Stable>{
 
     private int freeStallsCount;
     private final Set<Stall> stalls;
@@ -60,5 +60,10 @@ public class Stable extends AbstractModel {
                 "freeStallsCount=" + freeStallsCount +
                 ", stalls=" + stalls +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Stable o) {
+        return this.getStalls().size() - o.getStalls().size();
     }
 }
