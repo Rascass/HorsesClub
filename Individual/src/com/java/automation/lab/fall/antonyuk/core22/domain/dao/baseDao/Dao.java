@@ -8,16 +8,16 @@ public abstract class Dao<T extends AbstractModel> {
     private Map<Integer, T> store = new HashMap<>();
     private int counter = 0;
 
-    T get(int id) {
+    public T get(int id) {
         return store.get(id);
     }
-    Map<Integer, T> getAll() {
+    public Map<Integer, T> getAll() {
         return store;
     }
-    void update(int id, T t) {
+    public void update(int id, T t) {
         store.put(id, t);
     }
-    void delete(int id) {
+    public void delete(int id) {
         store.remove(id);
     }
     public void create(T value) {

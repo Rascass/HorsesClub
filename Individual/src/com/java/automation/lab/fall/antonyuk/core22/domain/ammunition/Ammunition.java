@@ -10,7 +10,6 @@ public class Ammunition extends AbstractModel {
 
     private Bridle bridle;
     private Saddle saddle;
-    private boolean isClean = true;
     private int numbersUsing = 0;
     private State state = State.GOOD;
 
@@ -33,14 +32,6 @@ public class Ammunition extends AbstractModel {
         this.state = state;
     }
 
-    public boolean getIsClean() {
-        return isClean;
-    }
-
-    public void setIsClean(boolean clean) {
-        isClean = clean;
-    }
-
     public Bridle getBridle() {
         return bridle;
     }
@@ -58,7 +49,6 @@ public class Ammunition extends AbstractModel {
     }
 
     public void dressUp() {
-        isClean = false;
         if (numbersUsing > 1000) {
             state = State.BAD;
         } else if (numbersUsing > 500) {

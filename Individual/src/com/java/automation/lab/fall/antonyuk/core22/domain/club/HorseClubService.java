@@ -11,4 +11,5 @@ public class HorseClubService {
         Method method = horseClub.getClass().getMethod("set" + field, new Class[] {value.getClass()});
         method.invoke(horseClub, value);
     }
+
 }

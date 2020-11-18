@@ -7,6 +7,7 @@ import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Validator;
 import javax.naming.InvalidNameException;
 import java.util.Date;
 import java.util.Objects;
+import java.util.Set;
 
 public class HorseInfo {
 
@@ -14,14 +15,14 @@ public class HorseInfo {
     private Date wasBorn;
     private Specialization specialization;
     private Pedigree pedigree;
-    private Ammunition ammunition;
+    private Set<Ammunition> ammunition;
     private HorseSuit horseSuit;
 
     public HorseInfo() {
     }
 
     public HorseInfo(String name, Date wasBorn, Specialization specialization, Pedigree pedigree,
-                     Ammunition ammunition, HorseSuit horseSuit) throws InvalidNameException
+                     Set<Ammunition> ammunition, HorseSuit horseSuit) throws InvalidNameException
     {
         this.setName(name);
         this.setWasBorn(wasBorn);
@@ -67,11 +68,11 @@ public class HorseInfo {
         this.pedigree = pedigree;
     }
 
-    public Ammunition getAmmunition() {
+    public Set<Ammunition> getAmmunition() {
         return ammunition;
     }
 
-    public void setAmmunition(Ammunition ammunition) {
+    public void setAmmunition(Set<Ammunition> ammunition) {
         this.ammunition = ammunition;
     }
 
