@@ -5,7 +5,7 @@ import com.java.automation.lab.fall.antonyuk.core22.domain.dao.baseDao.AbstractM
 import java.util.Date;
 import java.util.Objects;
 
-public class DashboardInfoItem extends AbstractModel {
+public class DashboardInfoItem {
     private String eventName;
     private Date start;
     private Date finish;

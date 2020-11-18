@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class Dashboard extends AbstractModel {
+public class Dashboard {
 
     private Set<DashboardInfoItem> dashboardInfoItems;
     private HorseClub horseClub;

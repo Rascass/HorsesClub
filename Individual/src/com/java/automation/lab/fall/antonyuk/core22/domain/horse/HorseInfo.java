@@ -6,6 +6,7 @@ import com.java.automation.lab.fall.antonyuk.core22.domain.cheker.Validator;
 
 import javax.naming.InvalidNameException;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -15,7 +16,7 @@ public class HorseInfo {
     private Date wasBorn;
     private Specialization specialization;
     private Pedigree pedigree;
-    private Set<Ammunition> ammunition;
+    private Set<Ammunition> ammunition = new HashSet<>();
     private HorseSuit horseSuit;
 
     public HorseInfo() {

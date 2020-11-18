@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.Objects;
 
 public class EventInfo {
-
     private HorseClub horseClub;
     private String name;
     private Date start;
