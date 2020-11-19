@@ -8,6 +8,7 @@ import com.java.automation.lab.fall.antonyuk.core22.domain.person.Client;
 import javax.naming.InvalidNameException;
 import java.util.Date;
 import java.util.Objects;
+import java.util.Set;
 
 public class Stallion extends Horse {
 
@@ -25,7 +26,7 @@ public class Stallion extends Horse {
     }
 
     public Stallion(String name, Date birthday, Stall stall, Client client,
-                    Specialization specialization, Pedigree pedigree, Ammunition ammunition, HorseSuit horseSuit,
+                    Specialization specialization, Pedigree pedigree, Set<Ammunition> ammunition, HorseSuit horseSuit,
                     boolean isGelding) throws InvalidNameException {
         super(name, birthday, specialization, pedigree, ammunition, horseSuit);
         this.isGelding = isGelding;

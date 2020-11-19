@@ -6,6 +6,7 @@ import com.java.automation.lab.fall.antonyuk.core22.domain.ammunition.Ammunition
 import javax.naming.InvalidNameException;
 import java.util.Date;
 import java.util.Objects;
+import java.util.Set;
 
 public class Mare extends Horse {
 
@@ -24,7 +25,7 @@ public class Mare extends Horse {
     }
 
     public Mare(String name, Date birthday, Specialization specialization, Pedigree pedigree,
-                Ammunition ammunition, HorseSuit horseSuit, boolean isCanBePregnant)
+                Set<Ammunition> ammunition, HorseSuit horseSuit, boolean isCanBePregnant)
             throws InvalidNameException {
         super(name, birthday, specialization, pedigree, ammunition, horseSuit);
         this.isCanBePregnant = isCanBePregnant;
