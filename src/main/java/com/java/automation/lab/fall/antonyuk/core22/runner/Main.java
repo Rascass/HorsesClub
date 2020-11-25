@@ -19,7 +19,5 @@ public class Main {
         dao2.create(new Address("Aa", "Vv", "Cc", 101));
         System.out.println(dao2.get(0).getNumber());
         SqlDAO<Address> sqlDAO = new SqlDAO<Address>();
-        sqlDAO.connect();
-
     }
 }

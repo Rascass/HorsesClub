@@ -14,7 +14,8 @@ public class SqlDAO<T extends AbstractModel> implements Daoable<T>{
     private String tableName;
     private Connection connection;
 
-    public void connect() throws SQLException, ClassNotFoundException, NoSuchMethodException,
+    public SqlDAO() throws SQLException,
+            ClassNotFoundException, NoSuchMethodException,
             IllegalAccessException, InvocationTargetException, InstantiationException {
         Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
         this.connection = DriverManager.getConnection(DBConstant.URL, DBConstant.USERNAME, DBConstant.PASSWORD);
