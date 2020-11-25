@@ -26,7 +26,6 @@ public class FileDAO <T extends AbstractModel> implements Daoable<T>{
 
     @Override
     public void delete(int id) {
-
     }
 
     @Override

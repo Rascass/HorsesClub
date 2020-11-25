@@ -3,10 +3,11 @@ package com.java.automation.lab.fall.antonyuk.core22.dao.baseDao;
 import java.lang.reflect.Method;
 import java.util.*;
 
-public abstract class ContainerDao<T extends AbstractModel> implements Daoable<T>{
+public class MochaDao<T extends AbstractModel> implements Daoable<T>{
 
     private Map<Integer, T> store = new HashMap<>();
     private int counter = 0;
+    private String name;
 
     @Override
     public T get(int id) {
@@ -30,13 +31,12 @@ public abstract class ContainerDao<T extends AbstractModel> implements Daoable<T
 
     @Override
     public void create(T value) {
-        try {
-            Method method = value.getClass().getDeclaredMethod("setId", int.class);
-            method.setAccessible(true);
-            method.invoke(value, counter++);
-            store.put(counter, value);
-        } catch (ReflectiveOperationException e) {
-            e.printStackTrace();
-        }
+       value.setId(counter);
+       store.put(counter++, value);
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
     }
 }

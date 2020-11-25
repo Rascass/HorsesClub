@@ -10,7 +10,7 @@ public class AbstractModel implements Serializable {
         return id;
     }
 
-    protected void setId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 }
