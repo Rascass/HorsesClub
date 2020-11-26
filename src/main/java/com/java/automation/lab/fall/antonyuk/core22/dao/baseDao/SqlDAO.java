@@ -1,10 +1,9 @@
 package com.java.automation.lab.fall.antonyuk.core22.dao.baseDao;
 
-import com.java.automation.lab.fall.antonyuk.core22.constant.DBConstant;
+import javax.naming.NamingException;
 
-import java.lang.reflect.InvocationTargetException;
+import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Map;
@@ -13,12 +12,11 @@ public class SqlDAO<T extends AbstractModel> implements Daoable<T>{
 
     private String tableName;
     private Connection connection;
+    private final int MAX_COUNT = 4;
 
-    public SqlDAO() throws SQLException,
-            ClassNotFoundException, NoSuchMethodException,
-            IllegalAccessException, InvocationTargetException, InstantiationException {
-        Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
-        this.connection = DriverManager.getConnection(DBConstant.URL, DBConstant.USERNAME, DBConstant.PASSWORD);
+    public SqlDAO() throws SQLException, NamingException, IOException, InterruptedException {
+        ConnectionPool connectionPool = new ConnectionPool(MAX_COUNT);
+        this.connection = connectionPool.retrieve();
     }
 
     @Override

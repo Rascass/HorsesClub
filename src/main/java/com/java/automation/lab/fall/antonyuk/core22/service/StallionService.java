@@ -1,4 +1,6 @@
-package com.java.automation.lab.fall.antonyuk.core22.domain.horse;
+package com.java.automation.lab.fall.antonyuk.core22.service;
+
+import com.java.automation.lab.fall.antonyuk.core22.domain.horse.Stallion;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

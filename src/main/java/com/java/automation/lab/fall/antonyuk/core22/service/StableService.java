@@ -1,4 +1,6 @@
-package com.java.automation.lab.fall.antonyuk.core22.domain.building;
+package com.java.automation.lab.fall.antonyuk.core22.service;
+
+import com.java.automation.lab.fall.antonyuk.core22.domain.building.Stable;
 
 public class StableService {
 

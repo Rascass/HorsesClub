@@ -1,6 +1,7 @@
-package com.java.automation.lab.fall.antonyuk.core22.domain.event;
+package com.java.automation.lab.fall.antonyuk.core22.service;
 
 import com.java.automation.lab.fall.antonyuk.core22.domain.club.HorseClub;
+import com.java.automation.lab.fall.antonyuk.core22.domain.event.MasterClass;
 import com.java.automation.lab.fall.antonyuk.core22.domain.person.Rider;
 
 import java.lang.reflect.InvocationTargetException;

@@ -1,5 +1,6 @@
-package com.java.automation.lab.fall.antonyuk.core22.domain.building;
+package com.java.automation.lab.fall.antonyuk.core22.service;
 
+import com.java.automation.lab.fall.antonyuk.core22.domain.building.Stall;
 import com.java.automation.lab.fall.antonyuk.core22.domain.event.Competition;
 
 import java.lang.reflect.InvocationTargetException;

@@ -1,8 +1,9 @@
-package com.java.automation.lab.fall.antonyuk.core22.domain.person;
+package com.java.automation.lab.fall.antonyuk.core22.service;
 
 import com.java.automation.lab.fall.antonyuk.core22.domain.club.HorseClub;
 import com.java.automation.lab.fall.antonyuk.core22.domain.horse.Horse;
 import com.java.automation.lab.fall.antonyuk.core22.domain.horse.Mare;
+import com.java.automation.lab.fall.antonyuk.core22.domain.person.Client;
 import com.java.automation.lab.fall.antonyuk.core22.domain.subscription.ClientsContracts;
 
 import java.lang.reflect.Field;
