@@ -1,4 +1,4 @@
-package com.java.automation.lab.fall.antonyuk.core22.dao.baseDao;
+package com.java.automation.lab.fall.antonyuk.core22.connection;
 
 import com.java.automation.lab.fall.antonyuk.core22.constant.DBConstant;
 
@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
 
-class ConnectionPool {
+public class ConnectionPool {
 
     private static BlockingQueue<Connection> availableConns = new LinkedBlockingDeque<>();
 

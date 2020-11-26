@@ -1,5 +1,7 @@
 package com.java.automation.lab.fall.antonyuk.core22.dao.baseDao;
 
+import com.java.automation.lab.fall.antonyuk.core22.connection.ConnectionPool;
+
 import javax.naming.NamingException;
 
 import java.io.IOException;
