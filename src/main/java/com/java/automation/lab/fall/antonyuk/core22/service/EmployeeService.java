@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 import java.util.Date;
 
 public class EmployeeService {
-    public static synchronized <T> void update(Employee employee, String field, Class<T> value)
+    public static synchronized <T> void update(Employee employee, String field, T value)
             throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method method = employee.getClass().getMethod("set" + field, new Class[] {value.getClass()});
         method.invoke(employee, value);

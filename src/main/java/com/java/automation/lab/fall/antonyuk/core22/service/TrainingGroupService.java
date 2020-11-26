@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.Set;
 
 public class TrainingGroupService {
-    public static synchronized <T> void update(TrainingGroup trainingGroup, String field, Class<T> value)
+    public static synchronized <T> void update(TrainingGroup trainingGroup, String field, T value)
             throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method method = trainingGroup.getClass().getMethod("set" + field, new Class[] {value.getClass()});
         method.invoke(trainingGroup, value);

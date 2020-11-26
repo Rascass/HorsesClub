@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
 
 public class ClientService {
 
-    public static synchronized <T> void update(Client client, String field, Class<T> value)
+    public static synchronized <T> void update(Client client, String field, T value)
             throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method method = client.getClass().getMethod("set" + field, new Class[] {value.getClass()});
         method.invoke(client, value);

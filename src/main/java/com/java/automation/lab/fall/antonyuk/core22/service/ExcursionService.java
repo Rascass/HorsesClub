@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class ExcursionService {
 
-    public static synchronized <T> void update(Excursion excursion, String field, Class<T> value)
+    public static synchronized <T> void update(Excursion excursion, String field, T value)
             throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method method = excursion.getClass().getMethod("set" + field, new Class[]{value.getClass()});
         method.invoke(excursion, value);

@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
 
 public class MasterClassService {
 
-    public static synchronized <T> void update(MasterClass masterClass, String field, Class<T> value)
+    public static synchronized <T> void update(MasterClass masterClass, String field, T value)
             throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method method = masterClass.getClass().getMethod("set" + field, new Class[] {value.getClass()});
         method.invoke(masterClass, value);
