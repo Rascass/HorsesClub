@@ -51,7 +51,7 @@ public class Client extends Person{
         return isBan;
     }
 
-    public void setBan(boolean ban) {
+    public void setBan(Boolean ban) {
         isBan = ban;
     }
 

@@ -1,4 +1,4 @@
-package com.java.automation.lab.fall.antonyuk.core22.service;
+package com.java.automation.lab.fall.antonyuk.core22.service.concreteService;
 
 import com.java.automation.lab.fall.antonyuk.core22.domain.club.HorseClub;
 import com.java.automation.lab.fall.antonyuk.core22.domain.person.Employee;

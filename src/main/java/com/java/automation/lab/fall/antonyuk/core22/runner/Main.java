@@ -7,7 +7,7 @@ import com.java.automation.lab.fall.antonyuk.core22.dao.daoModel.AddressDAO;
 import com.java.automation.lab.fall.antonyuk.core22.domain.club.Address;
 import com.java.automation.lab.fall.antonyuk.core22.domain.person.Client;
 import com.java.automation.lab.fall.antonyuk.core22.domain.person.Gender;
-import com.java.automation.lab.fall.antonyuk.core22.service.ClientService;
+import com.java.automation.lab.fall.antonyuk.core22.service.UpdateService;
 
 import javax.naming.NamingException;
 import java.io.IOException;
@@ -29,7 +29,8 @@ public class Main {
                 "Lastname", null, Gender.FEMALE,
                 null,
                 new Date(), false, null);
-        ClientService.<Boolean>update(client, "Ban", true);
+        UpdateService.update(client, "Ban", true);
+        System.out.println(client);
     }
 }
 
