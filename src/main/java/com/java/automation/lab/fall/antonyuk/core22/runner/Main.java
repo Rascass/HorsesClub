@@ -35,6 +35,7 @@ public class Main {
         XMLDAO<Address> xmldao = new XMLDAO<>();
         xmldao.setName(Address.class.getName());
         xmldao.create(new Address("Minsk", "Minsk", "Odincova", 1));
+        System.out.println(xmldao.get(0));
     }
 }
 
