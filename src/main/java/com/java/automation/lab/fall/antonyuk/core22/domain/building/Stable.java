@@ -3,10 +3,12 @@ package com.java.automation.lab.fall.antonyuk.core22.domain.building;
 import com.java.automation.lab.fall.antonyuk.core22.cheker.Validator;
 import com.java.automation.lab.fall.antonyuk.core22.dao.baseDao.AbstractModel;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+@XmlRootElement(name = "Stable")
 public class Stable extends AbstractModel implements Comparable<Stable>{
 
     private int freeStallsCount;

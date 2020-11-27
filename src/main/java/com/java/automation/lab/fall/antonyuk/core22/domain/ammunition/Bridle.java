@@ -4,8 +4,10 @@ import com.java.automation.lab.fall.antonyuk.core22.dao.baseDao.AbstractModel;
 import com.java.automation.lab.fall.antonyuk.core22.exception.EmptyTypeException;
 import com.java.automation.lab.fall.antonyuk.core22.exception.NotSpecifiedSizeException;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Objects;
 
+@XmlRootElement(name = "Bridle")
 public class Bridle extends AbstractModel implements Comparable<Bridle> {
 
     private BridleSize size;

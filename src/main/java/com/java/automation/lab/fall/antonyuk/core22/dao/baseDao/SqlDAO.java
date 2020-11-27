@@ -16,7 +16,7 @@ public class SqlDAO<T extends AbstractModel> implements Daoable<T>{
     private Connection connection;
     private final int MAX_COUNT = 4;
 
-    public SqlDAO() throws SQLException, NamingException, IOException, InterruptedException {
+    public SqlDAO() throws SQLException, InterruptedException {
         ConnectionPool connectionPool = new ConnectionPool(MAX_COUNT);
         this.connection = connectionPool.retrieve();
     }

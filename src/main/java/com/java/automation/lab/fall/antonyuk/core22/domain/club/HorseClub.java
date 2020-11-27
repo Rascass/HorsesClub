@@ -13,9 +13,11 @@ import com.java.automation.lab.fall.antonyuk.core22.domain.person.Client;
 import com.java.automation.lab.fall.antonyuk.core22.domain.person.Employee;
 
 import javax.naming.InvalidNameException;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.IOException;
 import java.util.*;
 
+@XmlRootElement(name = "HorseClub")
 public class HorseClub extends AbstractModel {
 
     private String name;

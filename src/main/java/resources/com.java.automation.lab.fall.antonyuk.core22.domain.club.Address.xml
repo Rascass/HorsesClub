@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AbstractModel>
+    <id>0</id>
+    <number>1</number>
+    <region>Minsk</region>
+    <street>Odincova</street>
+    <town>Minsk</town>
+</AbstractModel>

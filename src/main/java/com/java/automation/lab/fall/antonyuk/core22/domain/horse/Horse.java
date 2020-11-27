@@ -7,8 +7,10 @@ import com.java.automation.lab.fall.antonyuk.core22.enums.Specialization;
 import com.java.automation.lab.fall.antonyuk.core22.exception.NotSpecifiedBirthdayException;
 
 import javax.naming.InvalidNameException;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.*;
 
+@XmlRootElement(name = "Horse")
 public abstract class Horse extends AbstractModel {
 
     private HorseInfo horseInfo;

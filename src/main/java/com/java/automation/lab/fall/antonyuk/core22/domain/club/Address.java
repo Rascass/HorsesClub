@@ -4,8 +4,9 @@ import com.java.automation.lab.fall.antonyuk.core22.cheker.Validator;
 import com.java.automation.lab.fall.antonyuk.core22.dao.baseDao.AbstractModel;
 
 import javax.naming.InvalidNameException;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Objects;
-
+@XmlRootElement(name = "Address")
 public class Address extends AbstractModel{
 
     private String town;

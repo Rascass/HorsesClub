@@ -16,4 +16,12 @@ public class AmmunitionDAO extends Dao<Ammunition> {
         }
         return instance;
     }
+
+    public static synchronized AmmunitionDAO getInstance(Daoable dao, String name) {
+        if (instance == null) {
+            instance = new AmmunitionDAO();
+        }
+        instance.setDao(dao, name);
+        return instance;
+    }
 }

@@ -2,8 +2,10 @@ package com.java.automation.lab.fall.antonyuk.core22.domain.subscription;
 
 import com.java.automation.lab.fall.antonyuk.core22.dao.baseDao.AbstractModel;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Objects;
 
+@XmlRootElement(name = "Contract")
 public class Contract extends AbstractModel {
 
     private String number;

@@ -6,9 +6,11 @@ import com.java.automation.lab.fall.antonyuk.core22.exception.NotSpecifiedBirthd
 import com.java.automation.lab.fall.antonyuk.core22.exception.NotSpecifiedGenderException;
 
 import javax.naming.InvalidNameException;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 import java.util.Objects;
 
+@XmlRootElement(name = "Person")
 public abstract class Person extends AbstractModel {
 
     private PersonInfo personInfo;

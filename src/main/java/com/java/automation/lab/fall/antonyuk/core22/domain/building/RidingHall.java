@@ -3,8 +3,10 @@ package com.java.automation.lab.fall.antonyuk.core22.domain.building;
 import com.java.automation.lab.fall.antonyuk.core22.cheker.Validator;
 import com.java.automation.lab.fall.antonyuk.core22.dao.baseDao.AbstractModel;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Objects;
 
+@XmlRootElement(name = "RidingHall")
 public class RidingHall extends AbstractModel implements Comparable<RidingHall> {
 
     private int width;

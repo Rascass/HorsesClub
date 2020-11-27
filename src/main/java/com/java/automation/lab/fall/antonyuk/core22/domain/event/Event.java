@@ -5,9 +5,11 @@ import com.java.automation.lab.fall.antonyuk.core22.domain.club.HorseClub;
 import com.java.automation.lab.fall.antonyuk.core22.dao.baseDao.AbstractModel;
 
 import javax.naming.InvalidNameException;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 import java.util.Objects;
 
+@XmlRootElement(name = "Event")
 public abstract class Event extends AbstractModel {
 
     private EventInfo eventInfo;

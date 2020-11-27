@@ -14,6 +14,7 @@ public class Env {
     public final static Path CLIENT_PATH = path.resolve("client.csv");
     public final static Path EMPLOYEE_PATH = path.resolve("employee.csv");
     public final static Path HORSE_PATH = path.resolve("horse.csv");
+    public final static String XML_OBJ_PATH = path.toString() + "/%s.xml";
 
     private Env() {}
 
