@@ -5,6 +5,7 @@ import javax.xml.bind.annotation.XmlType;
 import java.io.Serializable;
 
 @XmlRootElement(name = "AbstractModel")
+@XmlType(propOrder = {"id"})
 public class AbstractModel implements Serializable {
 
     protected int id;

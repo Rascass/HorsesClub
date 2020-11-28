@@ -61,6 +61,6 @@ public class SqlDAO<T extends AbstractModel> implements Daoable<T>{
 
     @Override
     public void setName(String name) {
-        tableName = name;
+        this.tableName = name;
     }
 }
