@@ -5,9 +5,11 @@ import com.java.automation.lab.fall.antonyuk.core22.exception.EmptyTypeException
 import com.java.automation.lab.fall.antonyuk.core22.exception.NotSpecifiedSizeException;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.Objects;
 
 @XmlRootElement(name = "Saddle")
+@XmlType(propOrder = {"size", "saddleType"})
 public class Saddle extends AbstractModel implements Comparable<Saddle>{
 
     private double size;

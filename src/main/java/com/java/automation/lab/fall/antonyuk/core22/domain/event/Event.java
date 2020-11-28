@@ -6,10 +6,12 @@ import com.java.automation.lab.fall.antonyuk.core22.dao.baseDao.AbstractModel;
 
 import javax.naming.InvalidNameException;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.Date;
 import java.util.Objects;
 
 @XmlRootElement(name = "Event")
+@XmlType(propOrder = {"eventInfo"})
 public abstract class Event extends AbstractModel {
 
     private EventInfo eventInfo;

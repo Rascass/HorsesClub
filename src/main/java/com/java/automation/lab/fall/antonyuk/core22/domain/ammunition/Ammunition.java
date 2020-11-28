@@ -5,9 +5,11 @@ import com.java.automation.lab.fall.antonyuk.core22.dao.baseDao.AbstractModel;
 import com.java.automation.lab.fall.antonyuk.core22.exception.EmptyAmmunitionStateException;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.Objects;
 
 @XmlRootElement(name = "Ammunition")
+@XmlType(propOrder = {"bridle", "saddle", "numbersUsing", "state"})
 public class Ammunition extends AbstractModel {
 
     private Bridle bridle;

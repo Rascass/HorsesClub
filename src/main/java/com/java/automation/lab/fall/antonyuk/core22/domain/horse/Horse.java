@@ -8,9 +8,11 @@ import com.java.automation.lab.fall.antonyuk.core22.exception.NotSpecifiedBirthd
 
 import javax.naming.InvalidNameException;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.*;
 
 @XmlRootElement(name = "Horse")
+@XmlType(propOrder = {"horseInfo"})
 public abstract class Horse extends AbstractModel {
 
     private HorseInfo horseInfo;
