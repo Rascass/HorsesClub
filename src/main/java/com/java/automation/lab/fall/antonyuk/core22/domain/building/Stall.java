@@ -21,7 +21,7 @@ public class Stall extends AbstractModel implements Comparable<Stall> {
     public Stall(int square, int price, boolean isFree) {
         this.setSquare(square);
         this.setPrice(price);
-        this.setFree(isFree);
+        this.setIsFree(isFree);
     }
 
     public int getSquare() {
@@ -42,11 +42,11 @@ public class Stall extends AbstractModel implements Comparable<Stall> {
         this.price = price;
     }
 
-    public boolean isFree() {
+    public boolean getIsFree() {
         return isFree;
     }
 
-    public void setFree(boolean free) {
+    public void setIsFree(boolean free) {
         isFree = free;
     }
 

@@ -1,6 +1,6 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.club;
 
-import com.java.automation.lab.fall.antonyuk.core22.io.Util;
+import com.java.automation.lab.fall.antonyuk.core22.io.FileManager;
 import com.java.automation.lab.fall.antonyuk.core22.domain.building.RidingHall;
 import com.java.automation.lab.fall.antonyuk.core22.domain.building.Stable;
 import com.java.automation.lab.fall.antonyuk.core22.cheker.Validator;
@@ -136,15 +136,15 @@ public class HorseClub extends AbstractModel {
     }
 
     public String readClients() throws IOException, IncorrectNameFileException {
-        return Util.read(Env.CLIENT_PATH);
+        return FileManager.read(Env.CLIENT_PATH);
     }
 
     public String readEmployees() throws IOException, IncorrectNameFileException {
-        return Util.read(Env.EMPLOYEE_PATH);
+        return FileManager.read(Env.EMPLOYEE_PATH);
     }
 
     public String readHorses() throws IOException, IncorrectNameFileException {
-        return Util.read(Env.HORSE_PATH);
+        return FileManager.read(Env.HORSE_PATH);
     }
 
     @Override

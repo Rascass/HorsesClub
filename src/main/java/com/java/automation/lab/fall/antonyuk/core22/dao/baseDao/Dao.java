@@ -38,7 +38,7 @@ public class Dao<T> implements Daoable<T>{
     }
 
     public void setDao(Daoable<T> dao, String name) {
+        dao.setName(name);
         this.dao = dao;
-        this.dao.setName(name);
     }
 }

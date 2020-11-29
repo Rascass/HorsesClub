@@ -14,7 +14,8 @@ public class XMLDAO<T extends AbstractModel> implements Daoable<T>{
     public T get(int id) {
         T value = null;
         try {
-            value = (T) new XMLIO<T>((Class<T>) Class.forName(name)).read(String.format(Env.XML_OBJ_PATH, name));
+            value = (T) new XMLIO<>((Class<T>) Class.forName(name))
+                    .read(String.format(Env.XML_OBJ_PATH, name));
         }
         catch (JAXBException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -40,7 +41,8 @@ public class XMLDAO<T extends AbstractModel> implements Daoable<T>{
     @Override
     public void create(T value) {
         try {
-            new XMLIO<>((Class<T>) value.getClass()).write(value, String.format(Env.XML_OBJ_PATH, value.getClass().getCanonicalName()));
+            new XMLIO<>((Class<T>) value.getClass())
+                    .write(value, String.format(Env.XML_OBJ_PATH, value.getClass().getCanonicalName()));
         } catch (JAXBException e) {
             e.printStackTrace();
         }

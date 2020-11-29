@@ -25,16 +25,6 @@ public class Ammunition extends AbstractModel {
         this.saddle = saddle;
     }
 
-    public State getState() {
-        return state;
-    }
-
-    public void setState(State state) throws EmptyAmmunitionStateException {
-        if (state == null) {
-            throw new EmptyAmmunitionStateException();
-        }
-        this.state = state;
-    }
 
     public Bridle getBridle() {
         return bridle;
@@ -70,6 +60,17 @@ public class Ammunition extends AbstractModel {
             throw new IllegalArgumentException();
         }
         this.numbersUsing = numbersUsing;
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) throws EmptyAmmunitionStateException {
+        if (state == null) {
+            throw new EmptyAmmunitionStateException();
+        }
+        this.state = state;
     }
 
     @Override

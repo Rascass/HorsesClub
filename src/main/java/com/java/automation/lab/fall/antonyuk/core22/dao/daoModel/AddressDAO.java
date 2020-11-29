@@ -12,6 +12,7 @@ public class AddressDAO extends Dao<Address> {
         if (instance == null) {
             instance = new AddressDAO();
         }
+        System.out.println(name);
         instance.setDao(dao, name);
         return instance;
     }

@@ -3,7 +3,7 @@ package com.java.automation.lab.fall.antonyuk.core22.dao.baseDao;
 import java.lang.reflect.Method;
 import java.util.*;
 
-public class MochaDao<T extends AbstractModel> implements Daoable<T>{
+public class MochaDAO<T extends AbstractModel> implements Daoable<T>{
 
     private Map<Integer, T> store = new HashMap<>();
     private int counter = 0;

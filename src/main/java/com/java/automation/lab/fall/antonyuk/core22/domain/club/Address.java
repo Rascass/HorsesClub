@@ -7,6 +7,7 @@ import javax.naming.InvalidNameException;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.Objects;
+
 @XmlRootElement(name = "Address")
 @XmlType(propOrder = {"town", "region", "street", "number"})
 public class Address extends AbstractModel{
@@ -24,6 +25,17 @@ public class Address extends AbstractModel{
         this.setRegion(region);
         this.setStreet(street);
         this.setTown(town);
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        if (number < 1) {
+            throw new IllegalArgumentException();
+        }
+        this.number = number;
     }
 
     public String getTown() {
@@ -57,17 +69,6 @@ public class Address extends AbstractModel{
             throw new InvalidNameException();
         }
         this.street = street;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        if (number < 1) {
-            throw new IllegalArgumentException();
-        }
-        this.number = number;
     }
 
     @Override

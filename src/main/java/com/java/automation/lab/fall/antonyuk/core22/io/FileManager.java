@@ -9,7 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.List;
 
-public class Util {
+public class FileManager {
 
     private static void write(Path path, String content, boolean isAppend) throws IncorrectNameFileException {
         if (!Validator.isValidFileName(path)) {
@@ -38,10 +38,10 @@ public class Util {
     }
 
     public static void append(Path path, String content) throws IncorrectNameFileException {
-            Util.write(path, content, true);
+            FileManager.write(path, content, true);
     }
 
     public static void overwrite(Path path, String content) throws IncorrectNameFileException {
-        Util.write(path, content, false);
+        FileManager.write(path, content, false);
     }
 }
