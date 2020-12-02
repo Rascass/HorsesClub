@@ -77,8 +77,7 @@ public class SqlDAO<T extends AbstractModel> implements Daoable<T>{
                 if (ReturnTypeValidator.isNecessaryQuotes(f.getAnnotatedType().toString())){
                     fieldsValue.append("'" + f.get(value) + "',");
                     fieldsName.append(f.getName() + ",");
-                }
-                else {
+                } else {
                     fieldsName.append(f.getName() + ",");
                     fieldsValue.append(f.get(value) + ",");
                 }

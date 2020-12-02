@@ -1,12 +1,12 @@
 package com.java.automation.lab.fall.antonyuk.core22.dao.baseDao;
 
 import com.java.automation.lab.fall.antonyuk.core22.constant.Env;
-import com.java.automation.lab.fall.antonyuk.core22.io.XMLIO;
+import com.java.automation.lab.fall.antonyuk.core22.io.JsonIO;
 
-import javax.xml.bind.JAXBException;
+import java.io.IOException;
 import java.util.Map;
 
-public class XMLDAO<T extends AbstractModel> implements Daoable<T>{
+public class JSONDAO<T extends AbstractModel> implements Daoable<T> {
 
     private String name;
 
@@ -14,10 +14,9 @@ public class XMLDAO<T extends AbstractModel> implements Daoable<T>{
     public T get(int id) {
         T value = null;
         try {
-            value = (T) new XMLIO<>((Class<T>) Class.forName(name))
-                    .read(String.format(Env.XML_OBJ_PATH, name));
-        }
-        catch (JAXBException | ClassNotFoundException e) {
+            value = (T) new JsonIO<>(Class.forName(name))
+                    .read(String.format(Env.JSON_OBJ_PATH, Class.forName(name).getCanonicalName()));
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return value;
@@ -25,7 +24,7 @@ public class XMLDAO<T extends AbstractModel> implements Daoable<T>{
 
     @Override
     public Map<Integer, T> getAll() {
-       return null;
+        return null;
     }
 
     @Override
@@ -41,10 +40,9 @@ public class XMLDAO<T extends AbstractModel> implements Daoable<T>{
     @Override
     public void create(T value) {
         try {
-            new XMLIO<>((Class<T>) value.getClass())
-                    .write(value, String.format(Env.XML_OBJ_PATH,
-                            value.getClass().getCanonicalName()));
-        } catch (JAXBException e) {
+            new JsonIO<>((Class<T>) value.getClass()).write(value, String.format(Env.JSON_OBJ_PATH,
+                    value.getClass().getCanonicalName()));
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

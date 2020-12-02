@@ -16,13 +16,10 @@ import java.sql.SQLException;
 import java.util.Date;
 
 public class Main {
-    public static void main(String[] args) throws NamingException, NoSuchMethodException,
-            IllegalAccessException, InstantiationException, SQLException, InvocationTargetException,
-            IOException, InterruptedException {
-        AddressDAO addressDAO = AddressDAO.getInstance( new SqlDAO<Address>("Addresses"), "Addresses");
+    public static void main(String[] args) throws NamingException {
         Address address = new Address("Minsk", "Minsk", "Odincova", 1);
-//        Horse horse = new Stallion();
-       // addressDAO.create(address);
+        AddressDAO addressDAO = AddressDAO.getInstance(new JSONDAO<Address>(), Address.class.getName());
+        //addressDAO.create(address);
         System.out.println(addressDAO.get(0));
     }
 }
