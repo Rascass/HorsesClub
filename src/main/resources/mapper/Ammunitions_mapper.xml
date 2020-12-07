@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Ammunitions_mapper">
+    <select id="get" resultMap="Ammunitions_map">
+        SELECT *
+        FROM Ammunitions
+        WHERE id=#{id}
+    </select>
+    <select id="getAll" resultMap="Ammunitions_map">
+        SELECT *
+        FROM Ammunitions
+    </select>
+    <delete id="delete">
+        DELETE FROM Ammunitions
+        WHERE id=#{id}
+    </delete>
+    <insert id="create">
+        INSERT INTO Ammunitions(id, numbersUsing, state, bridleId, saddleId)
+        VALUES(#{id}, #{numbersUsing}, #{state}, #{bridle}, #{saddle})
+    </insert>
+    <update id="update">
+        UPDATE Ammunitions
+        SET numbersUsing=#{numbersUsing},
+        state=#{state},
+        bridleId=#{bridle},
+        saddleId=#{saddle}
+        WHERE id=#{id}
+    </update>
+
+    <resultMap id="Ammunitions_map"
+               type="com.java.automation.lab.fall.antonyuk.core22.domain.ammunition.Ammunition"
+               autoMapping="false">
+        <id property="id" column="id"/>
+        <result property="numbersUsing" column="numbersUsing"/>
+        <result property="state" column="state"/>
+        <result property="bridleId" column="bridle"/>
+        <result property="saddleId" column="saddle"/>
+    </resultMap>
+</mapper>

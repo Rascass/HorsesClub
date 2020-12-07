@@ -24,8 +24,8 @@
         UPDATE Addresses
         SET town=#{town},
         region=#{region},
-        region=#{street},
-        region=#{number}
+        street=#{street},
+        number=#{number}
         WHERE id=#{id}
     </update>
 

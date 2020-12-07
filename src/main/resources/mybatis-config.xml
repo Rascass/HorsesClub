@@ -22,5 +22,29 @@
     </environments>
     <mappers>
         <mapper resource="mapper/Addresses_mapper.xml"/>
+        <mapper resource="mapper/Ammunitions_mapper.xml"/>
+        <mapper resource="mapper/Bridles_mapper.xml"/>
+        <mapper resource="mapper/Saddles_mapper.xml"/>
+<!--        <mapper resource="mapper/ClassesSubscriptions_mapper.xml"/>-->
+<!--        <mapper resource="mapper/ClientsContracts_mapper.xml"/>-->
+<!--        <mapper resource="mapper/Clients_mapper.xml"/>-->
+<!--        <mapper resource="mapper/Competitions_mapper.xml"/>-->
+<!--        <mapper resource="mapper/Contracts_mapper.xml"/>-->
+<!--        <mapper resource="mapper/Employees_mapper.xml"/>-->
+<!--        <mapper resource="mapper/Excursions_mapper.xml"/>-->
+<!--        <mapper resource="mapper/HorseClubs_mapper.xml"/>-->
+<!--        <mapper resource="mapper/MareHorses_mapper.xml"/>-->
+<!--        <mapper resource="mapper/MasterClasses_mapper.xml"/>-->
+<!--        <mapper resource="mapper/Pedigrees_mapper.xml"/>-->
+<!--        <mapper resource="mapper/Riders_mapper.xml"/>-->
+<!--        <mapper resource="mapper/RidingHalls_mapper.xml"/>-->
+<!--        <mapper resource="mapper/Stables_mapper.xml"/>-->
+<!--        <mapper resource="mapper/StallionHorses_mapper.xml"/>-->
+<!--        <mapper resource="mapper/Stalls_mapper.xml"/>-->
+<!--        <mapper resource="mapper/StallSubscriptions_mapper.xml"/>-->
+<!--        <mapper resource="mapper/Subscriptions_mapper.xml"/>-->
+<!--        <mapper resource="mapper/TrainingGroups_mapper.xml"/>-->
+<!--        <mapper resource="mapper/Units_mapper.xml"/>-->
+<!--        <mapper resource="mapper/UnitsEvents_mapper.xml"/>-->
     </mappers>
 </configuration>
