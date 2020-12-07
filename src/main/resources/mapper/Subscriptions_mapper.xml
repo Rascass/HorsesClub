@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Subscriptions_mapper">
+    <select id="get" resultMap="Subscriptions_map">
+        SELECT *
+        FROM Subscriptions
+        WHERE id=#{id}
+    </select>
+    <select id="getAll" resultMap="Subscriptions_map">
+        SELECT *
+        FROM Subscriptions
+    </select>
+    <delete id="delete">
+        DELETE FROM Subscriptions
+        WHERE id=#{id}
+    </delete>
+    <insert id="create">
+        INSERT INTO Subscriptions(id, finish, price, startPrice)
+        VALUES(#{id}, #{finish}, #{price}, #{startPrice})
+    </insert>
+    <update id="update">
+        UPDATE Subscriptions
+        SET finish=#{finish},
+        price=#{price},
+        startPrice=#{startPrice}
+        WHERE id=#{id}
+    </update>
+    <resultMap id="Subscriptions_map"
+               type="com.java.automation.lab.fall.antonyuk.core22.domain.subscription.Subscription"
+               autoMapping="false">
+        <id property="id" column="id"/>
+        <result property="finish" column="finish"/>
+        <result property="price" column="price"/>
+        <result property="startPrice" column="startPrice"/>
+        <result property="discountId" column="discounts"/>
+    </resultMap>
+</mapper>

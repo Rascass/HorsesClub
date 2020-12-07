@@ -6,11 +6,15 @@
     <select id="get" resultMap="Ammunitions_map">
         SELECT *
         FROM Ammunitions
+        LEFT JOIN Bridles
+        ON Bridles.id = Ammunitions.bridleId
         WHERE id=#{id}
     </select>
     <select id="getAll" resultMap="Ammunitions_map">
         SELECT *
         FROM Ammunitions
+        LEFT JOIN Bridles
+        ON Bridles.id = Ammunitions.bridleId
     </select>
     <delete id="delete">
         DELETE FROM Ammunitions

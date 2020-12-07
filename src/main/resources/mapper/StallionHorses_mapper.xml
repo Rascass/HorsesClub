@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="StallionHorses_mapper">
+    <select id="get" resultMap="StallionHorses_map">
+        SELECT *
+        FROM StallionHorses
+        LEFT JOIN Horses
+        ON Horses.id=StallionHorses.horseId
+        WHERE StallionHorses.id=#{id}
+    </select>
+    <select id="getAll" resultMap="StallionHorses_map">
+        SELECT *
+        FROM StallionHorses
+        LEFT JOIN Horses
+        ON Horses.id=StallionHorses.horseId
+    </select>
+    <delete id="delete">
+        DELETE FROM StallionHorses
+        WHERE id=#{id}
+    </delete>
+    <insert id="create">
+        INSERT INTO StallionHorses(id, isGelding)
+        VALUES(#{id}, #{isGelding})
+    </insert>
+    <update id="update">
+        UPDATE StallionHorses
+        SET isGelding=#{isGelding}
+        WHERE id=#{id}
+    </update>
+    <resultMap id="StallionHorses_map"
+               type="com.java.automation.lab.fall.antonyuk.core22.domain.horse.Stallion"
+               autoMapping="false">
+        <id property="id" column="id"/>
+        <result property="isGelding" column="isGelding"/>
+    </resultMap>
+</mapper>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="StallSubscriptions_mapper">
+    <select id="get" resultMap="StallSubscriptions_map">
+        SELECT *
+        FROM StallSubscriptions
+        LEFT JOIN Stalls
+        ON Stalls.id=StallSubscriptions.stallId
+        LEFT JOIN Subscriptions
+        ON Subscriptions.id=StallSubscriptions.subscriptionId
+        WHERE StallSubscriptions.id=#{id}
+    </select>
+    <select id="getAll" resultMap="StallSubscriptions_map">
+        SELECT *
+        FROM StallSubscriptions
+        LEFT JOIN Stalls
+        ON Stall.id=StallSubscription.stallId
+        LEFT JOIN Subscriptions
+        ON Subscription.id=StallSubscription.subscriptionId
+    </select>
+    <delete id="delete">
+        DELETE FROM StallSubscriptions
+        WHERE id=#{id}
+    </delete>
+    <insert id="create">
+        INSERT INTO StallSubscriptions(id)
+        VALUES(#{id})
+    </insert>
+    <update id="update">
+        UPDATE StallSubscriptions
+        WHERE id=#{id}
+    </update>
+    <resultMap id="StallSubscriptions_map"
+               type="com.java.automation.lab.fall.antonyuk.core22.domain.subscription.StallSubscription"
+               autoMapping="false">
+        <id property="id" column="id"/>
+        <result property="subscriptionId" column="subscriptionId"/>
+    </resultMap>
+</mapper>

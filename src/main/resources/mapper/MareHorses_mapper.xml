@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MareHorses_mapper">
+    <select id="get" resultMap="MareHorses_map">
+        SELECT *
+        FROM MareHorses
+        LEFT JOIN Horses
+        ON Horses.id=MareHorses.horseId
+        WHERE MareHorses.id=#{id}
+    </select>
+    <select id="getAll" resultMap="MareHorses_map">
+        SELECT *
+        FROM MareHorses
+        LEFT JOIN Horses
+        ON Horses.id=MareHorses.horseId
+    </select>
+    <delete id="delete">
+        DELETE FROM MareHorses
+        WHERE id=#{id}
+    </delete>
+    <insert id="create">
+        INSERT INTO MareHorses(id, isCanBePregnant, isPregnant)
+        VALUES(#{id}, #{isCanBePregnant}, #{isPregnant})
+    </insert>
+    <update id="update">
+        UPDATE MareHorses
+        SET isCanBePregnant=#{isCanBePregnant},
+        isPregnant=#{isPregnant}
+        WHERE id=#{id}
+    </update>
+    <resultMap id="MareHorses_map"
+               type="com.java.automation.lab.fall.antonyuk.core22.domain.horse.Mare"
+               autoMapping="false">
+        <id property="id" column="id"/>
+        <result property="isPregnant" column="isPregnant"/>
+        <result property="isCanBePregnant" column="isCanBePregnant"/>
+    </resultMap>
+</mapper>

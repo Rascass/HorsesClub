@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Riders_mapper">
+    <select id="get" resultMap="Riders_map">
+        SELECT *
+        FROM Riders
+        WHERE id=#{id}
+    </select>
+    <select id="getAll" resultMap="Riders_map">
+        SELECT *
+        FROM Riders
+    </select>
+    <delete id="delete">
+        DELETE FROM Riders
+        WHERE id=#{id}
+    </delete>
+    <insert id="create">
+        INSERT INTO Riders(id, firstName, secondName, lastName, birthday, gender, category)
+        VALUES(#{id}, #{firstName}, #{secondName}, #{lastName}, #{birthday}, #{gender}, #{category})
+    </insert>
+    <update id="update">
+        UPDATE Riders
+        SET firstName=#{firstName},
+        secondName=#{secondName},
+        lastName=#{lastName},
+        birthday=#{birthday},
+        gender=#{gender},
+        category=#{category}
+        WHERE id=#{id}
+    </update>
+    <resultMap id="Riders_map"
+               type="com.java.automation.lab.fall.antonyuk.core22.domain.person.Rider"
+               autoMapping="false">
+        <id property="id" column="id"/>
+        <result property="category" column="category"/>
+    </resultMap>
+</mapper>

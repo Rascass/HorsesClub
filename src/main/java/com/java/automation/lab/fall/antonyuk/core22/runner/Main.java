@@ -8,13 +8,19 @@ import com.java.automation.lab.fall.antonyuk.core22.domain.building.Stable;
 import com.java.automation.lab.fall.antonyuk.core22.domain.building.Stall;
 import com.java.automation.lab.fall.antonyuk.core22.domain.club.Address;
 import com.java.automation.lab.fall.antonyuk.core22.domain.horse.Horse;
+import com.java.automation.lab.fall.antonyuk.core22.domain.horse.Mare;
+import com.java.automation.lab.fall.antonyuk.core22.domain.horse.Pedigree;
 import com.java.automation.lab.fall.antonyuk.core22.domain.horse.Stallion;
-import com.java.automation.lab.fall.antonyuk.core22.domain.person.Client;
-import com.java.automation.lab.fall.antonyuk.core22.domain.person.Gender;
+import com.java.automation.lab.fall.antonyuk.core22.domain.person.*;
+import com.java.automation.lab.fall.antonyuk.core22.domain.subscription.ClassesSubscription;
+import com.java.automation.lab.fall.antonyuk.core22.domain.subscription.Contract;
+import com.java.automation.lab.fall.antonyuk.core22.domain.subscription.StallSubscription;
+import com.java.automation.lab.fall.antonyuk.core22.domain.subscription.Subscription;
 import com.java.automation.lab.fall.antonyuk.core22.exception.EmptyTypeException;
 import com.java.automation.lab.fall.antonyuk.core22.exception.NotSpecifiedSizeException;
 import com.java.automation.lab.fall.antonyuk.core22.service.UpdateService;
 
+import javax.naming.InvalidNameException;
 import javax.naming.NamingException;
 import java.io.IOException;
 import java.lang.reflect.Array;
@@ -23,8 +29,8 @@ import java.sql.SQLException;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws NamingException, SQLException,
-            InterruptedException, EmptyTypeException, NotSpecifiedSizeException {
+
+    public static void main(String[] args) throws SQLException, InterruptedException, InvalidNameException {
 //        Saddle saddle = new Saddle(12.5, SaddleType.DRESSAGE);
 //        Bridle bridle = new Bridle(BridleSize.FULL, BridleType.SPANISH);
 //        Ammunition ammunition = new Ammunition(bridle, saddle);
@@ -33,21 +39,56 @@ public class Main {
 //        ammunitionDAO.update(1, ammunition);
 //        List<Ammunition> arrayList = ammunitionDAO.getAll();
 //        for (Ammunition a: arrayList) {
-//            System.out.println(a.getState());
-//        }
-//        RidingHall ridingHall = new RidingHall(120, 100, 30);
+//            System.out.println(a);
+  //  }
+
+    //        RidingHall ridingHall = new RidingHall(120, 100, 30);
 //        RidingHallDAO ridingHallDAO = RidingHallDAO.getInstance(
 //                new SqlDAO<RidingHall>("RidingHalls"), "RidingHalls");
 //        ridingHallDAO.create(ridingHall);
 //        System.out.println(ridingHallDAO.get(1));
-        Stall stall = new Stall(20, 300, true);
-        StallDAO stallDAO = StallDAO.getInstance(new SqlDAO("Stalls"), "Stalls");
+     Stall stall = new Stall(20, 300, true);
+    // StallDAO stallDAO = StallDAO.getInstance(new SqlDAO("Stalls"), "Stalls");
 //        stallDAO.create(stall);
 //        System.out.println(stallDAO.get(1));
-        Stable stable = new Stable(200, new HashSet<>(Arrays.asList(stall)));
-        StableDAO stableDAO = StableDAO.getInstance(new SqlDAO("Stables"), "Stables");
-        stableDAO.create(stable);
-        System.out.println(stableDAO.get(1));
+//        Stable stable = new Stable(200, new HashSet<>(Arrays.asList(stall)));
+//        StableDAO stableDAO = StableDAO.getInstance(new SqlDAO("Stables"), "Stables");
+//        stableDAO.create(stable);
+//        System.out.println(stableDAO.get(1));
+    Subscription subscription = new Subscription();
+    //SubscriptionDAO subscriptionDAO = SubscriptionDAO
+        //    .getInstance(new SqlDAO("Subscriptions"), "Subscriptions");
+    //    subscriptionDAO.create(subscription);
+      //  System.out.println(subscriptionDAO.get(1));
+       // StallSubscription stallSubscription = new StallSubscription(stall);
+//        ClassesSubscription classesSubscription = new ClassesSubscription(16);
+//        SubscriptionDAO subscriptionDAO = SubscriptionDAO
+//                    .getInstance(new SqlDAO("ClassesSubscriptions"), "ClassesSubscriptions");
+//            subscriptionDAO.create(classesSubscription);
+//          System.out.println(subscriptionDAO.get(1));
+//          ContractDAO contractDAO = ContractDAO
+//                  .getInstance(new SqlDAO("Contracts"), "Contracts");
+//        Contract contract = new Contract("1234", subscription);
+//        contractDAO.create(contract);
+//        System.out.println(contractDAO.getAll());
+//        Rider rider = new Rider("name", "secondname",
+//                "lastname", null,
+//                Gender.FEMALE, Category.CANDIDATE);
+//        PersonDAO personDAO = PersonDAO.getInstance(new SqlDAO<Rider>("Riders"), "Riders");
+//        personDAO.create(rider);
+//        System.out.println(personDAO.getAll());
+        Client client = new Client("name", "secondname", "lastname", null,
+                Gender.FEMALE, null, null, false, null);
+        PersonDAO personDAO = PersonDAO.getInstance(new SqlDAO<Client>("Clients"), "Clients");
+        personDAO.create(client);
+        System.out.println(personDAO.get(1));
+        Stallion stallion = new Stallion(true);
+        HorseDAO horseDAO = HorseDAO.getInstance(new SqlDAO<Stallion>("StallionHorses"), "StallionHorses");
+        horseDAO.create(stallion);
+        System.out.println(horseDAO.get(1));
+        Pedigree pedigree = new Pedigree();
+        // public Employee(String firstName, String secondName, String lastName, Date birthday, Gender gender, Position position, double salary,
+        //                    Date startWork)
     }
 }
 
