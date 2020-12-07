@@ -21,8 +21,8 @@
         WHERE id=#{id}
     </delete>
     <insert id="create">
-        INSERT INTO Trainers(id, trainerCategory)
-        VALUES(#{id}, #{trainerCategory})
+        INSERT INTO Trainers(trainerCategory)
+        VALUES(#{trainerCategory})
     </insert>
     <update id="update">
         UPDATE Trainers

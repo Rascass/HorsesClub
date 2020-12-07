@@ -26,7 +26,6 @@
         <mapper resource="mapper/Bridles_mapper.xml"/>
         <mapper resource="mapper/Saddles_mapper.xml"/>
         <mapper resource="mapper/ClassesSubscriptions_mapper.xml"/>
-        <mapper resource="mapper/ClientsContracts_mapper.xml"/>
         <mapper resource="mapper/Clients_mapper.xml"/>
         <mapper resource="mapper/Contracts_mapper.xml"/>
         <mapper resource="mapper/Employees_mapper.xml"/>
@@ -36,7 +35,6 @@
         <mapper resource="mapper/Stables_mapper.xml"/>
         <mapper resource="mapper/StallionHorses_mapper.xml"/>
         <mapper resource="mapper/Stalls_mapper.xml"/>
-        <mapper resource="mapper/StallSubscriptions_mapper.xml"/>
         <mapper resource="mapper/Subscriptions_mapper.xml"/>
         <mapper resource="mapper/Grooms_mapper.xml"/>
         <mapper resource="mapper/Trainers_mapper.xml"/>

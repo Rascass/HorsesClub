@@ -19,8 +19,9 @@
         WHERE id=#{id}
     </delete>
     <insert id="create">
-        INSERT INTO Clients(id, firstName, secondName, lastName, birthday, gender, isBan, signIn)
-        VALUES(#{id}, #{firstName}, #{secondName}, #{lastName}, #{birthday}, #{gender}, #{isBan}, #{signIn})
+        INSERT INTO Clients(firstName, secondName, lastName, birthday, gender, isBan, signIn)
+        VALUES(#{firstName}, #{secondName}, #{lastName}, #{birthday}, #{gender}, #{isBan},
+        #{signIn})
     </insert>
     <update id="update">
         UPDATE Clients

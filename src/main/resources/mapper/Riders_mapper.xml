@@ -17,8 +17,8 @@
         WHERE id=#{id}
     </delete>
     <insert id="create">
-        INSERT INTO Riders(id, firstName, secondName, lastName, birthday, gender, category)
-        VALUES(#{id}, #{firstName}, #{secondName}, #{lastName}, #{birthday}, #{gender}, #{category})
+        INSERT INTO Riders(firstName, secondName, lastName, birthday, gender, category)
+        VALUES(#{firstName}, #{secondName}, #{lastName}, #{birthday}, #{gender}, #{category})
     </insert>
     <update id="update">
         UPDATE Riders

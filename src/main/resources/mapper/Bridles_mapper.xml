@@ -17,8 +17,8 @@
         WHERE id=#{id}
     </delete>
     <insert id="create">
-        INSERT INTO Bridles(id, size, bridleType)
-        VALUES(#{id}, #{size}, #{bridleType})
+        INSERT INTO Bridles(size, bridleType)
+        VALUES(#{size}, #{bridleType})
     </insert>
     <update id="update">
         UPDATE Bridles

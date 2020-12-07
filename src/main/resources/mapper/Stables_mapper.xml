@@ -21,8 +21,8 @@
         WHERE id=#{id}
     </delete>
     <insert id="create">
-        INSERT INTO Stables(id, freeStallsCount)
-        VALUES(#{id}, #{freeStallsCount})
+        INSERT INTO Stables(freeStallsCount)
+        VALUES(#{freeStallsCount})
     </insert>
     <update id="update">
         UPDATE Stables

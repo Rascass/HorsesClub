@@ -21,8 +21,8 @@
         WHERE id=#{id}
     </delete>
     <insert id="create">
-        INSERT INTO Contracts(id, name)
-        VALUES(#{id}, #{number})
+        INSERT INTO Contracts(name)
+        VALUES(#{number})
     </insert>
     <update id="update">
         UPDATE Contracts

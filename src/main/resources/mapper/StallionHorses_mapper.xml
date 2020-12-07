@@ -21,8 +21,8 @@
         WHERE id=#{id}
     </delete>
     <insert id="create">
-        INSERT INTO StallionHorses(id, isGelding)
-        VALUES(#{id}, #{isGelding})
+        INSERT INTO StallionHorses(isGelding)
+        VALUES(#{isGelding})
     </insert>
     <update id="update">
         UPDATE StallionHorses

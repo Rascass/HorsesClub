@@ -21,8 +21,8 @@
         WHERE id=#{id}
     </delete>
     <insert id="create">
-        INSERT INTO ClassesSubscriptions(id, numberClasses)
-        VALUES(#{id}, #{numberClasses})
+        INSERT INTO ClassesSubscriptions(numberClasses)
+        VALUES(#{numberClasses})
     </insert>
     <update id="update">
         UPDATE ClassesSubscriptions

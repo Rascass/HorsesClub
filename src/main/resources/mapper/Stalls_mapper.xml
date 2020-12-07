@@ -17,8 +17,8 @@
         WHERE id=#{id}
     </delete>
     <insert id="create">
-        INSERT INTO Stalls(id, square, price, isFree)
-        VALUES(#{id}, #{square}, #{price}, #{isFree})
+        INSERT INTO Stalls(square, price, isFree)
+        VALUES(#{square}, #{price}, #{isFree})
     </insert>
     <update id="update">
         UPDATE Stalls

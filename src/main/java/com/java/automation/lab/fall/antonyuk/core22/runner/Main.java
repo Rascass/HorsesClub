@@ -87,9 +87,9 @@ public class Main {
 //        horseDAO.create(stallion);
 //        stallion.setId(1);
         //System.out.println(horseDAO.get(1));
-        Veterinar veterinar = new Veterinar("Onkolog");
+        Veterinar veterinar = new Veterinar("Terapevt");
         PersonDAO personDAO = PersonDAO.getInstance(new SqlDAO<Veterinar>("Veterinars"), "Veterinars");
-        personDAO.get(1);
+        personDAO.create(veterinar);
     }
 }
 

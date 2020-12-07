@@ -21,8 +21,8 @@
         WHERE id=#{id}
     </delete>
     <insert id="create">
-        INSERT INTO Veterinars(id, profSpecialization)
-        VALUES(#{id}, #{profSpecialization})
+        INSERT INTO Veterinars(profSpecialization)
+        VALUES(#{profSpecialization})
     </insert>
     <update id="update">
         UPDATE Veterinars

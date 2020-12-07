@@ -21,8 +21,8 @@
         WHERE id=#{id}
     </delete>
     <insert id="create">
-        INSERT INTO MareHorses(id, isCanBePregnant, isPregnant)
-        VALUES(#{id}, #{isCanBePregnant}, #{isPregnant})
+        INSERT INTO MareHorses(isCanBePregnant, isPregnant)
+        VALUES(#{isCanBePregnant}, #{isPregnant})
     </insert>
     <update id="update">
         UPDATE MareHorses

@@ -15,19 +15,9 @@ import java.util.*;
 public class SqlDAO<T extends AbstractModel> implements Daoable<T>{
 
     private String tableName;
-    private Connection connection;
-    private final int MAX_COUNT = 4;
-    private int counter = 0;
 
-    public SqlDAO(String name) throws SQLException, InterruptedException {
+    public SqlDAO(String name) {
         this.tableName = name;
-        ConnectionPool connectionPool = new ConnectionPool(MAX_COUNT);
-        this.connection = connectionPool.retrieve();
-        String pattern = "select max(id) as id from " + tableName;
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery(pattern);
-        resultSet.next();
-        counter = resultSet.getInt(1) + 1;
     }
 
     @Override
@@ -66,7 +56,6 @@ public class SqlDAO<T extends AbstractModel> implements Daoable<T>{
     @Override
     public void create(T value) {
         SqlSession sqlSession = SessionFactory.getSession();
-        value.setId(counter++);
         sqlSession.insert(tableName + "_mapper" + ".create", value);
         sqlSession.commit();
         sqlSession.close();

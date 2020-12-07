@@ -17,8 +17,8 @@
         WHERE id=#{id}
     </delete>
     <insert id="create">
-        INSERT INTO Addresses(id, town, region, street, number)
-        VALUES(#{id}, #{town}, #{region}, #{street}, #{number})
+        INSERT INTO Addresses(town, region, street, number)
+        VALUES(#{town}, #{region}, #{street}, #{number})
     </insert>
     <update id="update">
         UPDATE Addresses
