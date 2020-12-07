@@ -8,7 +8,7 @@ public interface Daoable<T> {
 
      List<T> getAll();
 
-     void update(int id, T t);
+     void update(T t);
 
      void delete(int id);
 

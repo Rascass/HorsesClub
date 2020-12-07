@@ -16,11 +16,6 @@ public class SessionFactory {
 
     static {
         try {
-//            String resource = "org/mybatis/builder/mybatis-config.xml";
-//            InputStream inputStream = Resources.getResourceAsStream(resource);
-//            SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
-//            SqlSessionFactory factory = builder.build(inputStream);
-
             String resource = "mybatis-config.xml";
             Reader is  = Resources.getResourceAsReader(resource);
             System.out.println(is);

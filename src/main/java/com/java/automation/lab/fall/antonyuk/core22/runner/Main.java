@@ -85,6 +85,7 @@ public class Main {
         Stallion stallion = new Stallion(true);
         HorseDAO horseDAO = HorseDAO.getInstance(new SqlDAO<Stallion>("StallionHorses"), "StallionHorses");
         horseDAO.create(stallion);
+        stallion.setId(1);
         System.out.println(horseDAO.get(1));
         Pedigree pedigree = new Pedigree();
         // public Employee(String firstName, String secondName, String lastName, Date birthday, Gender gender, Position position, double salary,

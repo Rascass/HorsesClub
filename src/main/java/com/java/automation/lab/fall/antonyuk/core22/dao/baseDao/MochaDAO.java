@@ -19,8 +19,8 @@ public class MochaDAO<T extends AbstractModel> implements Daoable<T>{
     }
 
     @Override
-    public void update(int id, T t) {
-        store.set(id, t);
+    public void update(T t) {
+        store.add(t);
     }
 
     @Override
