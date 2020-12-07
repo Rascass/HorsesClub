@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="RidingHalls_mapper">
+    <select id="get" resultMap="RidingHalls_map">
+        SELECT *
+        FROM RidingHalls
+        WHERE id=#{id}
+    </select>
+    <select id="getAll" resultMap="RidingHalls_map">
+        SELECT *
+        FROM RidingHalls
+    </select>
+    <delete id="delete">
+        DELETE FROM RidingHalls
+        WHERE id=#{id}
+    </delete>
+    <insert id="create">
+        INSERT INTO RidingHalls(id, width, length, horsesCapacity)
+        VALUES(#{id}, #{width}, #{length}, #{horsesCapacity})
+    </insert>
+    <update id="update">
+        UPDATE RidingHalls
+        SET width=#{width},
+        length=#{length},
+        horsesCapacity=#{horsesCapacity}
+        WHERE id=#{id}
+    </update>
+    <resultMap id="RidingHalls_map"
+               type="com.java.automation.lab.fall.antonyuk.core22.domain.building.RidingHall"
+               autoMapping="false">
+        <id property="id" column="id"/>
+        <result property="width" column="width"/>
+        <result property="length" column="length"/>
+        <result property="horsesCapacity" column="horsesCapacity"/>
+    </resultMap>
+</mapper>

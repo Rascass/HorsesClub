@@ -17,15 +17,13 @@
         WHERE id=#{id}
     </delete>
     <insert id="create">
-        INSERT INTO Ammunitions(id, numbersUsing, state, bridleId, saddleId)
-        VALUES(#{id}, #{numbersUsing}, #{state}, #{bridle}, #{saddle})
+        INSERT INTO Ammunitions(id, numbersUsing, state)
+        VALUES(#{id}, #{numbersUsing}, #{state})
     </insert>
     <update id="update">
         UPDATE Ammunitions
         SET numbersUsing=#{numbersUsing},
-        state=#{state},
-        bridleId=#{bridle},
-        saddleId=#{saddle}
+        state=#{state}
         WHERE id=#{id}
     </update>
 

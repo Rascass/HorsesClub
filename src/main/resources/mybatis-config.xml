@@ -37,10 +37,10 @@
 <!--        <mapper resource="mapper/MasterClasses_mapper.xml"/>-->
 <!--        <mapper resource="mapper/Pedigrees_mapper.xml"/>-->
 <!--        <mapper resource="mapper/Riders_mapper.xml"/>-->
-<!--        <mapper resource="mapper/RidingHalls_mapper.xml"/>-->
-<!--        <mapper resource="mapper/Stables_mapper.xml"/>-->
+        <mapper resource="mapper/RidingHalls_mapper.xml"/>
+        <mapper resource="mapper/Stables_mapper.xml"/>
 <!--        <mapper resource="mapper/StallionHorses_mapper.xml"/>-->
-<!--        <mapper resource="mapper/Stalls_mapper.xml"/>-->
+        <mapper resource="mapper/Stalls_mapper.xml"/>
 <!--        <mapper resource="mapper/StallSubscriptions_mapper.xml"/>-->
 <!--        <mapper resource="mapper/Subscriptions_mapper.xml"/>-->
 <!--        <mapper resource="mapper/TrainingGroups_mapper.xml"/>-->

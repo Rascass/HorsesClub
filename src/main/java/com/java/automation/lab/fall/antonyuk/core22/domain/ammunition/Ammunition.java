@@ -96,6 +96,8 @@ public class Ammunition extends AbstractModel {
         return "Ammunition{" +
                 "bridle=" + bridle +
                 ", saddle=" + saddle +
+                ", state=" + state +
+                ", numbersUsing=" + numbersUsing +
                 '}';
     }
 }
