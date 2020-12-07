@@ -1,7 +1,9 @@
 package com.java.automation.lab.fall.antonyuk.core22.dao.baseDao;
 
 import com.java.automation.lab.fall.antonyuk.core22.cheker.ReturnTypeValidator;
+import com.java.automation.lab.fall.antonyuk.core22.config.SessionFactory;
 import com.java.automation.lab.fall.antonyuk.core22.connection.ConnectionPool;
+import org.apache.ibatis.session.SqlSession;
 
 import java.lang.reflect.Field;
 import java.sql.Connection;
@@ -22,77 +24,50 @@ public class SqlDAO<T extends AbstractModel> implements Daoable<T>{
         ConnectionPool connectionPool = new ConnectionPool(MAX_COUNT);
         this.connection = connectionPool.retrieve();
         String pattern = "select max(id) as id from " + tableName;
-        System.out.println(pattern);
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(pattern);
         resultSet.next();
         counter = resultSet.getInt(1) + 1;
-        System.out.println(counter);
     }
 
     @Override
     public T get(int id) {
-        String pattern = "select * from " + tableName +  " where id = " + id;
-        try {
-            Statement statement = connection.createStatement();
-            statement.executeUpdate(pattern);
-        }
-        catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
+        SqlSession sqlSession = SessionFactory.getSession();
+        T a = sqlSession.selectOne(tableName + "_mapper" + ".get", id);
+        sqlSession.close();
+        return a;
     }
 
     @Override
-    public Map<Integer, T> getAll() {
-        String pattern = "select * from " + tableName;
-        try {
-            Statement statement = connection.createStatement();
-            statement.executeUpdate(pattern);
-        }
-        catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
+    public List<T> getAll() {
+        SqlSession sqlSession = SessionFactory.getSession();
+        List<T> values = sqlSession.selectList(tableName + "_mapper" + ".getAll");
+        sqlSession.close();
+        return values;
     }
 
     @Override
     public void update(int id, T t) {
+        SqlSession sqlSession = SessionFactory.getSession();
+        sqlSession.insert(tableName + "_mapper" + ".update", t);
+        sqlSession.commit();
+        sqlSession.close();
     }
 
     @Override
     public void delete(int id) {
+        SqlSession sqlSession = SessionFactory.getSession();
+        sqlSession.delete(tableName + "_mapper" + ".delete", id);
+        sqlSession.commit();
+        sqlSession.close();
     }
 
     @Override
     public void create(T value) {
-        try {
-            StringBuffer fieldsName = new StringBuffer();
-            StringBuffer fieldsValue = new StringBuffer();
-            fieldsName.append("(");
-            fieldsValue.append("(");
-            Field[] fields = value.getClass().getDeclaredFields();
-            for (Field f: fields) {
-                f.setAccessible(true);
-                if (ReturnTypeValidator.isNecessaryQuotes(f.getAnnotatedType().toString())){
-                    fieldsValue.append("'" + f.get(value) + "',");
-                    fieldsName.append(f.getName() + ",");
-                } else {
-                    fieldsName.append(f.getName() + ",");
-                    fieldsValue.append(f.get(value) + ",");
-                }
-            }
-            fieldsName.append("id)");
-            fieldsValue.append(counter + ")");
-            counter++;
-            String sqlQuery = "insert into " + tableName + fieldsName.toString()
-                    + " values" + fieldsValue.toString();
-            System.out.println(sqlQuery);
-            Statement statement = connection.createStatement();
-            statement.executeUpdate(sqlQuery);
-        } catch (IllegalAccessException | SQLException e) {
-            e.printStackTrace();
-        }
+        SqlSession sqlSession = SessionFactory.getSession();
+        sqlSession.insert(tableName + "_mapper" + ".create", value);
+        sqlSession.commit();
+        sqlSession.close();
     }
 
     @Override

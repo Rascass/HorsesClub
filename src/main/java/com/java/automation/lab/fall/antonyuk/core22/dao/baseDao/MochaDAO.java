@@ -1,11 +1,10 @@
 package com.java.automation.lab.fall.antonyuk.core22.dao.baseDao;
 
-import java.lang.reflect.Method;
 import java.util.*;
 
 public class MochaDAO<T extends AbstractModel> implements Daoable<T>{
 
-    private Map<Integer, T> store = new HashMap<>();
+    private List<T> store = new ArrayList<>();
     private int counter = 0;
     private String name;
 
@@ -15,13 +14,13 @@ public class MochaDAO<T extends AbstractModel> implements Daoable<T>{
     }
 
     @Override
-    public Map<Integer, T> getAll() {
+    public List<T> getAll() {
         return store;
     }
 
     @Override
     public void update(int id, T t) {
-        store.put(id, t);
+        store.set(id, t);
     }
 
     @Override
@@ -32,7 +31,7 @@ public class MochaDAO<T extends AbstractModel> implements Daoable<T>{
     @Override
     public void create(T value) {
        value.setId(counter);
-       store.put(counter++, value);
+       store.set(counter++, value);
     }
 
     @Override

@@ -1,6 +1,6 @@
 package com.java.automation.lab.fall.antonyuk.core22.dao.baseDao;
 
-import java.util.Map;
+import java.util.List;
 
 public class Dao<T> implements Daoable<T>{
 
@@ -13,7 +13,7 @@ public class Dao<T> implements Daoable<T>{
     }
 
     @Override
-    public Map<Integer, T> getAll() {
+    public List<T> getAll() {
         return dao.getAll();
     }
 

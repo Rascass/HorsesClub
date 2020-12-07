@@ -3,7 +3,7 @@ package com.java.automation.lab.fall.antonyuk.core22.dao.baseDao;
 import com.java.automation.lab.fall.antonyuk.core22.constant.Env;
 import com.java.automation.lab.fall.antonyuk.core22.io.ObjectIO;
 
-import java.util.Map;
+import java.util.List;
 
 public class FileDAO <T extends AbstractModel> implements Daoable<T>{
 
@@ -16,7 +16,7 @@ public class FileDAO <T extends AbstractModel> implements Daoable<T>{
     }
 
     @Override
-    public Map<Integer, T> getAll() {
+    public List<T> getAll() {
         return null;
     }
 

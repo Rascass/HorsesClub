@@ -1,12 +1,12 @@
 package com.java.automation.lab.fall.antonyuk.core22.dao.baseDao;
 
-import java.util.Map;
+import java.util.List;
 
 public interface Daoable<T> {
 
      T get(int id);
 
-     Map<Integer, T> getAll();
+     List<T> getAll();
 
      void update(int id, T t);
 

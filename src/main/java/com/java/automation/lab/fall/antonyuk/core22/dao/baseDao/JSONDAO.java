@@ -4,7 +4,7 @@ import com.java.automation.lab.fall.antonyuk.core22.constant.Env;
 import com.java.automation.lab.fall.antonyuk.core22.io.JsonIO;
 
 import java.io.IOException;
-import java.util.Map;
+import java.util.List;
 
 public class JSONDAO<T extends AbstractModel> implements Daoable<T> {
 
@@ -23,7 +23,7 @@ public class JSONDAO<T extends AbstractModel> implements Daoable<T> {
     }
 
     @Override
-    public Map<Integer, T> getAll() {
+    public List<T> getAll() {
         return null;
     }
 
