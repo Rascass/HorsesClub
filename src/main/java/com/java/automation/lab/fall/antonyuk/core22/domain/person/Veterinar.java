@@ -4,8 +4,10 @@ import javax.naming.InvalidNameException;
 import java.sql.Date;
 import java.util.Objects;
 
-public class Veterinar extends Employee{
-    String profSpecialization;
+public class Veterinar extends Employee {
+    private String profSpecialization;
+
+    public Veterinar() {}
 
     public Veterinar(String profSpecialization) {
         this.profSpecialization = profSpecialization;
@@ -21,12 +23,15 @@ public class Veterinar extends Employee{
         this.profSpecialization = profSpecialization;
     }
 
-    public Veterinar(PersonInfo personInfo, double salary, Date startWork, String profSpecialization) {
+    public Veterinar(PersonInfo personInfo, double salary, Date startWork,
+                     String profSpecialization) {
         super(personInfo, salary, startWork);
         this.profSpecialization = profSpecialization;
     }
 
-    public Veterinar(String firstName, String secondName, String lastName, Date birthday, Gender gender, double salary, Date startWork, String profSpecialization) throws InvalidNameException {
+    public Veterinar(String firstName, String secondName, String lastName,
+                     Date birthday, Gender gender, double salary, Date startWork,
+                     String profSpecialization) throws InvalidNameException {
         super(firstName, secondName, lastName, birthday, gender, salary, startWork);
         this.profSpecialization = profSpecialization;
     }
@@ -51,5 +56,12 @@ public class Veterinar extends Employee{
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), profSpecialization);
+    }
+
+    @Override
+    public String toString() {
+        return "Veterinar{" +
+                "profSpecialization='" + profSpecialization + '\'' +
+                '}';
     }
 }

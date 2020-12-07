@@ -7,6 +7,7 @@ import java.util.Objects;
 public class Groom extends Employee {
     private int numberHorses;
 
+    public Groom(){}
     public Groom(int numberHorses) {
         this.numberHorses = numberHorses;
     }

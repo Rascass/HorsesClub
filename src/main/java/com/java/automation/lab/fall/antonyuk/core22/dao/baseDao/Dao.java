@@ -18,8 +18,8 @@ public class Dao<T> implements Daoable<T>{
     }
 
     @Override
-    public void update( T t) {
-        dao.update(t);
+    public void update(Integer id, T t) {
+        dao.update(id, t);
     }
 
     @Override

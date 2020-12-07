@@ -21,7 +21,7 @@ public class FileDAO <T extends AbstractModel> implements Daoable<T>{
     }
 
     @Override
-    public void update(T t) {
+    public void update(Integer id, T t) {
     }
 
     @Override

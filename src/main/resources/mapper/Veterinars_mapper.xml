@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Veterinars_mapper">
+    <select id="get" resultMap="Veterinars_map">
+        SELECT *
+        FROM Veterinars
+                LEFT JOIN Employees
+                ON Employees.id=Veterinars.employeeId
+                WHERE Veterinars.id=#{id}
+    </select>
+    <select id="getAll" resultMap="Veterinars_map">
+        SELECT *
+        FROM Veterinars
+                LEFT JOIN Employees
+                ON Employees.id=Veterinars.employeeId
+    </select>
+    <delete id="delete">
+        DELETE FROM Veterinars
+        WHERE id=#{id}
+    </delete>
+    <insert id="create">
+        INSERT INTO Veterinars(id, profSpecialization)
+        VALUES(#{id}, #{profSpecialization})
+    </insert>
+    <update id="update">
+        UPDATE Veterinars
+        SET profSpecialization=#{profSpecialization}
+        WHERE id=#{id}
+    </update>
+    <resultMap id="Veterinars_map"
+               type="com.java.automation.lab.fall.antonyuk.core22.domain.person.Veterinar"
+               autoMapping="false">
+        <id property="id" column="id"/>
+        <result property="profSpecialization" column="profSpecialization"/>
+    </resultMap>
+</mapper>

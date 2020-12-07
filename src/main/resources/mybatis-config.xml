@@ -38,5 +38,8 @@
         <mapper resource="mapper/Stalls_mapper.xml"/>
         <mapper resource="mapper/StallSubscriptions_mapper.xml"/>
         <mapper resource="mapper/Subscriptions_mapper.xml"/>
+        <mapper resource="mapper/Grooms_mapper.xml"/>
+        <mapper resource="mapper/Trainers_mapper.xml"/>
+        <mapper resource="mapper/Veterinars_mapper.xml"/>
     </mappers>
 </configuration>

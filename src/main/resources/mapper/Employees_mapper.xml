@@ -17,8 +17,8 @@
         WHERE id=#{id}
     </delete>
     <insert id="create">
-        INSERT INTO Employees(id, firstName, secondName, lastName, birthday, gender, position, salary, startWork)
-        VALUES(#{id}, #{firstName}, #{secondName}, #{lastName}, #{birthday}, #{gender}, #{position}, #{salary}, #{startWork})
+        INSERT INTO Employees(id, firstName, secondName, lastName, birthday, gender, salary, startWork)
+        VALUES(#{id}, #{firstName}, #{secondName}, #{lastName}, #{birthday}, #{gender}, #{salary}, #{startWork})
     </insert>
     <update id="update">
         UPDATE Employees
@@ -27,7 +27,6 @@
         lastName=#{lastName},
         birthday=#{birthday},
         gender=#{gender},
-        position=#{position},
         salary=#{salary},
         startWork=#{startWork}
         WHERE id=#{id}
@@ -36,7 +35,6 @@
                type="com.java.automation.lab.fall.antonyuk.core22.domain.person.Employee"
                autoMapping="false">
         <id property="id" column="id"/>
-        <result property="position" column="position"/>
         <result property="salary" column="salary"/>
         <result property="startWork" column="startWork"/>
     </resultMap>

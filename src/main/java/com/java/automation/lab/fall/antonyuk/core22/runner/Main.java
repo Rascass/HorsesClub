@@ -40,27 +40,27 @@ public class Main {
 //        List<Ammunition> arrayList = ammunitionDAO.getAll();
 //        for (Ammunition a: arrayList) {
 //            System.out.println(a);
-  //  }
+        //  }
 
-    //        RidingHall ridingHall = new RidingHall(120, 100, 30);
+        //        RidingHall ridingHall = new RidingHall(120, 100, 30);
 //        RidingHallDAO ridingHallDAO = RidingHallDAO.getInstance(
 //                new SqlDAO<RidingHall>("RidingHalls"), "RidingHalls");
 //        ridingHallDAO.create(ridingHall);
 //        System.out.println(ridingHallDAO.get(1));
-     Stall stall = new Stall(20, 300, true);
-    // StallDAO stallDAO = StallDAO.getInstance(new SqlDAO("Stalls"), "Stalls");
+        //  Stall stall = new Stall(20, 300, true);
+        // StallDAO stallDAO = StallDAO.getInstance(new SqlDAO("Stalls"), "Stalls");
 //        stallDAO.create(stall);
 //        System.out.println(stallDAO.get(1));
 //        Stable stable = new Stable(200, new HashSet<>(Arrays.asList(stall)));
 //        StableDAO stableDAO = StableDAO.getInstance(new SqlDAO("Stables"), "Stables");
 //        stableDAO.create(stable);
 //        System.out.println(stableDAO.get(1));
-    Subscription subscription = new Subscription();
-    //SubscriptionDAO subscriptionDAO = SubscriptionDAO
+        //  Subscription subscription = new Subscription();
+        //SubscriptionDAO subscriptionDAO = SubscriptionDAO
         //    .getInstance(new SqlDAO("Subscriptions"), "Subscriptions");
-    //    subscriptionDAO.create(subscription);
-      //  System.out.println(subscriptionDAO.get(1));
-       // StallSubscription stallSubscription = new StallSubscription(stall);
+        //    subscriptionDAO.create(subscription);
+        //  System.out.println(subscriptionDAO.get(1));
+        // StallSubscription stallSubscription = new StallSubscription(stall);
 //        ClassesSubscription classesSubscription = new ClassesSubscription(16);
 //        SubscriptionDAO subscriptionDAO = SubscriptionDAO
 //                    .getInstance(new SqlDAO("ClassesSubscriptions"), "ClassesSubscriptions");
@@ -77,19 +77,19 @@ public class Main {
 //        PersonDAO personDAO = PersonDAO.getInstance(new SqlDAO<Rider>("Riders"), "Riders");
 //        personDAO.create(rider);
 //        System.out.println(personDAO.getAll());
-        Client client = new Client("name", "secondname", "lastname", null,
-                Gender.FEMALE, null, null, false, null);
-        PersonDAO personDAO = PersonDAO.getInstance(new SqlDAO<Client>("Clients"), "Clients");
-        personDAO.create(client);
-        System.out.println(personDAO.get(1));
-        Stallion stallion = new Stallion(true);
-        HorseDAO horseDAO = HorseDAO.getInstance(new SqlDAO<Stallion>("StallionHorses"), "StallionHorses");
-        horseDAO.create(stallion);
-        stallion.setId(1);
-        System.out.println(horseDAO.get(1));
-        Pedigree pedigree = new Pedigree();
-        // public Employee(String firstName, String secondName, String lastName, Date birthday, Gender gender, Position position, double salary,
-        //                    Date startWork)
+//        Client client = new Client("name", "secondname", "lastname", null,
+//                Gender.FEMALE, null, null, false, null);
+//        PersonDAO personDAO = PersonDAO.getInstance(new SqlDAO<Client>("Clients"), "Clients");
+//        personDAO.create(client);
+//        System.out.println(personDAO.get(1));
+//        Stallion stallion = new Stallion(true);
+//        HorseDAO horseDAO = HorseDAO.getInstance(new SqlDAO<Stallion>("StallionHorses"), "StallionHorses");
+//        horseDAO.create(stallion);
+//        stallion.setId(1);
+        //System.out.println(horseDAO.get(1));
+        Veterinar veterinar = new Veterinar("Onkolog");
+        PersonDAO personDAO = PersonDAO.getInstance(new SqlDAO<Veterinar>("Veterinars"), "Veterinars");
+        personDAO.get(1);
     }
 }
 

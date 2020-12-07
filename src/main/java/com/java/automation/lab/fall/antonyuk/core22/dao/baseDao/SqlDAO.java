@@ -47,9 +47,9 @@ public class SqlDAO<T extends AbstractModel> implements Daoable<T>{
     }
 
     @Override
-    public void update(T t) {
-        SqlSession sqlSession = SessionFactory.getSession();;
-        System.out.println(t.getId());
+    public void update(Integer id, T t) {
+        SqlSession sqlSession = SessionFactory.getSession();
+        t.setId(id);
         sqlSession.insert(tableName + "_mapper" + ".update", t);
         sqlSession.commit();
         sqlSession.close();
