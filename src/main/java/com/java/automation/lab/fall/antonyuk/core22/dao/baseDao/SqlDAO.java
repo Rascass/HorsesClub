@@ -1,15 +1,8 @@
 package com.java.automation.lab.fall.antonyuk.core22.dao.baseDao;
 
-import com.java.automation.lab.fall.antonyuk.core22.cheker.ReturnTypeValidator;
 import com.java.automation.lab.fall.antonyuk.core22.config.SessionFactory;
-import com.java.automation.lab.fall.antonyuk.core22.connection.ConnectionPool;
 import org.apache.ibatis.session.SqlSession;
 
-import java.lang.reflect.Field;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.*;
 
 public class SqlDAO<T extends AbstractModel> implements Daoable<T>{
