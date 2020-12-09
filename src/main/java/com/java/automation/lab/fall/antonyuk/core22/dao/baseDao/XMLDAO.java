@@ -39,7 +39,7 @@ public class XMLDAO<T extends AbstractModel> implements Daoable<T>{
     }
 
     @Override
-    public Integer create(T value) {
+    public T create(T value) {
         try {
             new XMLIO<>((Class<T>) value.getClass())
                     .write(value, String.format(Env.XML_OBJ_PATH,
@@ -47,7 +47,7 @@ public class XMLDAO<T extends AbstractModel> implements Daoable<T>{
         } catch (JAXBException e) {
             e.printStackTrace();
         }
-        return null;
+        return value;
     }
 
     @Override

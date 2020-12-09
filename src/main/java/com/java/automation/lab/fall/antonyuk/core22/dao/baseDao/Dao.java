@@ -28,7 +28,7 @@ public class Dao<T> implements Daoable<T>{
     }
 
     @Override
-    public Integer create(T value) {
+    public T create(T value) {
         return dao.create(value);
     }
 

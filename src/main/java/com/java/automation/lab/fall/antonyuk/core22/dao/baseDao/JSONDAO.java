@@ -38,14 +38,14 @@ public class JSONDAO<T extends AbstractModel> implements Daoable<T> {
     }
 
     @Override
-    public Integer create(T value) {
+    public T create(T value) {
         try {
             new JsonIO<>((Class<T>) value.getClass()).write(value, String.format(Env.JSON_OBJ_PATH,
                     value.getClass().getCanonicalName()));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        return value;
     }
 
     @Override

@@ -12,7 +12,7 @@ public interface Daoable<T> {
 
      void delete(int id);
 
-     Integer create(T value);
+     T create(T value);
 
      void setName(String name);
 }

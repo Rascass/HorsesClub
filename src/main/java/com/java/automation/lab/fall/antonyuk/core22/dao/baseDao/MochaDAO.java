@@ -29,10 +29,10 @@ public class MochaDAO<T extends AbstractModel> implements Daoable<T>{
     }
 
     @Override
-    public Integer create(T value) {
+    public T create(T value) {
        value.setId(counter);
        store.set(counter++, value);
-       return counter;
+       return value;
     }
 
     @Override
