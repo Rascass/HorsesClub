@@ -29,9 +29,10 @@ public class FileDAO <T extends AbstractModel> implements Daoable<T>{
     }
 
     @Override
-    public void create(T value) {
+    public Integer create(T value) {
         value.setId(counterId++);
         new ObjectIO<T>().write(value, Env.path.resolve(name + ".csv").toString());
+        return counterId;
     }
 
     @Override

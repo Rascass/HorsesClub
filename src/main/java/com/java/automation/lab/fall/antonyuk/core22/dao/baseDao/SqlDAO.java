@@ -5,7 +5,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import java.util.*;
 
-public class SqlDAO<T extends AbstractModel> implements Daoable<T>{
+public class SqlDAO<T extends AbstractModel> implements Daoable<T> {
 
     private String tableName;
 
@@ -46,11 +46,15 @@ public class SqlDAO<T extends AbstractModel> implements Daoable<T>{
     }
 
     @Override
-    public void create(T value) {
+    public Integer create(T value) {
         SqlSession sqlSession = SessionFactory.getSession();
         sqlSession.insert(tableName + "_mapper" + ".create", value);
         sqlSession.commit();
+        List<AbstractModel> values = sqlSession.selectList(tableName + "_mapper" + ".getAll");
+        int id = values.get(values.size() - 1).getId();
+        value.setId(id);
         sqlSession.close();
+        return id;
     }
 
     @Override

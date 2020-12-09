@@ -99,19 +99,19 @@ public class Main {
         AmmunitionDAO ammunitionDAO = AmmunitionDAO.getInstance(new SqlDAO("Ammunitions"), "Ammunitions");
         Saddle saddle = new Saddle(12.5, SaddleType.DRESSAGE);
        Bridle bridle = new Bridle(BridleSize.FULL, BridleType.SPANISH);
-        Ammunition ammunition = new Ammunition(bridle, saddle, 0, State.BAD);
         BridleDAO bridleDAO = BridleDAO.getInstance(new SqlDAO<Bridle>("Bridles"), "Bridles");
         SaddleDAO saddleDAO = SaddleDAO.getInstance(new SqlDAO<Bridle>("Saddles"), "Saddles");
-        bridle.setId(2);
-        saddle.setId(2);
         bridleDAO.create(bridle);
         saddleDAO.create(saddle);
-        ammunitionDAO.create(ammunition);
-        var as = ammunitionDAO.getAll();
-        for (Ammunition a:
-             as) {
-            System.out.println(a);
-        }
+        System.out.println(bridle.getId());
+        System.out.println(saddle.getId());
+//        Ammunition ammunition = new Ammunition(bridle, saddle, 0, State.BAD);
+//        ammunitionDAO.create(ammunition);
+//        var as = ammunitionDAO.getAll();
+//        for (Ammunition a:
+//             as) {
+//            System.out.println(a);
+//        }
     }
 }
 
