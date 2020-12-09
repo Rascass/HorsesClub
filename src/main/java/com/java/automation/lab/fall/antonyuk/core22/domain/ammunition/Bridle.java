@@ -12,27 +12,27 @@ import java.util.Objects;
 @XmlType(propOrder = {"size", "bridleType"})
 public class Bridle extends AbstractModel implements Comparable<Bridle> {
 
-    private BridleSize size;
+    private BridleSize bridleSize;
     private BridleType bridleType;
 
     public Bridle() {
     }
 
-    public Bridle(BridleSize size, BridleType bridleType) throws
+    public Bridle(BridleSize bridleSize, BridleType bridleType) throws
             NotSpecifiedSizeException, EmptyTypeException {
         this.setBridleType(bridleType);
-        this.setSize(size);
+        this.setBridleSize(bridleSize);
     }
 
-    public BridleSize getSize() {
-        return size;
+    public BridleSize getBridleSize() {
+        return bridleSize;
     }
 
-    public void setSize(BridleSize size) throws NotSpecifiedSizeException {
-        if (size == null) {
+    public void setBridleSize(BridleSize bridleSize) throws NotSpecifiedSizeException {
+        if (bridleSize == null) {
             throw new NotSpecifiedSizeException();
         }
-        this.size = size;
+        this.bridleSize = bridleSize;
     }
 
     public BridleType getBridleType() {
@@ -49,7 +49,7 @@ public class Bridle extends AbstractModel implements Comparable<Bridle> {
     @Override
     public String toString() {
         return "Bridle{" +
-                "size=" + size +
+                "size=" + bridleSize +
                 ", bridleType=" + bridleType +
                 '}';
     }
@@ -63,17 +63,17 @@ public class Bridle extends AbstractModel implements Comparable<Bridle> {
             return false;
         }
         Bridle bridle = (Bridle) o;
-        return size == bridle.size &&
+        return bridleSize == bridle.bridleSize &&
                 bridleType == bridle.bridleType;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(size, bridleType);
+        return Objects.hash(bridleSize, bridleType);
     }
 
     @Override
     public int compareTo(Bridle o) {
-        return this.getSize().ordinal() - o.getSize().ordinal();
+        return this.getBridleSize().ordinal() - o.getBridleSize().ordinal();
     }
 }

@@ -17,12 +17,12 @@
         WHERE id=#{id}
     </delete>
     <insert id="create">
-        INSERT INTO Saddles(size, saddleType)
-        VALUES(#{size}, #{saddleType})
+        INSERT INTO Saddles(saddleSize, saddleType)
+        VALUES(#{saddleSize}, #{saddleType})
     </insert>
     <update id="update">
         UPDATE Saddles
-        SET size=#{size},
+        SET saddleSize=#{saddleSize},
         saddleType=#{saddleType}
         WHERE id=#{id}
     </update>
@@ -30,7 +30,7 @@
                type="com.java.automation.lab.fall.antonyuk.core22.domain.ammunition.Saddle"
                autoMapping="false">
         <id property="id" column="id"/>
-        <result property="size" column="size"/>
+        <result property="saddleSize" column="saddleSize"/>
         <result property="saddleType" column="saddleType"/>
     </resultMap>
 </mapper>

@@ -28,9 +28,14 @@ import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 import java.util.*;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.profiler.Profiler;
+import org.slf4j.profiler.TimeInstrument;
+
 public class Main {
 
-    public static void main(String[] args) throws SQLException, InterruptedException, InvalidNameException {
+    public static void main(String[] args) throws EmptyTypeException, NotSpecifiedSizeException {
 //        Saddle saddle = new Saddle(12.5, SaddleType.DRESSAGE);
 //        Bridle bridle = new Bridle(BridleSize.FULL, BridleType.SPANISH);
 //        Ammunition ammunition = new Ammunition(bridle, saddle);
@@ -87,9 +92,26 @@ public class Main {
 //        horseDAO.create(stallion);
 //        stallion.setId(1);
         //System.out.println(horseDAO.get(1));
-        Veterinar veterinar = new Veterinar("Terapevt");
-        PersonDAO personDAO = PersonDAO.getInstance(new SqlDAO<Veterinar>("Veterinars"), "Veterinars");
-        personDAO.create(veterinar);
+       // Veterinar veterinar = new Veterinar("Terapevt");
+       // PersonDAO personDAO = PersonDAO.getInstance(new SqlDAO<Veterinar>("Veterinars"), "Veterinars");
+       // logger.info("Veterinar" +  veterinar.getProfSpecialization());
+      //  personDAO.create(veterinar);
+        AmmunitionDAO ammunitionDAO = AmmunitionDAO.getInstance(new SqlDAO("Ammunitions"), "Ammunitions");
+        Saddle saddle = new Saddle(12.5, SaddleType.DRESSAGE);
+       Bridle bridle = new Bridle(BridleSize.FULL, BridleType.SPANISH);
+        Ammunition ammunition = new Ammunition(bridle, saddle, 0, State.BAD);
+        BridleDAO bridleDAO = BridleDAO.getInstance(new SqlDAO<Bridle>("Bridles"), "Bridles");
+        SaddleDAO saddleDAO = SaddleDAO.getInstance(new SqlDAO<Bridle>("Saddles"), "Saddles");
+        bridle.setId(2);
+        saddle.setId(2);
+        bridleDAO.create(bridle);
+        saddleDAO.create(saddle);
+        ammunitionDAO.create(ammunition);
+        var as = ammunitionDAO.getAll();
+        for (Ammunition a:
+             as) {
+            System.out.println(a);
+        }
     }
 }
 

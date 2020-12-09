@@ -17,12 +17,12 @@
         WHERE id=#{id}
     </delete>
     <insert id="create">
-        INSERT INTO Bridles(size, bridleType)
-        VALUES(#{size}, #{bridleType})
+        INSERT INTO Bridles(bridleSize, bridleType)
+        VALUES(#{bridleSize}, #{bridleType})
     </insert>
     <update id="update">
         UPDATE Bridles
-        SET size=#{size},
+        SET bridleSize=#{bridleSize},
         bridleType=#{bridleType}
         WHERE id=#{id}
     </update>
@@ -30,7 +30,7 @@
                type="com.java.automation.lab.fall.antonyuk.core22.domain.ammunition.Bridle"
                autoMapping="false">
         <id property="id" column="id"/>
-        <result property="size" column="size"/>
+        <result property="bridleSize" column="bridleSize"/>
         <result property="bridleType" column="bridleType"/>
     </resultMap>
 </mapper>

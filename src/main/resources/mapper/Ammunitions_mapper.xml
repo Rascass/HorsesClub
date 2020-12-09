@@ -6,27 +6,33 @@
     <select id="get" resultMap="Ammunitions_map">
         SELECT *
         FROM Ammunitions
-        LEFT JOIN Bridles
+        JOIN Bridles
         ON Bridles.id = Ammunitions.bridleId
-        WHERE id=#{id}
+        JOIN Saddles
+        ON Saddles.id= Ammunitions.saddleId
+        WHERE Ammunitions.id=#{id}
     </select>
     <select id="getAll" resultMap="Ammunitions_map">
         SELECT *
         FROM Ammunitions
-        LEFT JOIN Bridles
+        JOIN Bridles
         ON Bridles.id = Ammunitions.bridleId
+        JOIN Saddles
+        ON Saddles.id= Ammunitions.saddleId
     </select>
     <delete id="delete">
         DELETE FROM Ammunitions
         WHERE id=#{id}
     </delete>
     <insert id="create">
-        INSERT INTO Ammunitions(numbersUsing, state)
-        VALUES(#{numbersUsing}, #{state})
+        INSERT INTO Ammunitions(numbersUsing, state, bridleId, saddleId)
+        VALUES(#{numbersUsing}, #{state}, #{bridle.id}, #{saddle.id})
     </insert>
     <update id="update">
         UPDATE Ammunitions
         SET numbersUsing=#{numbersUsing},
+        bridleId=#{bridle.id},
+        saddleId=#{saddle.id}
         state=#{state}
         WHERE id=#{id}
     </update>
@@ -37,7 +43,9 @@
         <id property="id" column="id"/>
         <result property="numbersUsing" column="numbersUsing"/>
         <result property="state" column="state"/>
-        <result property="bridleId" column="bridle"/>
-        <result property="saddleId" column="saddle"/>
+        <association property="bridle" resultMap="Bridles_mapper.Bridles_map" />
+        <association property="saddle" resultMap="Saddles_mapper.Saddles_map" />
+        <!--         <result property="bridleId" column="bridle"/>&ndash;&gt;-->
+<!--        <result property="saddleId" column="saddle"/>-->
     </resultMap>
 </mapper>

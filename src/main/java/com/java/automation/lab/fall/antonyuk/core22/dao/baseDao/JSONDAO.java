@@ -28,7 +28,7 @@ public class JSONDAO<T extends AbstractModel> implements Daoable<T> {
     }
 
     @Override
-    public void update(Integer id, T t) {
+    public void update(T t) {
 
     }
 

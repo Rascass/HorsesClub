@@ -25,6 +25,12 @@ public class Ammunition extends AbstractModel {
         this.saddle = saddle;
     }
 
+    public Ammunition(Bridle bridle, Saddle saddle, int numbersUsing, State state) {
+        this.bridle = bridle;
+        this.saddle = saddle;
+        this.numbersUsing = numbersUsing;
+        this.state = state;
+    }
 
     public Bridle getBridle() {
         return bridle;

@@ -5,7 +5,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.log4j.Logger;
-import com.java.automation.lab.fall.antonyuk.core22.constant.IOConstant;
+
 import java.io.*;
 
 public class SessionFactory {
@@ -20,9 +20,9 @@ public class SessionFactory {
             Reader is  = Resources.getResourceAsReader(resource);
             System.out.println(is);
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
+            LOGGER.info("success");
         } catch (IOException e) {
-            System.out.println("!!!!");
-            LOGGER.error(e);
+            LOGGER.error(e.getMessage());
         }
     }
 
