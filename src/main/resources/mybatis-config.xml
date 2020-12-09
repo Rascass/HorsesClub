@@ -31,10 +31,10 @@
 <!--        <mapper resource="mapper/Employees_mapper.xml"/>-->
 <!--        <mapper resource="mapper/MareHorses_mapper.xml"/>-->
 <!--        <mapper resource="mapper/Riders_mapper.xml"/>-->
-<!--        <mapper resource="mapper/RidingHalls_mapper.xml"/>-->
-<!--        <mapper resource="mapper/Stables_mapper.xml"/>-->
+        <mapper resource="mapper/RidingHalls_mapper.xml"/>
+        <mapper resource="mapper/Stables_mapper.xml"/>
 <!--        <mapper resource="mapper/StallionHorses_mapper.xml"/>-->
-<!--        <mapper resource="mapper/Stalls_mapper.xml"/>-->
+        <mapper resource="mapper/Stalls_mapper.xml"/>
 <!--        <mapper resource="mapper/Subscriptions_mapper.xml"/>-->
 <!--        <mapper resource="mapper/Grooms_mapper.xml"/>-->
 <!--        <mapper resource="mapper/Trainers_mapper.xml"/>-->

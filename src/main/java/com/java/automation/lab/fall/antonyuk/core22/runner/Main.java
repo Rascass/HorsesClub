@@ -96,22 +96,34 @@ public class Main {
        // PersonDAO personDAO = PersonDAO.getInstance(new SqlDAO<Veterinar>("Veterinars"), "Veterinars");
        // logger.info("Veterinar" +  veterinar.getProfSpecialization());
       //  personDAO.create(veterinar);
-        AmmunitionDAO ammunitionDAO = AmmunitionDAO.getInstance(new SqlDAO("Ammunitions"), "Ammunitions");
-        Saddle saddle = new Saddle(12.5, SaddleType.DRESSAGE);
-       Bridle bridle = new Bridle(BridleSize.FULL, BridleType.SPANISH);
-        BridleDAO bridleDAO = BridleDAO.getInstance(new SqlDAO<Bridle>("Bridles"), "Bridles");
-        SaddleDAO saddleDAO = SaddleDAO.getInstance(new SqlDAO<Bridle>("Saddles"), "Saddles");
-        bridleDAO.create(bridle);
-        saddleDAO.create(saddle);
-        System.out.println(bridle.getId());
-        System.out.println(saddle.getId());
-//        Ammunition ammunition = new Ammunition(bridle, saddle, 0, State.BAD);
-//        ammunitionDAO.create(ammunition);
-//        var as = ammunitionDAO.getAll();
-//        for (Ammunition a:
-//             as) {
-//            System.out.println(a);
-//        }
+//        AmmunitionDAO ammunitionDAO = AmmunitionDAO.getInstance(new SqlDAO("Ammunitions"), "Ammunitions");
+//        Saddle saddle = new Saddle(12.5, SaddleType.DRESSAGE);
+//       Bridle bridle = new Bridle(BridleSize.FULL, BridleType.SPANISH);
+//        BridleDAO bridleDAO = BridleDAO.getInstance(new SqlDAO<Bridle>("Bridles"), "Bridles");
+//        SaddleDAO saddleDAO = SaddleDAO.getInstance(new SqlDAO<Bridle>("Saddles"), "Saddles");
+//        bridleDAO.create(bridle);
+//        saddleDAO.create(saddle);
+//        System.out.println(bridle.getId());
+//        System.out.println(saddle.getId());
+        RidingHall ridingHall = new RidingHall(120, 100, 30);
+        RidingHallDAO ridingHallDAO = RidingHallDAO.getInstance(
+                new SqlDAO<RidingHall>("RidingHalls"), "RidingHalls");
+        ridingHallDAO.create(ridingHall);
+//        System.out.println(ridingHallDAO.get(1));
+        Stall stall = new Stall(20, 300, true);
+        Stall stall1 = new Stall(16, 250, true);
+        Stall stall2 = new Stall(18, 220, false);
+        StallDAO stallDAO = StallDAO.getInstance(new SqlDAO("Stalls"), "Stalls");
+        stallDAO.create(stall);
+        stallDAO.create(stall1);
+        stallDAO.create(stall2);
+        Stable stable = new Stable(200, new HashSet<>(Arrays.asList(stall1, stall2, stall)));
+        StableDAO stableDAO = StableDAO.getInstance(new SqlDAO("Stables"), "Stables");
+        stableDAO.create(stable);
+        var array = stableDAO.getAll();
+        for (Stable s: array) {
+            System.out.println(s);
+        }
     }
 }
 

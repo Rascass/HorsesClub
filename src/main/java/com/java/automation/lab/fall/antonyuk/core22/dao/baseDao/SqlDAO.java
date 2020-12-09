@@ -51,7 +51,10 @@ public class SqlDAO<T extends AbstractModel> implements Daoable<T> {
         sqlSession.insert(tableName + "_mapper" + ".create", value);
         sqlSession.commit();
         List<AbstractModel> values = sqlSession.selectList(tableName + "_mapper" + ".getAll");
-        int id = values.get(values.size() - 1).getId();
+        int id = 0;
+        if (values.size() > 0) {
+            id = values.get(values.size() - 1).getId();
+        }
         value.setId(id);
         sqlSession.close();
         return value;

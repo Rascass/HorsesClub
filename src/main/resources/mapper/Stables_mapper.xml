@@ -6,23 +6,27 @@
     <select id="get" resultMap="Stables_map">
         SELECT *
         FROM Stables
-        LEFT JOIN Stalls
+        JOIN Stalls
         ON Stalls.id = Stables.stallId
         WHERE Stables.id=#{id}
     </select>
     <select id="getAll" resultMap="Stables_map">
         SELECT *
         FROM Stables
-        LEFT JOIN Stalls
+        JOIN Stalls
         ON Stalls.id = Stables.stallId
     </select>
     <delete id="delete">
         DELETE FROM Stables
         WHERE id=#{id}
     </delete>
-    <insert id="create">
-        INSERT INTO Stables(freeStallsCount)
-        VALUES(#{freeStallsCount})
+    <insert id="create" parameterType="java.util.List">
+<!--        INSERT ALL-->
+<!--        <foreach collection="stalls" item="stall" index="index" >-->
+<!--            INTO Stalls(square, price, isFree) VALUES(#{stall.square}, #{stall.price}, #{stall.isFree});-->
+<!--        </foreach>-->
+<!--&lt;!&ndash;        INSERT INTO Stables(freeStallsCount, stallId) VALUES(#{freeStallsCount}, #{stall.id})&ndash;&gt;-->
+        INSERT INTO Stables (freeStallsCount) VALUES (#{freeStallsCount});
     </insert>
     <update id="update">
         UPDATE Stables
@@ -34,6 +38,12 @@
                autoMapping="false">
         <id property="id" column="id"/>
         <result property="freeStallsCount" column="freeStallsCount"/>
-        <collection property="stalls" resultMap="Stalls_mapper.Stalls_map"/>
+        <collection property="stalls" column="stallId" javaType="java.util.Set" resultMap="Stalls_mapper.Stalls_map"/>
+<!--        <association property="stalls" column="stallId" javaType="java.util.Set">-->
+<!--            <id property="id" column="id"/>-->
+<!--            <result property="square" column="square"/>-->
+<!--            <result property="price" column="price"/>-->
+<!--            <result property="isFree" column="isFree"/>-->
+<!--     </association>-->
     </resultMap>
 </mapper>

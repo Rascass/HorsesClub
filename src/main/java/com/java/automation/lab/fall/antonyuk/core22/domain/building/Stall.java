@@ -78,10 +78,10 @@ public class Stall extends AbstractModel implements Comparable<Stall> {
     @Override
     public String toString() {
         return "Stall{" +
-                ", square=" + square +
+                " square=" + square +
                 ", price=" + price +
                 ", isFree=" + isFree +
-                '}';
+                "}";
     }
 
     @Override

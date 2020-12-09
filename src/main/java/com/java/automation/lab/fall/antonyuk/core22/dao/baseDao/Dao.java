@@ -2,7 +2,7 @@ package com.java.automation.lab.fall.antonyuk.core22.dao.baseDao;
 
 import java.util.List;
 
-public class Dao<T> implements Daoable<T>{
+public class Dao<T extends AbstractModel> implements Daoable<T>{
 
     private Daoable<T> dao;
     protected String name;
