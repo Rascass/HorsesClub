@@ -6,25 +6,30 @@
     <select id="get" resultMap="Stalls_map">
         SELECT *
         FROM Stalls
+        LEFT JOIN Stables
+        ON Stalls.stableId = Stables.id
         WHERE id=#{id}
     </select>
     <select id="getAll" resultMap="Stalls_map">
         SELECT *
         FROM Stalls
+        LEFT JOIN Stables
+        ON Stalls.stableId = Stables.id
     </select>
     <delete id="delete">
         DELETE FROM Stalls
         WHERE id=#{id}
     </delete>
     <insert id="create">
-        INSERT INTO Stalls(square, price, isFree)
-        VALUES(#{square}, #{price}, #{isFree})
+        INSERT INTO Stalls(square, price, isFree, stableId)
+        VALUES(#{square}, #{price}, #{isFree}, #{stable.id});
     </insert>
     <update id="update">
         UPDATE Stalls
         SET square=#{square},
         price=#{price},
-        isFree=#{isFree}
+        isFree=#{isFree},
+        stableId=#{stable.id}
         WHERE id=#{id}
     </update>
     <resultMap id="Stalls_map"
@@ -34,5 +39,6 @@
         <result property="square" column="square"/>
         <result property="price" column="price"/>
         <result property="isFree" column="isFree"/>
+        <association property="stable" resultMap="Stables_mapper.Stables_map"/>
     </resultMap>
 </mapper>

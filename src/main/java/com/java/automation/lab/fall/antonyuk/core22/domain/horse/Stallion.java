@@ -25,10 +25,10 @@ public class Stallion extends Horse {
         this.isGelding = isGelding;
     }
 
-    public Stallion(String name, Date birthday, Stall stall, Client client,
-                    Specialization specialization, Pedigree pedigree, Set<Ammunition> ammunition, HorseSuit horseSuit,
+    public Stallion(String name, Date birthday,
+                    Specialization specialization, Pedigree pedigree, HorseSuit horseSuit,
                     boolean isGelding) throws InvalidNameException {
-        super(name, birthday, specialization, pedigree, ammunition, horseSuit);
+        super(name, birthday, specialization, pedigree, horseSuit);
         this.isGelding = isGelding;
     }
 

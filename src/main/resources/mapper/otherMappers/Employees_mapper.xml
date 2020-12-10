@@ -17,6 +17,7 @@
         WHERE id=#{id}
     </delete>
     <insert id="create">
+        INSERT INTO Persons()
         INSERT INTO Employees(firstName, secondName, lastName, birthday, gender, salary, startWork)
         VALUES(#{firstName}, #{secondName}, #{lastName}, #{birthday}, #{gender}, #{salary}, #{startWork})
     </insert>

@@ -22,6 +22,9 @@ public class Stable extends AbstractModel implements Comparable<Stable>{
     public Stable(int freeStallsCount, Set<Stall> stalls) {
         this.freeStallsCount = freeStallsCount;
         this.stalls = stalls;
+        for (Stall s: stalls) {
+            s.setStable(this);
+        }
     }
 
     public int getFreeStallsCount() {

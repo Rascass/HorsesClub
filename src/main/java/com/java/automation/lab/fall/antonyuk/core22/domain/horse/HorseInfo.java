@@ -16,20 +16,18 @@ public class HorseInfo {
     private Date wasBorn;
     private Specialization specialization;
     private Pedigree pedigree;
-    private Set<Ammunition> ammunition = new HashSet<>();
     private HorseSuit horseSuit;
 
     public HorseInfo() {
     }
 
     public HorseInfo(String name, Date wasBorn, Specialization specialization, Pedigree pedigree,
-                     Set<Ammunition> ammunition, HorseSuit horseSuit) throws InvalidNameException
+                     HorseSuit horseSuit) throws InvalidNameException
     {
         this.setName(name);
         this.setWasBorn(wasBorn);
         this.setSpecialization(specialization);
         this.setPedigree(pedigree);
-        this.setAmmunition(ammunition);
         this.setHorseSuit(horseSuit);
     }
 
@@ -69,14 +67,6 @@ public class HorseInfo {
         this.pedigree = pedigree;
     }
 
-    public Set<Ammunition> getAmmunition() {
-        return ammunition;
-    }
-
-    public void setAmmunition(Set<Ammunition> ammunition) {
-        this.ammunition = ammunition;
-    }
-
     public HorseSuit getHorseSuit() {
         return horseSuit;
     }
@@ -95,13 +85,12 @@ public class HorseInfo {
                 Objects.equals(wasBorn, horseInfo.wasBorn) &&
                 specialization == horseInfo.specialization &&
                 Objects.equals(pedigree, horseInfo.pedigree) &&
-                Objects.equals(ammunition, horseInfo.ammunition) &&
                 horseSuit == horseInfo.horseSuit;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, wasBorn, specialization, pedigree, ammunition, horseSuit);
+        return Objects.hash(name, wasBorn, specialization, pedigree, horseSuit);
     }
 
     @Override
@@ -111,7 +100,6 @@ public class HorseInfo {
                 ", wasBorn=" + wasBorn +
                 ", specialization=" + specialization +
                 ", pedigree=" + pedigree +
-                ", ammunition=" + ammunition +
                 ", horseSuit=" + horseSuit +
                 '}';
     }

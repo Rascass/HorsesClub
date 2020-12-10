@@ -7,25 +7,21 @@
         SELECT *
         FROM Stables
         LEFT JOIN Stalls
-        ON Stalls.id = Stables.stallId
+        ON Stalls.stableId = Stables.id
         WHERE Stables.id=#{id}
     </select>
     <select id="getAll" resultMap="Stables_map">
         SELECT *
         FROM Stables
         LEFT JOIN Stalls
-        ON Stalls.id = Stables.stallId
+        ON Stalls.stableId = Stables.id
     </select>
     <delete id="delete">
         DELETE FROM Stables
         WHERE id=#{id}
     </delete>
     <insert id="create">
-        INSERT INTO Stables(freeStallsCount, stallId) VALUES
-        <foreach collection="stalls" item="stall" index="index" open="(" separator="),("  close=")">
-            #{freeStallsCount},
-            #{stall.id}
-        </foreach>
+        INSERT INTO Stables(freeStallsCount) VALUES (#{freeStallsCount})
     </insert>
     <update id="update">
         UPDATE Stables
@@ -37,6 +33,6 @@
                autoMapping="false">
         <id property="id" column="id"/>
         <result property="freeStallsCount" column="freeStallsCount"/>
-        <collection property="stalls" column="stallId" resultMap="Stalls_mapper.Stalls_map"/>
+        <collection property="stalls" resultMap="Stalls_mapper.Stalls_map"/>
     </resultMap>
 </mapper>
