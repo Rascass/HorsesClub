@@ -6,14 +6,14 @@
     <select id="get" resultMap="Stables_map">
         SELECT *
         FROM Stables
-        JOIN Stalls
+        LEFT JOIN Stalls
         ON Stalls.id = Stables.stallId
         WHERE Stables.id=#{id}
     </select>
     <select id="getAll" resultMap="Stables_map">
         SELECT *
         FROM Stables
-        JOIN Stalls
+        LEFT JOIN Stalls
         ON Stalls.id = Stables.stallId
     </select>
     <delete id="delete">

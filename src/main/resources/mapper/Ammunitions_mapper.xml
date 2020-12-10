@@ -6,18 +6,18 @@
     <select id="get" resultMap="Ammunitions_map">
         SELECT *
         FROM Ammunitions
-        JOIN Bridles
+        LEFT JOIN Bridles
         ON Bridles.id = Ammunitions.bridleId
-        JOIN Saddles
+        LEFT JOIN Saddles
         ON Saddles.id= Ammunitions.saddleId
         WHERE Ammunitions.id=#{id}
     </select>
     <select id="getAll" resultMap="Ammunitions_map">
         SELECT *
         FROM Ammunitions
-        JOIN Bridles
+        LEFT JOIN Bridles
         ON Bridles.id = Ammunitions.bridleId
-        JOIN Saddles
+        LEFT JOIN Saddles
         ON Saddles.id= Ammunitions.saddleId
     </select>
     <delete id="delete">
