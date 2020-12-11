@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Stalls_mapper">
+    <select id="get" resultMap="Stalls_map">
+        SELECT *
+        FROM Stalls
+        LEFT JOIN Stables
+        ON Stalls.stableId = Stables.id
+        WHERE id=#{id}
+    </select>
+    <select id="getAll" resultMap="Stalls_map">
+        SELECT *
+        FROM Stalls
+        LEFT JOIN Stables
+        ON Stalls.stableId = Stables.id
+    </select>
+    <delete id="delete">
+        DELETE FROM Stalls
+        WHERE id=#{id}
+    </delete>
+    <insert id="create">
+        INSERT INTO Stalls(square, price, isFree, stableId)
+        VALUES(#{square}, #{price}, #{isFree}, #{stable.id});
+    </insert>
+    <update id="update">
+        UPDATE Stalls
+        SET square=#{square},
+        price=#{price},
+        isFree=#{isFree},
+        stableId=#{stable.id}
+        WHERE id=#{id}
+    </update>
+    <resultMap id="Stalls_map"
+               type="com.java.automation.lab.fall.antonyuk.core22.domain.building.Stall"
+               autoMapping="false">
+        <id property="id" column="stallId"/>
+        <result property="square" column="square"/>
+        <result property="price" column="price"/>
+        <result property="isFree" column="isFree"/>
+        <association property="stable" column="stableId" resultMap="Stables_mapper.Stables_map"/>
+    </resultMap>
+</mapper>

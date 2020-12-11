@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Saddles_mapper">
+    <select id="get" resultMap="Saddles_map">
+        SELECT *
+        FROM Saddles
+        WHERE id=#{id}
+    </select>
+    <select id="getAll" resultMap="Saddles_map">
+        SELECT *
+        FROM Saddles
+    </select>
+    <delete id="delete">
+        DELETE FROM Saddles
+        WHERE id=#{id}
+    </delete>
+    <insert id="create">
+        INSERT INTO Saddles(saddleSize, saddleType)
+        VALUES(#{saddleSize}, #{saddleType})
+    </insert>
+    <update id="update">
+        UPDATE Saddles
+        SET saddleSize=#{saddleSize},
+        saddleType=#{saddleType}
+        WHERE id=#{id}
+    </update>
+    <resultMap id="Saddles_map"
+               type="com.java.automation.lab.fall.antonyuk.core22.domain.ammunition.Saddle"
+               autoMapping="false">
+        <id property="id" column="id"/>
+        <result property="saddleSize" column="saddleSize"/>
+        <result property="saddleType" column="saddleType"/>
+    </resultMap>
+</mapper>

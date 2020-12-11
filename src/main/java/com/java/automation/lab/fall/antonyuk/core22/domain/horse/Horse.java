@@ -25,8 +25,8 @@ public abstract class Horse extends AbstractModel {
     }
 
     public Horse(String name, Date wasBorn, Specialization specialization, Pedigree pedigree,
-                 Set<Ammunition> ammunition, HorseSuit horseSuit) throws InvalidNameException {
-        this.horseInfo = new HorseInfo(name, wasBorn, specialization, pedigree, ammunition, horseSuit);
+                 HorseSuit horseSuit) throws InvalidNameException {
+        this.horseInfo = new HorseInfo(name, wasBorn, specialization, pedigree, horseSuit);
     }
 
     public String getName() {
@@ -76,14 +76,6 @@ public abstract class Horse extends AbstractModel {
 
     public int getAge() {
         return Age.getAge(getWasBorn());
-    }
-
-    public Set<Ammunition> getAmmunition() {
-        return this.horseInfo.getAmmunition();
-    }
-
-    public void setAmmunition(Set<Ammunition> ammunition) {
-        this.horseInfo.setAmmunition(ammunition);
     }
 
     public HorseInfo getHorseInfo() {

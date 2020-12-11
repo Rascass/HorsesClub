@@ -12,26 +12,26 @@ import java.util.Objects;
 @XmlType(propOrder = {"size", "saddleType"})
 public class Saddle extends AbstractModel implements Comparable<Saddle>{
 
-    private double size;
+    private double saddleSize;
     private SaddleType saddleType;
 
     public Saddle() {
     }
 
-    public Saddle(double size, SaddleType saddleType) {
-        this.size = size;
+    public Saddle(double saddleSize, SaddleType saddleType) {
+        this.saddleSize = saddleSize;
         this.saddleType = saddleType;
     }
 
-    public double getSize() {
-        return size;
+    public double getSaddleSize() {
+        return saddleSize;
     }
 
-    public void setSize(double size) throws NotSpecifiedSizeException {
-        if (size <= 1) {
+    public void setSaddleSize(double saddleSize) throws NotSpecifiedSizeException {
+        if (saddleSize <= 1) {
             throw new NotSpecifiedSizeException();
         }
-        this.size = size;
+        this.saddleSize = saddleSize;
     }
 
     public SaddleType getSaddleType() {
@@ -54,27 +54,27 @@ public class Saddle extends AbstractModel implements Comparable<Saddle>{
             return false;
         }
         Saddle saddle = (Saddle) o;
-        return Double.compare(saddle.size, size) == 0 &&
+        return Double.compare(saddle.saddleSize, saddleSize) == 0 &&
                 saddleType == saddle.saddleType &&
                 saddleType == saddle.saddleType;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(size, saddleType);
+        return Objects.hash(saddleSize, saddleType);
     }
 
     @Override
     public String toString() {
         return "Saddle{" +
-                "size=" + size +
+                "size=" + saddleSize +
                 ", saddleType=" + saddleType +
                 '}';
     }
 
     @Override
     public int compareTo(Saddle o) {
-        double temp = this.getSize() - o.getSize();
+        double temp = this.getSaddleSize() - o.getSaddleSize();
         if (temp > 0) {
             return 1;
         }

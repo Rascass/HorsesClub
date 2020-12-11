@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Contracts_mapper">
+    <select id="get" resultMap="Contracts_map">
+        SELECT *
+        FROM Contracts
+        LEFT JOIN Subscriptions
+        ON Subscriptions.id=Contracts.subscriptionId
+        WHERE ClassesSubscriptions.id=#{id}
+    </select>
+    <select id="getAll" resultMap="Contracts_map">
+        SELECT *
+        FROM Contracts
+        LEFT JOIN Subscriptions
+        ON Subscriptions.id=Contracts.subscriptionId
+    </select>
+    <delete id="delete">
+        DELETE FROM Contracts
+        WHERE id=#{id}
+    </delete>
+    <insert id="create">
+        INSERT INTO Contracts(name)
+        VALUES(#{number})
+    </insert>
+    <update id="update">
+        UPDATE Contracts
+        SET name=#{number}
+        WHERE id=#{id}
+    </update>
+    <resultMap id="Contracts_map"
+               type="com.java.automation.lab.fall.antonyuk.core22.domain.subscription.Contract"
+               autoMapping="false">
+        <id property="id" column="id"/>
+        <result property="number" column="name"/>
+    </resultMap>
+</mapper>

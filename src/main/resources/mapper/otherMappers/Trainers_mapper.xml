@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Trainers_mapper">
+    <select id="get" resultMap="Trainers_map">
+        SELECT *
+        FROM Trainers
+        LEFT JOIN Employees
+        ON Employees.id=Trainers.employeeId
+        WHERE Trainers.id=#{id}
+    </select>
+    <select id="getAll" resultMap="Trainers_map">
+        SELECT *
+        FROM Trainers
+        LEFT JOIN Employees
+        ON Employees.id=Trainers.employeeId
+    </select>
+    <delete id="delete">
+        DELETE FROM Trainers
+        WHERE id=#{id}
+    </delete>
+    <insert id="create">
+        INSERT INTO Trainers(trainerCategory)
+        VALUES(#{trainerCategory})
+    </insert>
+    <update id="update">
+        UPDATE Trainers
+        SET trainerCategory=#{trainerCategory}
+        WHERE id=#{id}
+    </update>
+    <resultMap id="Trainers_map"
+               type="com.java.automation.lab.fall.antonyuk.core22.domain.person.Trainer"
+               autoMapping="false">
+        <id property="id" column="id"/>
+        <result property="trainerCategory" column="trainerCategory"/>
+    </resultMap>
+</mapper>

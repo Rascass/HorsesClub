@@ -11,7 +11,7 @@ import java.util.Set;
 
 @XmlRootElement(name = "Stable")
 @XmlType(propOrder = {"freeStallsCount", "stalls"})
-public class Stable extends AbstractModel implements Comparable<Stable>{
+public class Stable extends AbstractModel implements Comparable<Stable> {
 
     private int freeStallsCount;
     private final Set<Stall> stalls;
@@ -23,6 +23,9 @@ public class Stable extends AbstractModel implements Comparable<Stable>{
     public Stable(int freeStallsCount, Set<Stall> stalls) {
         this.freeStallsCount = freeStallsCount;
         this.stalls = stalls;
+        for (Stall s: stalls) {
+            s.setStable(this);
+        }
     }
 
     public int getFreeStallsCount() {
@@ -62,8 +65,8 @@ public class Stable extends AbstractModel implements Comparable<Stable>{
     public String toString() {
         return "Stable{" +
                 "freeStallsCount=" + freeStallsCount +
-                ", stalls=" + stalls +
-                '}';
+                ", stalls= {" + stalls +
+                "}";
     }
 
     @Override

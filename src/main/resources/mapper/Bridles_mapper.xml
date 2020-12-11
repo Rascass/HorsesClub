@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Bridles_mapper">
+    <select id="get" resultMap="Bridles_map">
+        SELECT *
+        FROM Bridles
+        WHERE id=#{id}
+    </select>
+    <select id="getAll" resultMap="Bridles_map">
+        SELECT *
+        FROM Bridles
+    </select>
+    <delete id="delete">
+        DELETE FROM Bridles
+        WHERE id=#{id}
+    </delete>
+    <insert id="create">
+        INSERT INTO Bridles(bridleSize, bridleType)
+        VALUES(#{bridleSize}, #{bridleType})
+    </insert>
+    <update id="update">
+        UPDATE Bridles
+        SET bridleSize=#{bridleSize},
+        bridleType=#{bridleType}
+        WHERE id=#{id}
+    </update>
+    <resultMap id="Bridles_map"
+               type="com.java.automation.lab.fall.antonyuk.core22.domain.ammunition.Bridle"
+               autoMapping="false">
+        <id property="id" column="id"/>
+        <result property="bridleSize" column="bridleSize"/>
+        <result property="bridleType" column="bridleType"/>
+    </resultMap>
+</mapper>

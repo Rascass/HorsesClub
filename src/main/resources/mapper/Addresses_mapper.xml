@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Addresses_mapper">
+    <select id="get" resultMap="Addresses_map">
+        SELECT *
+        FROM Addresses
+        WHERE id=#{id}
+    </select>
+    <select id="getAll" resultMap="Addresses_map">
+        SELECT *
+        FROM Addresses
+    </select>
+    <delete id="delete">
+        DELETE FROM Addresses
+        WHERE id=#{id}
+    </delete>
+    <insert id="create">
+        INSERT INTO Addresses(town, region, street, number)
+        VALUES(#{town}, #{region}, #{street}, #{number})
+    </insert>
+    <update id="update">
+        UPDATE Addresses
+        SET town=#{town},
+        region=#{region},
+        street=#{street},
+        number=#{number}
+        WHERE id=#{id}
+    </update>
+
+    <resultMap id="Addresses_map"
+               type="com.java.automation.lab.fall.antonyuk.core22.domain.club.Address"
+               autoMapping="false">
+        <id property="id" column="id"/>
+        <result property="town" column="town"/>
+        <result property="region" column="region"/>
+        <result property="street" column="street"/>
+        <result property="number" column="number"/>
+    </resultMap>
+</mapper>

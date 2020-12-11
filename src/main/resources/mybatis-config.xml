@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="config.properties">
+        <property name="username" value="username" />
+        <property name="password" value="password" />
+        <property name="url" value="url" />
+        <property name="driver" value="driver" />
+    </properties>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}?useSSL=false&amp;useUnicode=true&amp;serverTimezone=UTC"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mapper/Addresses_mapper.xml"/>
+        <mapper resource="mapper/Ammunitions_mapper.xml"/>
+        <mapper resource="mapper/Bridles_mapper.xml"/>
+        <mapper resource="mapper/Saddles_mapper.xml"/>
+        <mapper resource="mapper/ClassesSubscriptions_mapper.xml"/>
+<!--        <mapper resource="mapper/Clients_mapper.xml"/>-->
+<!--        <mapper resource="mapper/Contracts_mapper.xml"/>-->
+<!--        <mapper resource="mapper/Employees_mapper.xml"/>-->
+<!--        <mapper resource="mapper/MareHorses_mapper.xml"/>-->
+<!--        <mapper resource="mapper/Riders_mapper.xml"/>-->
+        <mapper resource="mapper/RidingHalls_mapper.xml"/>
+        <mapper resource="mapper/Stables_mapper.xml"/>
+<!--        <mapper resource="mapper/StallionHorses_mapper.xml"/>-->
+        <mapper resource="mapper/Stalls_mapper.xml"/>
+        <mapper resource="mapper/Subscriptions_mapper.xml"/>
+<!--        <mapper resource="mapper/Grooms_mapper.xml"/>-->
+<!--        <mapper resource="mapper/Trainers_mapper.xml"/>-->
+<!--        <mapper resource="mapper/Veterinars_mapper.xml"/>-->
+        <mapper resource="mapper/Discounts_mapper.xml"/>
+    </mappers>
+</configuration>

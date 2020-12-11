@@ -1,8 +1,8 @@
 package com.java.automation.lab.fall.antonyuk.core22.dao.baseDao;
 
-import java.util.Map;
+import java.util.List;
 
-public class Dao<T> implements Daoable<T>{
+public class Dao<T extends AbstractModel> implements Daoable<T>{
 
     private Daoable<T> dao;
     protected String name;
@@ -13,13 +13,13 @@ public class Dao<T> implements Daoable<T>{
     }
 
     @Override
-    public Map<Integer, T> getAll() {
+    public List<T> getAll() {
         return dao.getAll();
     }
 
     @Override
-    public void update(int id, T t) {
-        dao.update(id, t);
+    public void update(T t) {
+        dao.update(t);
     }
 
     @Override
@@ -28,8 +28,8 @@ public class Dao<T> implements Daoable<T>{
     }
 
     @Override
-    public void create(T value) {
-        dao.create(value);
+    public T create(T value) {
+        return dao.create(value);
     }
 
     @Override

@@ -14,6 +14,7 @@ public class Stall extends AbstractModel implements Comparable<Stall> {
     private int square;
     private int price;
     private boolean isFree;
+    private Stable stable;
 
     public Stall() {
     }
@@ -78,14 +79,22 @@ public class Stall extends AbstractModel implements Comparable<Stall> {
     @Override
     public String toString() {
         return "Stall{" +
-                ", square=" + square +
+                " square=" + square +
                 ", price=" + price +
                 ", isFree=" + isFree +
-                '}';
+                "}";
     }
 
     @Override
     public int compareTo(Stall o) {
         return this.square - o.square;
+    }
+
+    public Stable getStable() {
+        return stable;
+    }
+
+    public void setStable(Stable stable) {
+        this.stable = stable;
     }
 }

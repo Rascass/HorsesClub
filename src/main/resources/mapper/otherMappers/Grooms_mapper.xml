@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Grooms_mapper">
+    <select id="get" resultMap="Grooms_map">
+        SELECT *
+        FROM Grooms
+        LEFT JOIN Employees
+        ON Employees.id=Grooms.employeeId
+        WHERE Grooms.id=#{id}
+    </select>
+    <select id="getAll" resultMap="Grooms_map">
+        SELECT *
+        FROM Grooms
+        LEFT JOIN Employees
+        ON Employees.id=Grooms.employeeId
+    </select>
+    <delete id="delete">
+        DELETE FROM Grooms
+        WHERE id=#{id}
+    </delete>
+    <insert id="create">
+        INSERT INTO Grooms(numberHorses)
+        VALUES(#{numberHorses})
+    </insert>
+    <update id="update">
+        UPDATE Grooms
+        SET numberHorses=#{numberHorses}
+        WHERE id=#{id}
+    </update>
+    <resultMap id="Grooms_map"
+               type="com.java.automation.lab.fall.antonyuk.core22.domain.person.Groom"
+               autoMapping="false">
+        <id property="id" column="id"/>
+        <result property="numberHorses" column="numberHorses"/>
+    </resultMap>
+</mapper>

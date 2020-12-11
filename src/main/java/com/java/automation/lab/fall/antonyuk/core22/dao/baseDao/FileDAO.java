@@ -3,7 +3,7 @@ package com.java.automation.lab.fall.antonyuk.core22.dao.baseDao;
 import com.java.automation.lab.fall.antonyuk.core22.constant.Env;
 import com.java.automation.lab.fall.antonyuk.core22.io.ObjectIO;
 
-import java.util.Map;
+import java.util.List;
 
 public class FileDAO <T extends AbstractModel> implements Daoable<T>{
 
@@ -16,12 +16,12 @@ public class FileDAO <T extends AbstractModel> implements Daoable<T>{
     }
 
     @Override
-    public Map<Integer, T> getAll() {
+    public List<T> getAll() {
         return null;
     }
 
     @Override
-    public void update(int id, T t) {
+    public void update(T t) {
     }
 
     @Override
@@ -29,9 +29,10 @@ public class FileDAO <T extends AbstractModel> implements Daoable<T>{
     }
 
     @Override
-    public void create(T value) {
+    public T create(T value) {
         value.setId(counterId++);
         new ObjectIO<T>().write(value, Env.path.resolve(name + ".csv").toString());
+        return value;
     }
 
     @Override

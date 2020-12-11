@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Clients_mapper">
+    <select id="get" resultMap="Clients_map">
+        SELECT *
+        FROM Clients
+        LEFT JOIN ClientsContracts
+        ON ClientsContracts.id=Clients.clientsContractsId
+        WHERE Clients.id=#{id}
+    </select>
+    <select id="getAll" resultMap="Clients_map">
+        SELECT *
+        FROM Clients
+    </select>
+    <delete id="delete">
+        DELETE FROM Clients
+        WHERE id=#{id}
+    </delete>
+    <insert id="create">
+        INSERT INTO Clients(firstName, secondName, lastName, birthday, gender, isBan, signIn)
+        VALUES(#{firstName}, #{secondName}, #{lastName}, #{birthday}, #{gender}, #{isBan},
+        #{signIn})
+    </insert>
+    <update id="update">
+        UPDATE Clients
+        SET firstName=#{firstName},
+        secondName=#{secondName},
+        lastName=#{lastName},
+        birthday=#{birthday},
+        gender=#{gender},
+        isBan=#{isBan},
+        signIn=#{signIn}
+        WHERE id=#{id}
+    </update>
+    <resultMap id="Clients_map"
+               type="com.java.automation.lab.fall.antonyuk.core22.domain.person.Client"
+               autoMapping="false">
+        <id property="id" column="id"/>
+        <result property="isBan" column="isBan"/>
+        <result property="signIn" column="signIn"/>
+    </resultMap>
+</mapper>

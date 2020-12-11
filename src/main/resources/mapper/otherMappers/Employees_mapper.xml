@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Employees_mapper">
+    <select id="get" resultMap="Employees_map">
+        SELECT *
+        FROM Employees
+        WHERE id=#{id}
+    </select>
+    <select id="getAll" resultMap="Employees_map">
+        SELECT *
+        FROM Employees
+    </select>
+    <delete id="delete">
+        DELETE FROM Employees
+        WHERE id=#{id}
+    </delete>
+    <insert id="create">
+        INSERT INTO Persons()
+        INSERT INTO Employees(firstName, secondName, lastName, birthday, gender, salary, startWork)
+        VALUES(#{firstName}, #{secondName}, #{lastName}, #{birthday}, #{gender}, #{salary}, #{startWork})
+    </insert>
+    <update id="update">
+        UPDATE Employees
+        SET firstName=#{firstName},
+        secondName=#{secondName},
+        lastName=#{lastName},
+        birthday=#{birthday},
+        gender=#{gender},
+        salary=#{salary},
+        startWork=#{startWork}
+        WHERE id=#{id}
+    </update>
+    <resultMap id="Employees_map"
+               type="com.java.automation.lab.fall.antonyuk.core22.domain.person.Employee"
+               autoMapping="false">
+        <id property="id" column="id"/>
+        <result property="salary" column="salary"/>
+        <result property="startWork" column="startWork"/>
+    </resultMap>
+</mapper>

@@ -1,6 +1,7 @@
 package com.java.automation.lab.fall.antonyuk.core22.domain.subscription;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -15,7 +16,7 @@ public class ClassesSubscription extends Subscription{
     }
 
     public ClassesSubscription(Date start, Date finish, double startPrice,
-                               Map<String, Integer> discounts, int numberClasses) {
+                               List<Discount> discounts, int numberClasses) {
         super(start, finish, startPrice, discounts);
         this.numberClasses = numberClasses;
     }

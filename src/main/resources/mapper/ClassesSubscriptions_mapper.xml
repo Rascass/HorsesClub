@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ClassesSubscriptions_mapper">
+    <select id="get" resultMap="ClassesSubscriptions_map">
+        SELECT ClassesSubscriptions.id as sub_id, numberClasses, start, finish, price, startPrice
+        FROM ClassesSubscriptions
+        LEFT JOIN Subscriptions
+        ON Subscriptions.id=ClassesSubscriptions.subscriptionId
+        WHERE ClassesSubscriptions.id=#{id}
+    </select>
+    <select id="getAll" resultMap="ClassesSubscriptions_map">
+        SELECT ClassesSubscriptions.id as sub_id, numberClasses, start, finish, price, startPrice
+        FROM ClassesSubscriptions
+        LEFT JOIN Subscriptions
+        ON Subscription.id=ClassesSubscriptions.subscriptionId
+    </select>
+    <delete id="delete">
+        DELETE FROM ClassesSubscriptions
+        WHERE id=#{id}
+    </delete>
+    <insert id="create" keyProperty="id">
+        INSERT INTO ClassesSubscriptions(numberClasses, subscriptionId)
+        SET numberClasses=#{numberClasses},
+        SET subscriptionId=#{}
+        VALUES(#{numberClasses}, #{id})
+    </insert>
+    <update id="update">
+        UPDATE ClassesSubscriptions
+        SET numberClasses=#{numberClasses}
+        WHERE id=#{id}
+    </update>
+    <resultMap id="Subscriptions_map"
+               type="com.java.automation.lab.fall.antonyuk.core22.domain.subscription.Subscription">
+        <result property="start" column="start"/>
+        <result property="finish" column="finish"/>
+        <result property="price" column="price"/>
+        <result property="startPrice" column="startPrice"/>
+    </resultMap>
+    <resultMap id="ClassesSubscriptions_map"
+               type="com.java.automation.lab.fall.antonyuk.core22.domain.subscription.ClassesSubscription"
+               extends="Subscriptions_map">
+        <id property="id" column="sub_id"/>
+        <result property="numberClasses" column="numberClasses"/>
+    </resultMap>
+</mapper>

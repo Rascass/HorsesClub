@@ -1,18 +1,13 @@
 package com.java.automation.lab.fall.antonyuk.core22.dao.baseDao;
 
-import java.util.Map;
+import java.util.List;
 
-public interface Daoable<T> {
+public interface Daoable<T extends AbstractModel> {
 
      T get(int id);
-
-     Map<Integer, T> getAll();
-
-     void update(int id, T t);
-
+     List<T> getAll();
+     void update( T t);
      void delete(int id);
-
-     void create(T value);
-
+     T create(T value);
      void setName(String name);
 }
