@@ -4,25 +4,30 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Subscriptions_mapper">
     <select id="get" resultMap="Subscriptions_map">
-        SELECT *
+        SELECT Subscriptions.id as s_id, name, percent, finish, start, startPrice, price
         FROM Subscriptions
-        WHERE id=#{id}
+        LEFT JOIN Discounts
+        ON Discounts.subscriptionId=Subscriptions.id
+        WHERE Subscriptions.id=#{id}
     </select>
     <select id="getAll" resultMap="Subscriptions_map">
-        SELECT *
+        SELECT Subscriptions.id as s_id, name, percent, finish, start, startPrice, price
         FROM Subscriptions
+        LEFT JOIN Discounts
+        ON Discounts.subscriptionId=Subscriptions.id
     </select>
     <delete id="delete">
         DELETE FROM Subscriptions
         WHERE id=#{id}
     </delete>
     <insert id="create">
-        INSERT INTO Subscriptions(finish, price, startPrice)
-        VALUES(#{finish}, #{price}, #{startPrice})
+        INSERT INTO Subscriptions(start, finish, price, startPrice)
+        VALUES(#{start}, #{finish}, #{price}, #{startPrice})
     </insert>
     <update id="update">
         UPDATE Subscriptions
         SET finish=#{finish},
+        start=#{start},
         price=#{price},
         startPrice=#{startPrice}
         WHERE id=#{id}
@@ -30,10 +35,13 @@
     <resultMap id="Subscriptions_map"
                type="com.java.automation.lab.fall.antonyuk.core22.domain.subscription.Subscription"
                autoMapping="false">
-        <id property="id" column="id"/>
+        <id property="id" column="s_id"/>
+        <result property="start" column="start"/>
         <result property="finish" column="finish"/>
         <result property="price" column="price"/>
         <result property="startPrice" column="startPrice"/>
-        <result property="discountId" column="discounts"/>
+        <collection property="discounts"
+                    resultMap="Discounts_mapper.Discounts_map"
+                    ofType="com.java.automation.lab.fall.antonyuk.core22.domain.subscription.Discount"/>
     </resultMap>
 </mapper>

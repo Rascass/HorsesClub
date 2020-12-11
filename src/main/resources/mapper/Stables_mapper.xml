@@ -4,14 +4,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Stables_mapper">
     <select id="get" resultMap="Stables_map">
-        SELECT *
+        SELECT Stables.id as stableId, square, price, isFree, freeStallsCount, Stalls.id as stallId
         FROM Stables
         LEFT JOIN Stalls
         ON Stalls.stableId = Stables.id
         WHERE Stables.id=#{id}
     </select>
     <select id="getAll" resultMap="Stables_map">
-        SELECT *
+        SELECT Stables.id as stableId, square, price, isFree, freeStallsCount, Stalls.id as stallId
         FROM Stables
         LEFT JOIN Stalls
         ON Stalls.stableId = Stables.id
@@ -31,8 +31,10 @@
     <resultMap id="Stables_map"
                type="com.java.automation.lab.fall.antonyuk.core22.domain.building.Stable"
                autoMapping="false">
-        <id property="id" column="id"/>
+        <id property="id" column="stableId"/>
         <result property="freeStallsCount" column="freeStallsCount"/>
-        <collection property="stalls" resultMap="Stalls_mapper.Stalls_map"/>
+        <collection property="stalls"
+                    resultMap="Stalls_mapper.Stalls_map"
+                    ofType="com.java.automation.lab.fall.antonyuk.core22.domain.building.Stall"/>
     </resultMap>
 </mapper>

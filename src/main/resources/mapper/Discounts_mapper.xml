@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Discounts_mapper">
+    <select id="get" resultMap="Discounts_map">
+        SELECT Discounts.id as d_id, name, percent, start, finish, price, startPrice
+        FROM Discounts
+        LEFT JOIN Subscriptions
+        ON Subscriptions.id = Discounts.subscriptionId
+        WHERE Discounts.id=#{id}
+    </select>
+    <select id="getAll" resultMap="Discounts_map">
+        SELECT Discounts.id as d_id, name, percent, start, finish, price, startPrice
+        FROM Discounts
+        LEFT JOIN Subscriptions
+        ON Subscriptions.id = Discounts.subscriptionId
+    </select>
+    <delete id="delete">
+        DELETE FROM Discounts
+        WHERE id=#{id}
+    </delete>
+    <insert id="create">
+        INSERT INTO Discounts(name, percent, subscriptionId)
+        VALUES(#{name}, #{percent}, #{subscription.id})
+    </insert>
+    <update id="update">
+        UPDATE Discounts
+        SET name=#{name},
+        percent=#{percent},
+        subscriptionId=#{subscription.id}
+        WHERE Discounts.id=#{id}
+    </update>
+
+    <resultMap id="Discounts_map"
+               type="com.java.automation.lab.fall.antonyuk.core22.domain.subscription.Discount"
+               autoMapping="false">
+        <id property="id" column="d_id"/>
+        <result property="name" column="name"/>
+        <result property="percent" column="percent"/>
+        <association property="subscription" column="subscriptionId"
+                     resultMap="Subscriptions_mapper.Subscriptions_map"/>
+    </resultMap>
+</mapper>

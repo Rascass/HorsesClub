@@ -25,7 +25,7 @@
         <mapper resource="mapper/Ammunitions_mapper.xml"/>
         <mapper resource="mapper/Bridles_mapper.xml"/>
         <mapper resource="mapper/Saddles_mapper.xml"/>
-<!--        <mapper resource="mapper/ClassesSubscriptions_mapper.xml"/>-->
+        <mapper resource="mapper/ClassesSubscriptions_mapper.xml"/>
 <!--        <mapper resource="mapper/Clients_mapper.xml"/>-->
 <!--        <mapper resource="mapper/Contracts_mapper.xml"/>-->
 <!--        <mapper resource="mapper/Employees_mapper.xml"/>-->
@@ -39,5 +39,6 @@
 <!--        <mapper resource="mapper/Grooms_mapper.xml"/>-->
 <!--        <mapper resource="mapper/Trainers_mapper.xml"/>-->
 <!--        <mapper resource="mapper/Veterinars_mapper.xml"/>-->
+        <mapper resource="mapper/Discounts_mapper.xml"/>
     </mappers>
 </configuration>

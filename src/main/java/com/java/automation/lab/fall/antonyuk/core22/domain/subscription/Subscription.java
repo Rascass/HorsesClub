@@ -5,30 +5,38 @@ import com.java.automation.lab.fall.antonyuk.core22.dao.baseDao.AbstractModel;
 import javax.naming.InvalidNameException;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 @XmlRootElement(name = "Subscription")
 @XmlType(propOrder = {"start", "finish", "price", "startPrice", "discounts"})
-public class Subscription extends AbstractModel {
+public class Subscription extends AbstractModel{
 
     private Date start;
     private Date finish;
     private double price;
     private double startPrice;
-    private Map<String, Integer> discounts;
+    private List<Discount> discounts;
 
     public Subscription() {
-        discounts = new HashMap<>();
+        discounts = new ArrayList<>();
     }
 
-    public Subscription(Date start, Date finish, double startPrice, Map<String, Integer> discounts) {
+    public Subscription(Date start, Date finish, double startPrice, List<Discount> discounts) {
         this.start = start;
         this.finish = finish;
         this.startPrice = startPrice;
         this.discounts = discounts;
+        this.setPrice();
+        for (Discount d: this.discounts) {
+            d.setSubscription(this);
+        }
+    }
+
+    public Subscription(Date start, Date finish, double startPrice) {
+        this.start = start;
+        this.finish = finish;
+        this.startPrice = startPrice;
+        this.discounts =  new ArrayList<>();
         this.setPrice();
     }
 
@@ -56,21 +64,27 @@ public class Subscription extends AbstractModel {
         if (discounts.size() < 1) {
             this.price = startPrice;
         } else {
-            int percent = discounts.values().stream().mapToInt(element -> element).sum();
+            int percent = discounts.stream().mapToInt(el->el.getPercent()).sum();
             this.price = startPrice + startPrice * (percent / 100);
         }
     }
 
-    public Map<String, Integer> getDiscounts() {
+    public List<Discount> getDiscounts() {
         return discounts;
     }
 
-    public void setDiscounts(Map<String, Integer> discounts) {
+    public void setDiscounts(List<Discount> discounts) {
         this.discounts = discounts;
     }
 
     public int maxDiscountPersent() {
-        return this.discounts.values().stream().mapToInt(e->e).max().getAsInt();
+        int max = 0;
+        for (Discount d: discounts) {
+            if (d.getPercent() > max) {
+                max = d.getPercent();
+            }
+        }
+        return max;
     }
 
     public double getStartPrice() {
@@ -81,14 +95,15 @@ public class Subscription extends AbstractModel {
         this.startPrice = startPrice;
     }
 
-    public void addDiscount(String name, int percent) throws InvalidNameException {
-        if (percent < 1) {
+    public void addDiscount(Discount discount) throws InvalidNameException {
+        if (discount.getPercent() < 1) {
             throw new IllegalArgumentException();
         }
-        if (name.length() < 1) {
+        if (discount.getName().length() < 1) {
             throw new InvalidNameException();
         }
-        discounts.put(name, percent);
+        discount.setSubscription(this);
+        discounts.add(discount);
         setPrice();
     }
 
@@ -99,12 +114,8 @@ public class Subscription extends AbstractModel {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         Subscription that = (Subscription) o;
         return Double.compare(that.price, price) == 0 &&
                 Double.compare(that.startPrice, startPrice) == 0 &&
@@ -115,7 +126,7 @@ public class Subscription extends AbstractModel {
 
     @Override
     public int hashCode() {
-        return Objects.hash(start, finish, price, startPrice, discounts);
+        return Objects.hash(start, finish, price, startPrice);
     }
 
     @Override

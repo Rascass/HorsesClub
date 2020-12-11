@@ -3,6 +3,7 @@ package com.java.automation.lab.fall.antonyuk.core22.domain.subscription;
 import com.java.automation.lab.fall.antonyuk.core22.domain.building.Stall;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -18,7 +19,7 @@ public class StallSubscription extends Subscription{
     }
 
     public StallSubscription(Date start, Date finish, double startPrice,
-                             Map<String, Integer> discounts, Stall stall) {
+                             List<Discount> discounts, Stall stall) {
         super(start, finish, startPrice, discounts);
         this.stall = stall;
     }

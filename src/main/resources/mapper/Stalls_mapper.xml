@@ -35,10 +35,10 @@
     <resultMap id="Stalls_map"
                type="com.java.automation.lab.fall.antonyuk.core22.domain.building.Stall"
                autoMapping="false">
-        <id property="id" column="id"/>
+        <id property="id" column="stallId"/>
         <result property="square" column="square"/>
         <result property="price" column="price"/>
         <result property="isFree" column="isFree"/>
-        <association property="stable" resultMap="Stables_mapper.Stables_map"/>
+        <association property="stable" column="stableId" resultMap="Stables_mapper.Stables_map"/>
     </resultMap>
 </mapper>
